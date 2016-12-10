@@ -146,9 +146,11 @@ setVisible(true);
     }// </editor-fold>//GEN-END:initComponents
 
     private void singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singInActionPerformed
+setVisible(false);
 signInFrame sIN = new signInFrame();    }//GEN-LAST:event_singInActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+setVisible(false);
 signUpFrame sUP = new signUpFrame();    }//GEN-LAST:event_jButton2ActionPerformed
 
    

@@ -11,14 +11,14 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author mac
+ * @author hind
  */
 public class validation {
-    signUpFrame s = new signUpFrame();
+
     
     //validation email:
 public boolean isValidEmail(String email ){
-   email = s.emailTF.getText(); 
+    
 if(email.length() > 0){ if(email.indexOf('@') == -1 ||email.indexOf('@') != email.lastIndexOf('@'))
     return false;
 String name = email.substring(0, email.indexOf("@"));
@@ -32,9 +32,9 @@ if(domain.indexOf('.') == -1)
 //validation password:
 public boolean isPasswordValid(String pass ){ 
     int points = 0;
-    pass = s.passTF.getText();
-if(pass.length() < 8 || pass.length() > 20) 
+if(pass.length() < 8 || pass.length() > 20)
     return false;
+
 for(int i=0;i< pass.length();i++){ 
     if(Character.isUpperCase(pass.charAt(i)))
     {
@@ -52,16 +52,16 @@ for(int i=0;i< pass.length();i++){
     }
       }
     if(points == 3) return true;
-        return false;
+    else
+       return false; 
+        
 }
 
 //compare password and Password confirm  
-public boolean comparePassword(){
-    String pass = s.passTF.getText();
-    String con = s.PassconfTF.getText();
+public boolean comparePassword(String pass, String con){
     
-  if (pass.equals(con)) return true; 
-    return false;
+  if (pass.equals(con)) return true;
+      return false;
 }
 
 //
@@ -89,7 +89,6 @@ public boolean isUserNameExist(String username){
                 try{con.close();}
                 catch(Exception ex ){ ex.printStackTrace();}
         }
-   
         return exist ; 
 }
 }

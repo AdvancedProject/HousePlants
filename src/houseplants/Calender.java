@@ -62,7 +62,7 @@ public class Calender {
 		frmMain.setSize(330, 375); //Set size to 400x400 pixels
 		pane = frmMain.getContentPane(); //Get content pane
 		pane.setLayout(null); //Apply null layout
-		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
+		// frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
 
 		//Create controls
 		lblMonth = new JLabel ("January");

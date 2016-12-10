@@ -13,8 +13,8 @@ import java.sql.DriverManager;
  * @author mac
  */
 public class DBManager {
-    public static final String USER_NAME = "root"; // complete here
-    public static final String PSSWORD = "hind1234"; // complete  here
+    public static final String USER_NAME = "root";
+    public static final String PSSWORD = "hind1234";
     
     public static Connection getConnection(){
         Connection con = null;
@@ -27,8 +27,7 @@ public class DBManager {
         }
         
         try{
-                // add missing parts here 
-                String url = "jdbc:mysql://localhost:3306/lab#3";
+                String url = "jdbc:mysql://localhost:3306/group3";
                 con =  DriverManager.getConnection(url,USER_NAME,PSSWORD);
                 //System.out.println("Connected");
             
