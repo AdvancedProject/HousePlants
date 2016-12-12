@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package houseplants;
 
 import java.sql.Connection;
@@ -12,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * hind 
+ * @author hind
  */
 public class signUpFrame extends javax.swing.JFrame {
 
@@ -315,6 +311,12 @@ public class signUpFrame extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,12 +336,6 @@ public class signUpFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,6 +366,9 @@ public class signUpFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+ /**
+ * @return true if new user added
+ */
     public boolean addUser(){
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -390,32 +389,36 @@ public class signUpFrame extends javax.swing.JFrame {
          }
         }        
         }catch( Exception e ){
-            e.printStackTrace();
+              e.printStackTrace();
         }
         finally {
             if(pstmt != null)
         try{pstmt.close();
             }catch( Exception e ){
-            e.printStackTrace();
+              e.printStackTrace();
         }
             if(con != null) 
         try{ con.close();
             }catch( Exception e ){
-            e.printStackTrace();
+              e.printStackTrace();
         }
         }
         return false;
     }
+    
+    //clear all textFiled
     public void clear(){
         usernameTF.setText("");
         emailTF.setText("");
         passTF.setText("");
         PassconfTF.setText("");
     }
+    
+    //move to next frame
     private void signupBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBActionPerformed
        if (addUser()){ 
            setVisible(false);
-           JOptionPane.showMessageDialog(this,"Welcome "+usernameTF.getText(), "",JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(this,"Welcome "+usernameTF.getText(), "",JOptionPane.INFORMATION_MESSAGE);
            addPlantFrame addP = new addPlantFrame();
        }else{
            JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);    
@@ -423,6 +426,7 @@ public class signUpFrame extends javax.swing.JFrame {
        clear();
     }//GEN-LAST:event_signupBActionPerformed
 
+    //back to old frame
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
    welcomeFrame w = new welcomeFrame();
    setVisible(false);

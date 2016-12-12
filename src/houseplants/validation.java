@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package houseplants;
 
 import java.sql.Connection;
@@ -16,20 +12,25 @@ import java.sql.ResultSet;
 public class validation {
 
     
-    //validation email:
+/**
+ * @return true if email valid
+ */
 public boolean isValidEmail(String email ){
     
-if(email.length() > 0){ if(email.indexOf('@') == -1 ||email.indexOf('@') != email.lastIndexOf('@'))
-    return false;
+if(email.length() > 0){
+  if(email.indexOf('@') == -1 ||email.indexOf('@') != email.lastIndexOf('@'))
+     return false;
 String name = email.substring(0, email.indexOf("@"));
 String domain = email.substring(email.indexOf("@")+1);
-if(domain.indexOf('.') == -1) 
-    return false;
+if(domain.indexOf('.') == -1)
+return false;
 }
     return true;
 }
 
-//validation password:
+/**
+ * @return true if password valid
+ */
 public boolean isPasswordValid(String pass ){ 
     int points = 0;
 if(pass.length() < 8 || pass.length() > 20)
@@ -52,19 +53,22 @@ for(int i=0;i< pass.length();i++){
     }
       }
     if(points == 3) return true;
-    else
-       return false; 
-        
+        return false;
+  
 }
 
-//compare password and Password confirm  
+/**
+ * @return true if password and confirm password matching 
+ */
 public boolean comparePassword(String pass, String con){
     
   if (pass.equals(con)) return true;
       return false;
 }
 
-//
+/**
+* @return true if name was exist 
+*/
 public boolean isUserNameExist(String username){
   boolean exist = false ;
         Connection con = null ;
@@ -79,9 +83,7 @@ public boolean isUserNameExist(String username){
         if(result.first())
             exist = true ;
         }catch(Exception e ){ e.printStackTrace();}
-              // closing all connection if they were opened 
-        finally {
-            
+          finally {
             if( stmt != null )
                 try{ stmt.close();}
                 catch(Exception ex) {ex.printStackTrace();}
