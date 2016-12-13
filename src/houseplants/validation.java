@@ -93,4 +93,31 @@ public boolean isUserNameExist(String username){
         }
         return exist ; 
 }
+
+public boolean isUserNameAndpaswordExist(String username ,String password){
+  boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        ResultSet result = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "SELECT 'UserName' , `Password` FROM `group3`.`user` WHERE `UserName` = ? AND `Password` = ?  ";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, username);
+        stmt.setString(2, password);
+        result = stmt.executeQuery();
+        if(result.first())
+            exist = true ;
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist ; 
+}
+
 }

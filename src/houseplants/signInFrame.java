@@ -6,13 +6,14 @@
 package houseplants;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author mac
  */
 public class signInFrame extends javax.swing.JFrame {
-
+validation v = new validation();
     /**
      * Creates new form signInFrame
      */
@@ -212,10 +213,20 @@ setVisible(true);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void clear(){
+        userName.setText("");
+        password.setText("");
 
+    }
     private void singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singInActionPerformed
-    profileFrame plantProf = new profileFrame();
-
+if(v.isUserNameAndpaswordExist(userName.getText(), password.getText())) {
+       setVisible(false);
+        JOptionPane.showMessageDialog(this,"Welcome "+userName.getText(), "",JOptionPane.INFORMATION_MESSAGE);
+      profileFrame plantProf = new profileFrame();
+}else{
+        JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);    
+       }
+    clear();
     }//GEN-LAST:event_singInActionPerformed
 
 
