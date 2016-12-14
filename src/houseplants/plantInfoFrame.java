@@ -19,6 +19,12 @@ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setVisible(true);
         initComponents();
     }
+public plantInfoFrame() {
+        pack();
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+setVisible(true);
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

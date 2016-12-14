@@ -193,13 +193,13 @@ setVisible(true);
         plantInfoFrame plantInfo = new plantInfoFrame ();
     }//GEN-LAST:event_plantActionPerformed
 
-    private void plant2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant2ActionPerformed
-        plantInfoFrame plantInfo = new plantInfoFrame ();  
-    }//GEN-LAST:event_plant2ActionPerformed
-
     private void addPlantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlantActionPerformed
 addPlantFrame add = new addPlantFrame();
     }//GEN-LAST:event_addPlantActionPerformed
+
+    private void plant2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant2ActionPerformed
+        plantInfoFrame plantInfo = new plantInfoFrame ();
+    }//GEN-LAST:event_plant2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -209,7 +209,7 @@ addPlantFrame add = new addPlantFrame();
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JButton plant;
-    public javax.swing.JButton plant2;
+    private javax.swing.JButton plant2;
     public javax.swing.JLabel plantinfoLabel;
     // End of variables declaration//GEN-END:variables
 }
