@@ -72,7 +72,7 @@ setVisible(true);
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 44, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(14, Short.MAX_VALUE)
@@ -176,7 +176,7 @@ setVisible(true);
             waternopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(waternopanelLayout.createSequentialGroup()
                 .addComponent(waterNo)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         compostYes.setText("Yes");
@@ -307,6 +307,7 @@ setVisible(true);
                     .addGap(0, 12, Short.MAX_VALUE)))
         );
 
+        plantInfo.setBackground(new java.awt.Color(204, 204, 255));
         plantInfo.setText("Plant Info here .............................................");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -338,7 +339,7 @@ setVisible(true);
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(wateryespanel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(waternopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                                        .addComponent(waternopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(compostyeapanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
