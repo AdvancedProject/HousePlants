@@ -11,10 +11,9 @@ import javax.swing.JFrame;
 
 public class plantInfoFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form plantInfoFrame
-     */
-    public plantInfoFrame() {
+   String ID;
+    public plantInfoFrame(String ID) {
+        this.ID=ID;
         pack();
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setVisible(true);
