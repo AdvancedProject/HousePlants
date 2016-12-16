@@ -55,9 +55,9 @@ setVisible(true);
             .addGap(0, 153, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 68, Short.MAX_VALUE)
                     .addComponent(welcomeLabel)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 69, Short.MAX_VALUE)))
         );
 
         singIn.setText("sign in");

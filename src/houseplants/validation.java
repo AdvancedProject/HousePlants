@@ -1,6 +1,7 @@
 
 package houseplants;
 
+import MakeItGreen.DBManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

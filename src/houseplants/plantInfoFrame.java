@@ -12,14 +12,15 @@ import javax.swing.JFrame;
 public class plantInfoFrame extends javax.swing.JFrame {
 
    String ID;
-    public plantInfoFrame(String ID) {
-        this.ID=ID;
+   public plantInfoFrame(){
         pack();
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setVisible(true);
         initComponents();
-    }
-public plantInfoFrame() {
+   }
+   
+    public plantInfoFrame(String ID) {
+        this.ID=ID;
         pack();
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setVisible(true);
@@ -174,14 +175,12 @@ setVisible(true);
         waternopanelLayout.setHorizontalGroup(
             waternopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(waternopanelLayout.createSequentialGroup()
-                .addComponent(waterNo)
+                .addComponent(waterNo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         waternopanelLayout.setVerticalGroup(
             waternopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(waternopanelLayout.createSequentialGroup()
-                .addComponent(waterNo)
-                .addGap(0, 21, Short.MAX_VALUE))
+            .addComponent(waterNo, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
         compostYes.setText("Yes");
@@ -214,14 +213,12 @@ setVisible(true);
         compostplanelLayout.setHorizontalGroup(
             compostplanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(compostplanelLayout.createSequentialGroup()
-                .addComponent(comostNo)
+                .addComponent(comostNo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         compostplanelLayout.setVerticalGroup(
             compostplanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(compostplanelLayout.createSequentialGroup()
-                .addComponent(comostNo)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(comostNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         celender.setText("Open Calender");
@@ -235,12 +232,12 @@ setVisible(true);
         calenderpanel.setLayout(calenderpanelLayout);
         calenderpanelLayout.setHorizontalGroup(
             calenderpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGap(0, 315, Short.MAX_VALUE)
             .addGroup(calenderpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(calenderpanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 89, Short.MAX_VALUE)
                     .addComponent(celender)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 90, Short.MAX_VALUE)))
         );
         calenderpanelLayout.setVerticalGroup(
             calenderpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,14 +320,6 @@ setVisible(true);
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(calenderpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,7 +338,13 @@ setVisible(true);
                                         .addComponent(compostyeapanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(compostplanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(calenderpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -402,6 +397,7 @@ profileFrame profF = new profileFrame ();    }//GEN-LAST:event_backActionPerform
     }//GEN-LAST:event_deletActionPerformed
 
     private void celenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celenderActionPerformed
+
 Calender calender = new Calender();    }//GEN-LAST:event_celenderActionPerformed
 
     private void waterNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterNoActionPerformed

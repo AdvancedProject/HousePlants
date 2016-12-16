@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package houseplants;
+package MakeItGreen;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ import java.sql.DriverManager;
  */
 public class DBManager {
     public static final String USER_NAME = "root";
-    public static final String PSSWORD = "0508ebtsamALKHUZAI";
+    public static final String PSSWORD = "hind1234";
     
     public static Connection getConnection(){
         Connection con = null;
