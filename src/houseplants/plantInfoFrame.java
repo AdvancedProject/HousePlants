@@ -4,29 +4,27 @@
  * and open the template in the editor.
  */
 package houseplants;
-
 import javax.swing.JFrame;
-
-
+import MakeItGreen.*;
+import java.util.GregorianCalendar;
 
 public class plantInfoFrame extends javax.swing.JFrame {
 
-   String ID;
-   public plantInfoFrame(){
-        pack();
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-setVisible(true);
-        initComponents();
-   }
+   static String ID;
    
+   public plantInfoFrame(){
+       
+   }
     public plantInfoFrame(String ID) {
         this.ID=ID;
+        Plant plant = new Plant();
+        plant.setID(ID);
+        
         pack();
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setVisible(true);
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,10 +52,11 @@ setVisible(true);
         celender = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         backpanel = new javax.swing.JPanel();
-        back = new javax.swing.JButton();
-        deletpanel = new javax.swing.JPanel();
         delet = new javax.swing.JButton();
+        deletpanel = new javax.swing.JPanel();
+        OK = new javax.swing.JButton();
         plantInfo = new javax.swing.JLabel();
+        back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +138,11 @@ setVisible(true);
         wateryespanel.setPreferredSize(new java.awt.Dimension(100, 44));
 
         waterYes.setText("Yes");
+        waterYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                waterYesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout wateryespanelLayout = new javax.swing.GroupLayout(wateryespanel);
         wateryespanel.setLayout(wateryespanelLayout);
@@ -251,36 +255,6 @@ setVisible(true);
 
         backpanel.setPreferredSize(new java.awt.Dimension(100, 44));
 
-        back.setText("Back");
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout backpanelLayout = new javax.swing.GroupLayout(backpanel);
-        backpanel.setLayout(backpanelLayout);
-        backpanelLayout.setHorizontalGroup(
-            backpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(backpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(backpanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(back)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        backpanelLayout.setVerticalGroup(
-            backpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 83, Short.MAX_VALUE)
-            .addGroup(backpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(backpanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(back)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        deletpanel.setPreferredSize(new java.awt.Dimension(100, 44));
-
         delet.setText("Delete");
         delet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,29 +262,56 @@ setVisible(true);
             }
         });
 
+        javax.swing.GroupLayout backpanelLayout = new javax.swing.GroupLayout(backpanel);
+        backpanel.setLayout(backpanelLayout);
+        backpanelLayout.setHorizontalGroup(
+            backpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backpanelLayout.createSequentialGroup()
+                .addGap(0, 37, Short.MAX_VALUE)
+                .addComponent(delet))
+        );
+        backpanelLayout.setVerticalGroup(
+            backpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backpanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(delet))
+        );
+
+        deletpanel.setPreferredSize(new java.awt.Dimension(100, 44));
+
+        OK.setText("OK");
+        OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout deletpanelLayout = new javax.swing.GroupLayout(deletpanel);
         deletpanel.setLayout(deletpanelLayout);
         deletpanelLayout.setHorizontalGroup(
             deletpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(deletpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(deletpanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(delet)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(deletpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(OK)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         deletpanelLayout.setVerticalGroup(
             deletpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(deletpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(deletpanelLayout.createSequentialGroup()
-                    .addGap(0, 11, Short.MAX_VALUE)
-                    .addComponent(delet)
-                    .addGap(0, 12, Short.MAX_VALUE)))
+            .addGroup(deletpanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(OK)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         plantInfo.setBackground(new java.awt.Color(204, 204, 255));
         plantInfo.setText("Plant Info here .............................................");
+
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -348,14 +349,16 @@ setVisible(true);
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
+                        .addGap(72, 72, 72)
+                        .addComponent(back)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(backpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(deletpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,8 +383,14 @@ setVisible(true);
                 .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                    .addComponent(deletpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                    .addComponent(deletpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(back))
+                            .addComponent(backpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)))
                 .addGap(7, 7, 7))
         );
 
@@ -404,8 +413,21 @@ Calender calender = new Calender();    }//GEN-LAST:event_celenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_waterNoActionPerformed
 
+    private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
+  UserPlant up = new UserPlant();
+        up.save();
+    }//GEN-LAST:event_OKActionPerformed
+
+    private void waterYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterYesActionPerformed
+GregorianCalendar d =  new GregorianCalendar();
+        d.getTime();
+        UserPlant up = new UserPlant();
+        up.setDate(d+"");        // TODO add your handling code here:
+    }//GEN-LAST:event_waterYesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton OK;
     public javax.swing.JButton back;
     public javax.swing.JPanel backpanel;
     public javax.swing.JPanel calenderpanel;

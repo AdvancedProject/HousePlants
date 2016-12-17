@@ -7,13 +7,14 @@ package houseplants;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import MakeItGreen.*;
 /**
  *
  * @author mac
  */
 public class signInFrame extends javax.swing.JFrame {
 validation v = new validation();
+static String n;
     /**
      * Creates new form signInFrame
      */
@@ -219,13 +220,19 @@ public void clear(){
 
     }
     private void singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singInActionPerformed
-if(v.isUserNameAndpaswordExist(userName.getText(), password.getText())) {
+         User user = new User();
+        
+        if(v.isUserNameAndpaswordExist(userName.getText(), password.getText())) {
        setVisible(false);
         JOptionPane.showMessageDialog(this,"Welcome "+userName.getText(), "",JOptionPane.INFORMATION_MESSAGE);
       profileFrame plantProf = new profileFrame();
+      n = userName.getText();
+      user.setUserName(n);
+      System.out.println("The UserName inserted : " + n);
 }else{
         JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);    
        }
+        
     clear();
     }//GEN-LAST:event_singInActionPerformed
 
