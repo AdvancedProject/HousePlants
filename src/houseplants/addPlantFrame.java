@@ -5,6 +5,8 @@
  */
 package houseplants;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
+import houseplants.plantInfoFrame.planetName;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 public class addPlantFrame extends javax.swing.JFrame {
@@ -196,6 +198,7 @@ setVisible(true);
 
         String plant8ID= JOptionPane.showInputDialog(plant8);
         plantInfoFrame plant1Info = new plantInfoFrame (plant8ID);
+        plant8ActionPerformed.addActionListener(new plantInfoFrame.planetName());
     }//GEN-LAST:event_plant8ActionPerformed
 
     private void plant7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant7ActionPerformed

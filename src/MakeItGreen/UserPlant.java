@@ -14,7 +14,7 @@ import java.util.Vector;
  * @author mac
  */
 public class UserPlant {
-      User user;
+    User user;
     Plant plant;
     Vector<Date> date;
     

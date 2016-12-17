@@ -222,7 +222,9 @@ public void clear(){
 if(v.isUserNameAndpaswordExist(userName.getText(), password.getText())) {
        setVisible(false);
         JOptionPane.showMessageDialog(this,"Welcome "+userName.getText(), "",JOptionPane.INFORMATION_MESSAGE);
-      profileFrame plantProf = new profileFrame();
+        plantInfoFrame pInfo = new plantInfoFrame(userName.getText(),password.getText());
+        profileFrame plantProf = new profileFrame();
+      
 }else{
         JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);    
        }

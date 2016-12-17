@@ -12,7 +12,7 @@ import java.util.Vector;
  * @author mac
  */
 public class Plant {
-     String idPlant;
+    String idPlant;
     String plantsName;
     String light;
     String sizeTall;

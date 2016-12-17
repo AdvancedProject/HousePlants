@@ -14,7 +14,7 @@ import java.util.Vector;
  * @author mac
  */
 public class User {
-     String username;
+    static String username;
     String email;
     String pass;
     Vector<UserPlant> userplant;
