@@ -39,6 +39,8 @@ public class plantInfoFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         initComponents();
+        System.out.println(ID);
+        changeText();
     }
 
  
@@ -89,7 +91,7 @@ public class plantInfoFrame extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 44, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(14, Short.MAX_VALUE)
@@ -325,7 +327,6 @@ public class plantInfoFrame extends javax.swing.JFrame {
                     .addGap(0, 12, Short.MAX_VALUE)))
         );
 
-        plantInfo.setBackground(new java.awt.Color(204, 204, 255));
         plantInfo.setText("Plant Info here .............................................");
 
         jButton1.setText("done");
@@ -378,8 +379,8 @@ public class plantInfoFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(110, 110, 110)
+                        .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -403,9 +404,9 @@ public class plantInfoFrame extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                             .addComponent(deletpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
@@ -459,12 +460,12 @@ class planetName implements ActionListener{
     }
    
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+setVisible(false);
 profileFrame profF = new profileFrame ();    }//GEN-LAST:event_backActionPerformed
 
     
     private void deletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletActionPerformed
         // clear
-        
       p.deletePlant(user,ID);
     }//GEN-LAST:event_deletActionPerformed
 
@@ -478,10 +479,10 @@ Calender calender = new Calender();    }//GEN-LAST:event_celenderActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          Plant p = new Plant();
+        Plant p = new Plant();
         String water = "";
         if( waterYes.isSelected()){
-         water = "yes";
+            water = "yes";
         }else{
             water = "no";
         }
@@ -493,9 +494,9 @@ Calender calender = new Calender();    }//GEN-LAST:event_celenderActionPerformed
         GregorianCalendar d =  new GregorianCalendar();
         d.getTime();
         UserPlant up = new UserPlant();
-  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-  LocalDate localDate = LocalDate.now();
-  up.setDate(dtf.format(localDate));
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        up.setDate(dtf.format(localDate));
   
     }//GEN-LAST:event_waterYesActionPerformed
 

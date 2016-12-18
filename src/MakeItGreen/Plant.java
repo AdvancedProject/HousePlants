@@ -41,10 +41,6 @@ public class Plant {
         this.sizeUnit = sizeUnit;   
     }*/
     
-    
-  
-    
-    
     public String getIdPlant(){
         return idPlant;
     }
@@ -82,13 +78,9 @@ public class Plant {
     }
      
      
-    
-   
    public void addUserPlant(UserPlant us){
         this.up.add(us);
-   }
-   
-         
+   }    
            /**  public static Plant loadPlant(int ID){
         Connection con = null ;
         PreparedStatement stmt = null ;
@@ -162,14 +154,13 @@ public class Plant {
         }
         return exist ; 
 }
-
-    
+   
    public void deletePlant(String userName, String idPlant){
         Connection con = null;
         PreparedStatement stmt = null;
         try{
             con = DBManager.getConnection();
-            String delete = "DELETE FROM UserPlants WHERE UserName=?,IdPlants=?";
+            String delete = "DELETE FROM UserPlants WHERE UserName=? AND IdPlants=?";
             stmt = con.prepareStatement(delete);
             stmt.setString(1, userName);
             stmt.setString(2, idPlant);
@@ -202,7 +193,7 @@ public class Plant {
              String sizeTall =rs.getString("SizeTall");
              String sizeWide =rs.getString("SizeWide");
              String sizeUnit =rs.getString("SizeUnit");
-            info =" It need "+light+" light \n Size: To "+sizeTall+" "+sizeUnit+" tall and "+sizeWide+" "+sizeUnit+"wide.";
+            info ="<html> It need "+light+" light <br/> Size: To "+sizeTall+" "+sizeUnit+" tall and "+sizeWide+" "+sizeUnit+"wide.";
              }
         }
         catch( Exception ex ){

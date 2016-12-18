@@ -131,19 +131,17 @@ public class profileFrame extends javax.swing.JFrame {
         cell[i] = new JPanel();
         cell[i].setLayout(f1);
         cell[i].setVisible(true);
+        setVisible(false);
         }
     }//GEN-LAST:event_addPlantActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-      
-            System.out.println(jTextField1.getText());
+     System.out.println(jTextField1.getText());
           // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
         // TODO add your handling code here:
-        plantInfoFrame  pf = new plantInfoFrame();
-        pf.changeText();
         setVisible(false);
     }//GEN-LAST:event_OKActionPerformed
 
