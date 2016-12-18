@@ -5,10 +5,10 @@
  */
 package houseplants;
 
-/**
- *
- * @author mac
- */
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
 public class HousePlants {
 
     /**
@@ -17,6 +17,9 @@ public class HousePlants {
     public static void main(String[] args) {
        
        new welcomeFrame();
+       DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+LocalDate localDate = LocalDate.now();
+System.out.println(dtf.format(localDate)); 
     }
     
 }

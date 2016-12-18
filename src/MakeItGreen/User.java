@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MakeItGreen;
 
 import java.sql.Connection;
@@ -15,34 +11,22 @@ import java.util.Vector;
  * @author mac
  */
 public class User {
-<<<<<<< HEAD
-    static String username;
-=======
     String username;
->>>>>>> 1e4135b57a441275b9d9a6ca650a1a8093c61ea0
     String email;
     String pass;
+    Vector<User> user;
     Vector<UserPlant> userplant;
     
     public User(){
+        user = new Vector<User> ();
         userplant= new Vector<UserPlant>();
     }
-    
     public User(String username,String email,String pass){
         this.username = username;
         this.email = email;
         this.pass = pass;
     }
     
-    public void setUserName(String name){
-        username = name;
-    }
-    public void setEmail(String mail){
-        email = mail;
-    }
-    public void setPass(String password){
-        pass = password;
-    }
     public String getUsername(){
         return username;
     }
@@ -52,98 +36,166 @@ public class User {
     public String getPass(){
        return pass; 
     }
+    
     public void addUserPlant(UserPlant us){
         this.userplant.add(us);
     }
    
-    public void save(){
-        Connection con = null ;
-        PreparedStatement stmt = null ;
-        try { 
+   // save new user 
+ public void save(){
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try{
             String query ;
             con = DBManager.getConnection();
-           
-                query = "INSERT INTO user (UserName, Email, Password) VALUES (?,?,?)";
-                stmt.setString(1, this.username);
-                stmt.setString(2, this.email) ;
-                stmt.setString(3, this.pass);
-                int resutl = stmt.executeUpdate();
-                System.out.println("User "+username+"NOT exist => insert new records");
-              
-            for(UserPlant up : this.userplant){
-                up.save();
-            }
-
-            System.out.println(" Result = 1 User record has been Sucessfully saved ");
-        }catch (Exception e ){
-            
-            System.out.println("saving one User record was NOT sucessful");
-            e.printStackTrace();
+        query = "INSERT INTO User VALUES (?,?,?)";
+        pstmt = con.prepareStatement(query);
+        pstmt.setString(1,""+getUsername());
+        pstmt.setString(2,""+getEmail() );
+        pstmt.setString(3, ""+ getPass());
+        int result = pstmt.executeUpdate();
+         
         }
-        // closing all connection if they were opened 
+        catch( Exception e ){
+              e.printStackTrace();
+        }
         finally {
-            
-            if( stmt != null )
-                try{ stmt.close();}
-                catch(Exception ex) {ex.printStackTrace();}
-            if( con != null)
-                try{con.close();}
-                catch(Exception ex ){ ex.printStackTrace();}
-        
-         }
-    }
-
-     public static User loadUser(String name){
-        Connection con = null ;
-        PreparedStatement stmt = null ;
-        ResultSet result = null ; 
-        User user = new User();
-        try { 
-            con = DBManager.getConnection();
-            String query = " SELECT Email , Password FROM user WHERE UserName = ? ";
-            stmt = con.prepareStatement(query);
-            stmt.setString(1, name);
-            result = stmt.executeQuery();
-            if(result.next()){
-                user.setUserName(name);
-                user.setEmail(result.getString("Email"));
-                user.setPass(result.getString("Password"));
-                Vector<UserPlant> uList= UserPlant.loadUser(name);
-                if(uList != null){
-                    for(UserPlant up : uList){
-                        user.addUserPlant(up);
-                        up.setUser(user);
-                    }
-                        
-                }
-                
-                System.out.println(" Student record has been loaded successfully ");
-            }
-            else 
-                System.out.println(" Student record NOT found! ");
-
-        }catch (Exception e ){
-            
-            System.out.println("Loading one record was NOT sucessful");
-            e.printStackTrace();
+            if(pstmt != null)
+        try{pstmt.close();
+            }catch( Exception e ){
+              e.printStackTrace();
         }
-        // closing all connection if they were opened 
-        finally {
-            
-            if( stmt != null )
-                try{ stmt.close();}
-                catch(Exception ex) {ex.printStackTrace();}
-            if( con != null)
-                try{con.close();}
-                catch(Exception ex ){ ex.printStackTrace();}
+            if(con != null) 
+        try{ con.close();
+            }catch( Exception e ){
+              e.printStackTrace();
         }
-        
-        return user;
-
-    }
-
-    private boolean isUserExist() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
     
+ public boolean isValidEmail(String email ){
+    
+if(email.length() > 0){
+  if(email.indexOf('@') == -1 ||email.indexOf('@') != email.lastIndexOf('@'))
+     return false;
+String name = email.substring(0, email.indexOf("@"));
+String domain = email.substring(email.indexOf("@")+1);
+if(domain.indexOf('.') == -1)
+return false;
+}
+    return true;
+}
+/**
+ * @return true if password valid
+ */
+public boolean isPasswordValid(String pass ){ 
+    int points = 0;
+if(pass.length() < 8 || pass.length() > 20)
+    return false;
+
+for(int i=0;i< pass.length();i++){ 
+    if(Character.isUpperCase(pass.charAt(i)))
+    {
+      points++; break;
+      }
+}
+for(int i=0;i< pass.length();i++){
+    if(Character.isLowerCase(pass.charAt(i))){
+        points++; break;
+}
+}
+for(int i=0;i< pass.length();i++){ 
+    if(Character.isDigit(pass.charAt(i))){
+        points++; break;
+    }
+      }
+    if(points == 3) return true;
+        return false;
+  
+}
+/**
+ * @return true if password and confirm password matching 
+ */
+public boolean comparePassword(String pass, String con){
+    
+  if (pass.equals(con)) return true;
+      return false;
+}
+/**
+* @return true if name was exist 
+*/
+public boolean isUserNameExist(String username){
+  boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        ResultSet result = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "SELECT username FROM user WHERE username = ? ";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, username);
+        result = stmt.executeQuery();
+        if(result.first())
+            exist = true ;
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist ; 
+}
+
+public boolean isUserNameExist(String username ,String password){
+  boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "UPDATE  `group3`.`user` SET `Password`= ? WHERE `UserName` = ? ";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, password);
+        stmt.setString(2, username);
+         int result= stmt.executeUpdate();;
+            exist = true ;
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist ; 
+}
+
+public boolean isUserNameAndpaswordExist(String username ,String password){
+  boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        ResultSet result = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "SELECT 'UserName' , `Password` FROM `group3`.`user` WHERE `UserName` = ? AND `Password` = ?  ";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, username);
+        stmt.setString(2, password);
+        result = stmt.executeQuery();
+        if(result.first())
+            exist = true ;
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist ; 
+}
 }

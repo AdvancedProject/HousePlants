@@ -14,7 +14,7 @@ import java.sql.DriverManager;
  */
 public class DBManager {
     public static final String USER_NAME = "root";
-    public static final String PSSWORD = "1417";
+    public static final String PSSWORD = "hind1234";
     
     public static Connection getConnection(){
         Connection con = null;
@@ -27,7 +27,7 @@ public class DBManager {
         }
         
         try{
-                String url = "jdbc:mysql://localhost:3306/group3";
+                String url = "jdbc:mysql://127.0.0.1:3306/group3";
                 con =  DriverManager.getConnection(url,USER_NAME,PSSWORD);
                 //System.out.println("Connected");
             
