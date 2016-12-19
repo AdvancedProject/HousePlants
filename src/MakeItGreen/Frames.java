@@ -16,22 +16,22 @@ import javax.swing.JOptionPane;
  */
 public class Frames extends javax.swing.JFrame {
 validation v = new validation();
- User u = new User();
+User u = new User();
+Plant p = new Plant();
 String user;  
 String plantId;
     public Frames() {
         initComponents();
-            
-pack();
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-welcomeFrame.setVisible(true);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-user="";
-plantId="";
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        welcomeFrame.setVisible(true);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+        profilrFrame.setVisible(false);
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        pack();
+        user="";
+        plantId="";
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +74,7 @@ plantId="";
         delete = new javax.swing.JButton();
         back = new javax.swing.JButton();
         calender = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        plantInfo = new javax.swing.JLabel();
         signInFrame = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         userName = new javax.swing.JTextField();
@@ -91,10 +91,10 @@ plantId="";
         emailLabel = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         PasswordLabel = new javax.swing.JLabel();
-        PaswordText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        conPasswordText = new javax.swing.JTextField();
         signUpButton = new javax.swing.JButton();
+        passwordF = new javax.swing.JPasswordField();
+        passwordCon = new javax.swing.JPasswordField();
         profilrFrame = new javax.swing.JPanel();
         yourPlant = new javax.swing.JLabel();
         addPlantButton = new javax.swing.JButton();
@@ -377,8 +377,6 @@ plantId="";
 
         calender.setText("Calender");
 
-        jLabel4.setText("jLabel4");
-
         javax.swing.GroupLayout infoFrameLayout = new javax.swing.GroupLayout(infoFrame);
         infoFrame.setLayout(infoFrameLayout);
         infoFrameLayout.setHorizontalGroup(
@@ -407,7 +405,7 @@ plantId="";
                 .addContainerGap(97, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoFrameLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
         infoFrameLayout.setVerticalGroup(
@@ -423,7 +421,7 @@ plantId="";
                 .addGap(49, 49, 49)
                 .addComponent(calender)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(doneButton)
@@ -517,20 +515,20 @@ plantId="";
         welcomeFrameLayout.setHorizontalGroup(
             welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomeFrameLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addComponent(signUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(signIn)
-                .addGap(56, 56, 56))
+                .addGap(45, 45, 45))
         );
         welcomeFrameLayout.setVerticalGroup(
             welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomeFrameLayout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
+                .addContainerGap(291, Short.MAX_VALUE)
                 .addGroup(welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signIn)
                     .addComponent(signUp))
-                .addGap(40, 40, 40))
+                .addGap(25, 25, 25))
         );
 
         userNameLabel.setText("username");
@@ -569,23 +567,22 @@ plantId="";
                         .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(userNameS)
                             .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)))
-                    .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, signUpFrameLayout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addComponent(PasswordLabel)
-                            .addGap(18, 18, 18)
-                            .addComponent(PaswordText))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, signUpFrameLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel6)
-                            .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(signUpFrameLayout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(signUpButton))
-                                .addGroup(signUpFrameLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(conPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(signUpFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(signUpFrameLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(signUpButton))
+                            .addGroup(signUpFrameLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(passwordCon, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))))
+                    .addGroup(signUpFrameLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(PasswordLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(passwordF)))
+                .addContainerGap())
         );
         signUpFrameLayout.setVerticalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -601,12 +598,12 @@ plantId="";
                 .addGap(34, 34, 34)
                 .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PasswordLabel)
-                    .addComponent(PaswordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(conPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                    .addComponent(passwordCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(signUpButton)
                 .addGap(58, 58, 58))
         );
@@ -903,7 +900,8 @@ plantId="";
     }// </editor-fold>//GEN-END:initComponents
 public void clear(){
         userNameS.setText("");
-        password.setText(""); }
+        password.setText(""); 
+}
 
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
@@ -920,21 +918,21 @@ pack();
 
     }//GEN-LAST:event_signInActionPerformed
 
-    /**    public boolean addUser(){
+   public boolean addUser(){
         Connection con = null;
         PreparedStatement pstmt = null;
         try{
             String query ;
             con = DBManager.getConnection();
-    if((!u.isUserNameExist(usernameTF.getText()))&&(u.comparePassword(passTF.getText(),PassconfTF.getText()))&&
-            (u.isPasswordValid(passTF.getText()))&&(u.isValidEmail(emailTF.getText()))){
+    if((!u.isUserNameExist(userNameS.getText()))&&(u.comparePassword(passwordF.getText(),passwordCon.getText()))&&
+            (u.isPasswordValid(passwordF.getText()))&&(u.isValidEmail(email.getText()))){
             
         query = "INSERT INTO User VALUES (?,?,?)";
         pstmt = con.prepareStatement(query);
-        pstmt.setString(1, ""+usernameTF.getText());
-        pstmt.setString(2, ""+emailTF.getText());
-        pstmt.setString(3, ""+passTF.getText());
-        
+        pstmt.setString(1, ""+userNameS.getText());
+        pstmt.setString(2, ""+email.getText());
+        pstmt.setString(3, ""+passwordF.getText());
+        System.out.println("added");
         int result = pstmt.executeUpdate();
         if(result == 1){ 
           return true;
@@ -958,7 +956,14 @@ pack();
         }
         }
         return false;
-}*/
+}
+   
+   public void clear1(){
+        userNameS.setText("");
+        email.setText("");
+        passwordF.setText("");
+        passwordCon.setText("");
+    }
     
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
 // sign up
@@ -1010,7 +1015,7 @@ profilrFrame.setVisible(true);
 infoFrame.setVisible(false);
 addPlantFrame.setVisible(false);
 pack();
-
+addUser();
     }//GEN-LAST:event_signUpButtonActionPerformed
 
     private void addPlantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlantButtonActionPerformed
@@ -1047,25 +1052,34 @@ pack();
         
         u.setUsername(user);
         p.setPlantId(plantId);
-        p.save(Date,water);
+        p.save(user,plantId,Date,water);
 
     }//GEN-LAST:event_doneButtonActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        // delete
+      Plant p = new Plant();
+        user = userName.getText();
+        plantId = idPlantText.getText();
+        p.deletePlant(user, plantId);
     }//GEN-LAST:event_deleteActionPerformed
 
     private void okeyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okeyButtonActionPerformed
-// 
     plantId = idPlantText.getText();
+    boolean ex = p.isidPlantExist(plantId);
+    System.out.println(ex);
+if (ex!=true){
+    JOptionPane.showMessageDialog(null,"this ID does not exit");
+   }
+else {
+    PlantNameLabel.setText(p.loadPlantName(plantId));
+    plantInfo.setText(p.loadPlantInfo(plantId));
     welcomeFrame.setVisible(false);
     signUpFrame.setVisible(false);
     signInFrame.setVisible(false);
     profilrFrame.setVisible(false);
     infoFrame.setVisible(true);
-    pack();
-
-
+    pack();}
+ 
     }//GEN-LAST:event_okeyButtonActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -1088,7 +1102,8 @@ pack();
     }//GEN-LAST:event_userNameActionPerformed
 
     private void forgetPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPasswordButtonActionPerformed
-        // TODO add your handling code here:
+	
+
     }//GEN-LAST:event_forgetPasswordButtonActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
@@ -1105,7 +1120,7 @@ pack();
         + "\n\n insert (08) if you have it ..";
 
         String plant8ID= JOptionPane.showInputDialog(plant8);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant8ID);
+        
     }//GEN-LAST:event_plant8ActionPerformed
 
     private void plant7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant7ActionPerformed
@@ -1578,13 +1593,11 @@ pack();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel PasswordLabel;
-    public javax.swing.JTextField PaswordText;
     public javax.swing.JLabel PlantNameLabel;
     private javax.swing.JButton addPlantButton;
     public javax.swing.JPanel addPlantFrame;
     public javax.swing.JButton back;
     private javax.swing.JButton calender;
-    public javax.swing.JTextField conPasswordText;
     public javax.swing.JButton delete;
     private javax.swing.JButton doneButton;
     public javax.swing.JTextField email;
@@ -1596,10 +1609,11 @@ pack();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton okeyButton;
     public javax.swing.JPasswordField password;
+    public javax.swing.JPasswordField passwordCon;
+    public javax.swing.JPasswordField passwordF;
     public javax.swing.JLabel passwordLabel;
     public javax.swing.JButton plant1;
     public javax.swing.JButton plant10;
@@ -1641,6 +1655,7 @@ pack();
     public javax.swing.JButton plant7;
     public javax.swing.JButton plant8;
     public javax.swing.JButton plant9;
+    private javax.swing.JLabel plantInfo;
     public javax.swing.JPanel profilrFrame;
     public javax.swing.JButton signIn;
     public javax.swing.JButton signInButton;

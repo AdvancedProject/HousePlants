@@ -19,7 +19,7 @@ public class HousePlants {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Frames().setVisible(true);
-               new Frames().setSize(267,294);
+              
             }
         });
     }

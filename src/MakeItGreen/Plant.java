@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,8 +30,8 @@ public class Plant {
     String sizeTall;
     String sizeWide;
     String sizeUnit;
-    Vector<Plant> plant;
-    Vector<UserPlant> up;
+    //Vector<Plant> plant;
+    //Vector<UserPlant> up;
     
     
     public Plant(String user){
@@ -38,8 +39,8 @@ public class Plant {
         System.out.println(user);
     }
     public Plant(){
-        plant = new Vector<Plant>();
-        up = new Vector<UserPlant>();
+       // plant = new Vector<Plant>();
+       // up = new Vector<UserPlant>();
         user1= null ;
     }
     
@@ -60,7 +61,6 @@ public class Plant {
     public String getPlantName(){
         return plantsName;
     }
-    
     public String getLight(){
         return light;
     }
@@ -98,9 +98,9 @@ public class Plant {
      
             
    
-   public void addUserPlant(UserPlant us){
+   /*public void addUserPlant(UserPlant us){
         this.up.add(us);
-   }
+   }*/
    
          
            /**  public static Plant loadPlant(int ID){
@@ -181,13 +181,16 @@ public class Plant {
    public void deletePlant(String userName, String idPlant){
         Connection con = null;
         PreparedStatement stmt = null;
+        System.out.println(userName + idPlant);
+        
         try{
             con = DBManager.getConnection();
-            String delete = "DELETE FROM UserPlants WHERE UserName=?,IdPlants=?";
+            String delete = "DELETE FROM UserPlants WHERE UserName=? and IdPlants=?";
             stmt = con.prepareStatement(delete);
             stmt.setString(1, userName);
             stmt.setString(2, idPlant);
           int i = stmt.executeUpdate();
+          JOptionPane.showMessageDialog(null,"delet done succ");
         }catch(Exception e){
             e.printStackTrace();
         }finally {
@@ -216,7 +219,7 @@ public class Plant {
              String sizeTall =rs.getString("SizeTall");
              String sizeWide =rs.getString("SizeWide");
              String sizeUnit =rs.getString("SizeUnit");
-            info =" It need "+light+" light \n Size: To "+sizeTall+" "+sizeUnit+" tall and "+sizeWide+" "+sizeUnit+"wide.";
+            info ="<html> It need "+light+" light <br/> Size: To "+sizeTall+" "+sizeUnit+" tall and "+sizeWide+" "+sizeUnit+"wide.";
              }
         }
         catch( Exception ex ){
@@ -239,28 +242,61 @@ public class Plant {
         return info;
    }
    
-   
-       
-   
-   public void save(String Date,String water){
+   public String loadPlantName(String idPlant){
+       String info="";
        Connection con = null;
         PreparedStatement pstmt = null;
-        User u = new User();
+        try{
+             con = DBManager.getConnection();
+             String SQL = "SELECT PlantsName FROM group3.plants where IdPlants = ?;";
+             pstmt =con.prepareStatement(SQL);
+             pstmt.setString(1, idPlant);
+             ResultSet rs = pstmt.executeQuery();
+           if ( rs.next( ) ) {
+             String name = rs.getString("PlantsName");
+            info ="<html> <b>"+name+"</b>";
+             }
+        }
+        catch( Exception ex ){
+            ex.printStackTrace();
+        }
+        finally {
+            if (pstmt!=null) { try {
+                pstmt.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+}
+            if (con!=null)   {try {
+                con.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+}
+        }
+        return info;
+   }
+   //String User,String ID ,String Date,String water
+   public void save(String User,String ID ,String Date,String water){
+       Connection con = null;
+        PreparedStatement pstmt = null;
+
         fr= new Frames();
-        System.out.println(fr.user);
-        System.out.println(this.idPlant);
+        System.out.println(User+"yy");
+        System.out.println(ID);
         System.out.println(Date);
         System.out.println(water);
         try{
             con = DBManager.getConnection();
             pstmt=con.prepareStatement("INSERT INTO `group3`.`userplants` VALUES (?,?,?,?)");
-            pstmt.setString(1, fr.user);
-            pstmt.setString(2, this.getIdPlant());//id
+            pstmt.setString(1, User);
+            pstmt.setString(2, ID);//id
             pstmt.setString(3, Date);// date
             pstmt.setString(4,water);
             int result = pstmt.executeUpdate();
-                if (result==1)
+                if (result==1){
                     System.out.println("Added ");
+                 JOptionPane.showMessageDialog(null,"insert succeed"); }
                 else 
                     System.out.println("not deleted ");
            }catch( Exception e ){
