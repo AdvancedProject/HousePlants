@@ -12,7 +12,7 @@ import java.util.Vector;
  * @author mac
  */
 public class UserPlant {
-String Date;
+    String Date;
     public Plant p ;
     public User u ;
    // Vector<date> date;
@@ -55,7 +55,7 @@ String Date;
         }
     }*/
     
-    public void save(){
+    /**public void save(){
         Connection con = null;
         PreparedStatement pstmt = null;
         try{
@@ -88,7 +88,7 @@ String Date;
                 catch( Exception e ){ e.printStackTrace();}
             }
         }
-    }
+    }*/
 
   
     

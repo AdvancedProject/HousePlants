@@ -1,6 +1,7 @@
 
 package houseplants;
 
+import MakeItGreen.validation;
 import MakeItGreen.DBManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -369,6 +370,49 @@ public class signUpFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+ /**
+ * @return true if new user added
+ */
+    public boolean addUser(){
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try{
+            String query ;
+            con = DBManager.getConnection();
+    if((!u.isUserNameExist(usernameTF.getText()))&&(u.comparePassword(passTF.getText(),PassconfTF.getText()))&&
+            (u.isPasswordValid(passTF.getText()))&&(u.isValidEmail(emailTF.getText()))){
+            
+        query = "INSERT INTO User VALUES (?,?,?)";
+        pstmt = con.prepareStatement(query);
+        pstmt.setString(1, ""+usernameTF.getText());
+        pstmt.setString(2, ""+emailTF.getText());
+        pstmt.setString(3, ""+passTF.getText());
+        
+        int result = pstmt.executeUpdate();
+        if(result == 1){ 
+          return true;
+         } 
+        
+        
+        }        
+        }catch( Exception e ){
+              e.printStackTrace();
+        }
+        finally {
+            if(pstmt != null)
+        try{pstmt.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+            if(con != null) 
+        try{ con.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+        }
+        return false;
+}
+    
     //clear all textFiled
     public void clear(){
         usernameTF.setText("");
@@ -379,15 +423,11 @@ public class signUpFrame extends javax.swing.JFrame {
     
     //move to next frame
     private void signupBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBActionPerformed
-    User u = new User(usernameTF.getText(),emailTF.getText(),passTF.getText());
-    
-    if((!u.isUserNameExist(usernameTF.getText()))&&(u.comparePassword(passTF.getText(),PassconfTF.getText()))&&
-            (u.isPasswordValid(passTF.getText()))&&(u.isValidEmail(emailTF.getText())))
-    {   
-          JOptionPane.showMessageDialog(this,"Welcome "+usernameTF.getText(), "",JOptionPane.INFORMATION_MESSAGE);
-           profileFrame pf = new profileFrame();
+       if (addUser()){ 
            setVisible(false);
-    }else{
+          JOptionPane.showMessageDialog(this,"Welcome "+usernameTF.getText(), "",JOptionPane.INFORMATION_MESSAGE);
+           addPlantFrame addP = new addPlantFrame();
+       }else{
            JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);    
        }
        clear();

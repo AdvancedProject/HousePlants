@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package houseplants;
 
 import javax.swing.JFrame;
@@ -23,25 +19,31 @@ import java.util.logging.Logger;
 
 public class plantInfoFrame extends javax.swing.JFrame {
     
-   Plant p = new Plant();
-   String  ID;
-   String user;
+    Plant p = new Plant();
+    
+   public String  ID;
+   public String user;
    public plantInfoFrame(){
         pack();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+setVisible(true);
         initComponents();
    }
+    public plantInfoFrame (String user){
+        this.user = user;
+        this.ID="8";
+        System.out.println(this.user + "jj");
+        
+        
+    }
    
-    public plantInfoFrame(String ID) {
+/**  public plantInfoFrame(String ID) {
         this.ID=ID;
         pack();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+setVisible(true);
         initComponents();
-        System.out.println(ID);
-        changeText();
-    }
+    }*/
 
  
     @SuppressWarnings("unchecked")
@@ -91,7 +93,7 @@ public class plantInfoFrame extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 44, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(14, Short.MAX_VALUE)
@@ -327,6 +329,7 @@ public class plantInfoFrame extends javax.swing.JFrame {
                     .addGap(0, 12, Short.MAX_VALUE)))
         );
 
+        plantInfo.setBackground(new java.awt.Color(204, 204, 255));
         plantInfo.setText("Plant Info here .............................................");
 
         jButton1.setText("done");
@@ -379,8 +382,8 @@ public class plantInfoFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(111, 111, 111)
+                        .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -404,9 +407,9 @@ public class plantInfoFrame extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                             .addComponent(deletpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
@@ -419,7 +422,7 @@ public class plantInfoFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void changeText(){
+public void changeText(java.awt.event.ActionEvent evt){
         Plant plant = new Plant();
         plantInfo.setText(plant.loadPlantInfo(ID));
     }
@@ -460,12 +463,12 @@ class planetName implements ActionListener{
     }
    
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-setVisible(false);
 profileFrame profF = new profileFrame ();    }//GEN-LAST:event_backActionPerformed
 
     
     private void deletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletActionPerformed
         // clear
+        
       p.deletePlant(user,ID);
     }//GEN-LAST:event_deletActionPerformed
 
@@ -474,32 +477,61 @@ profileFrame profF = new profileFrame ();    }//GEN-LAST:event_backActionPerform
 Calender calender = new Calender();    }//GEN-LAST:event_celenderActionPerformed
 
     private void waterNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterNoActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_waterNoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Plant p = new Plant();
+          Plant p = new Plant();
         String water = "";
         if( waterYes.isSelected()){
-            water = "yes";
+         water = "yes";
         }else{
             water = "no";
         }
-        p.save(user,ID,water);
+                UserPlant up = new UserPlant();
+  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+  LocalDate localDate = LocalDate.now();
+  up.setDate(dtf.format(localDate));
+ String Date = up.getDate();
+        
+        save(Date);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void waterYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterYesActionPerformed
         // TODO add your handling code here:
         GregorianCalendar d =  new GregorianCalendar();
         d.getTime();
-        UserPlant up = new UserPlant();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate localDate = LocalDate.now();
-        up.setDate(dtf.format(localDate));
-  
     }//GEN-LAST:event_waterYesActionPerformed
-
+ public void save( String Date){
+       Connection con = null;
+        PreparedStatement pstmt = null;
+        try{
+            con = DBManager.getConnection();
+            pstmt=con.prepareStatement("INSERT INTO `group3`.`userplants` VALUES (?,?,?);");
+            
+            pstmt.setString(1, this.user);
+            pstmt.setString(2, this.ID);//id
+            pstmt.setString(3, Date);// date
+           // pstmt.setString(4,water);
+            int result = pstmt.executeUpdate();
+                if (result==1)
+                    System.out.println("Added ");
+                else 
+                    System.out.println("not deleted ");
+           }catch( Exception e ){
+            e.printStackTrace();}
+        finally {
+            if (pstmt!=null){
+                try { pstmt.close();}
+                catch( Exception e ){ e.printStackTrace();}
+            }
+            if (con!=null){
+                try {con.close();}
+                catch( Exception e ){ e.printStackTrace();}
+            }
+        }
+   } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton back;

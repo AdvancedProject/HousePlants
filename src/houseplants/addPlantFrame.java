@@ -15,10 +15,11 @@ public class addPlantFrame extends javax.swing.JFrame {
 
    
     public addPlantFrame() {
-        initComponents(); 
-        pack();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        initComponents();
+               
+pack();
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -183,7 +184,7 @@ public class addPlantFrame extends javax.swing.JFrame {
         getContentPane().add(plant15);
         plant15.setBounds(441, 310, 204, 64);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 660, 390);
+        jLabel1.setBounds(0, 10, 660, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,7 +200,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant8ID= JOptionPane.showInputDialog(plant8);
         plantInfoFrame plant1Info = new plantInfoFrame (plant8ID);
-        setVisible(false);
     }//GEN-LAST:event_plant8ActionPerformed
 
     private void plant7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant7ActionPerformed
@@ -212,7 +212,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant7ID= JOptionPane.showInputDialog(plant7);
         plantInfoFrame plant1Info = new plantInfoFrame (plant7ID);
-        setVisible(false);
     }//GEN-LAST:event_plant7ActionPerformed
 
     private void plant10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant10ActionPerformed
@@ -226,7 +225,7 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant10ID= JOptionPane.showInputDialog(plant10);
         plantInfoFrame plant1Info = new plantInfoFrame (plant10ID);
-        setVisible(false);
+
     }//GEN-LAST:event_plant10ActionPerformed
 
     private void plant2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant2ActionPerformed
@@ -240,7 +239,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant2ID= JOptionPane.showInputDialog(plant2);
         plantInfoFrame plant1Info = new plantInfoFrame (plant2ID);
-        setVisible(false);
     }//GEN-LAST:event_plant2ActionPerformed
 
     private void plant12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant12ActionPerformed
@@ -252,7 +250,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant12ID= JOptionPane.showInputDialog(plant12);
         plantInfoFrame plant1Info = new plantInfoFrame (plant12ID);
-        setVisible(false);
     }//GEN-LAST:event_plant12ActionPerformed
 
     private void plant3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant3ActionPerformed
@@ -265,7 +262,7 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant3ID= JOptionPane.showInputDialog(plant3);
         plantInfoFrame plant1Info = new plantInfoFrame (plant3ID);
-        setVisible(false);
+
     }//GEN-LAST:event_plant3ActionPerformed
 
     private void plant14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant14ActionPerformed
@@ -276,7 +273,6 @@ public class addPlantFrame extends javax.swing.JFrame {
         + "\n\n insert (14) if you have it ..";
         String plant14ID= JOptionPane.showInputDialog(plant14);
         plantInfoFrame plant1Info = new plantInfoFrame (plant14ID);
-        setVisible(false);
     }//GEN-LAST:event_plant14ActionPerformed
 
     private void plant5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant5ActionPerformed
@@ -290,7 +286,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant5ID= JOptionPane.showInputDialog(plant5);
         plantInfoFrame plant1Info = new plantInfoFrame (plant5ID);
-        setVisible(false);
     }//GEN-LAST:event_plant5ActionPerformed
 
     private void plant13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant13ActionPerformed
@@ -302,7 +297,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant13ID= JOptionPane.showInputDialog(plant13);
         plantInfoFrame plant1Info = new plantInfoFrame (plant13ID);
-        setVisible(false);
     }//GEN-LAST:event_plant13ActionPerformed
 
     private void plant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant1ActionPerformed
@@ -317,7 +311,7 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant1ID= JOptionPane.showInputDialog(plant1);
         plantInfoFrame plant1Info = new plantInfoFrame (plant1ID);
-        setVisible(false);
+
     }//GEN-LAST:event_plant1ActionPerformed
 
     private void plant11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant11ActionPerformed
@@ -329,7 +323,7 @@ public class addPlantFrame extends javax.swing.JFrame {
         + "\n insert (11) if you have it ..";
         String plant11ID= JOptionPane.showInputDialog(plant11);
         plantInfoFrame plant1Info = new plantInfoFrame (plant11ID);
-        setVisible(false);
+
     }//GEN-LAST:event_plant11ActionPerformed
 
     private void plant4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant4ActionPerformed
@@ -342,7 +336,6 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant4ID= JOptionPane.showInputDialog(plant4);
         plantInfoFrame plant1Info = new plantInfoFrame (plant4ID);
-        setVisible(false);
     }//GEN-LAST:event_plant4ActionPerformed
 
     private void plant6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant6ActionPerformed
@@ -354,7 +347,6 @@ public class addPlantFrame extends javax.swing.JFrame {
         + "\n\n insert(06) if you have it ..";
         String plant6ID= JOptionPane.showInputDialog(plant6);
         plantInfoFrame plant1Info = new plantInfoFrame (plant6ID);
-        setVisible(false);
     }//GEN-LAST:event_plant6ActionPerformed
 
     private void plant9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant9ActionPerformed
@@ -368,7 +360,7 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant9ID= JOptionPane.showInputDialog(plant9);
         plantInfoFrame plant1Info = new plantInfoFrame (plant9ID);
-        setVisible(false);
+
     }//GEN-LAST:event_plant9ActionPerformed
 
     private void plant15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant15ActionPerformed
@@ -381,7 +373,7 @@ public class addPlantFrame extends javax.swing.JFrame {
 
         String plant15ID= JOptionPane.showInputDialog(plant15);
         plantInfoFrame plant1Info = new plantInfoFrame (plant15ID);
-        setVisible(false);
+
     }//GEN-LAST:event_plant15ActionPerformed
 
 

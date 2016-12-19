@@ -1,89 +1,24 @@
-
 package MakeItGreen;
 
+
+
+
+import MakeItGreen.DBManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Vector;
 
 /**
  *
- * @author mac
+ * @author hind
  */
-public class User {
-     String username;
-    String email;
-    String pass;
-    Vector<User> user;
-    Vector<UserPlant> userplant;
+public class validation {
+
     
-    public User(){
-        user = new Vector<User> ();
-        userplant= new Vector<UserPlant>();
-    }
-    public User(String username,String email,String pass){
-        this.username = username;
-        this.email = email;
-        this.pass = pass;
-    }
-    
-    public String getUsername(){
-        System.out.println(username);
-        return username;
-         
-    }
-    
-    public void setUsername(String User){
-       this.username = User;
-         System.out.println(username);
-      
-    }
-    public String getEmail(){
-        return email;
-    }
-    public String getPass(){
-       return pass; 
-    }
-    
-    public void addUserPlant(UserPlant us){
-        this.userplant.add(us);
-    }
-   
-    
-    /** public void save(){
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        try{
-            String query ;
-            con = DBManager.getConnection();
-        query = "INSERT INTO User VALUES (?,?,?)";
-        pstmt = con.prepareStatement(query);
-        pstmt.setString(1,""+getUsername());
-        pstmt.setString(2,""+getEmail() );
-        pstmt.setString(3, ""+ getPass());
-        int result = pstmt.executeUpdate();
-         for(User u :this.user){
-                   u.save();}
-         
-        }
-        catch( Exception e ){
-              e.printStackTrace();
-        }
-        finally {
-            if(pstmt != null)
-        try{pstmt.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-            if(con != null) 
-        try{ con.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-        }
-    }*/
-    
- public boolean isValidEmail(String email ){
+/**
+ * @return true if email valid
+ */
+public boolean isValidEmail(String email ){
     
 if(email.length() > 0){
   if(email.indexOf('@') == -1 ||email.indexOf('@') != email.lastIndexOf('@'))

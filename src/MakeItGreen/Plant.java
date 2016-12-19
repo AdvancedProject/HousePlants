@@ -16,8 +16,14 @@ import java.util.logging.Logger;
  * @author mac
  */
 public class Plant {
+    public String user ;
+    public String idPlant;
+    public String Date ;
+    public User user1 ;
+    Frames fr ;
     
-    String idPlant;
+    
+    
     String plantsName;
     String light;
     String sizeTall;
@@ -27,10 +33,17 @@ public class Plant {
     Vector<UserPlant> up;
     
     
+    public Plant(String user){
+        this.user=user;
+        System.out.println(user);
+    }
     public Plant(){
         plant = new Vector<Plant>();
         up = new Vector<UserPlant>();
+        user1= null ;
     }
+    
+ 
     
     /**public Plant(String idPlant,String plantsName,String light,String sizeTall,String sizeWide,String sizeUnit){
         this.idPlant = idPlant;
@@ -40,7 +53,7 @@ public class Plant {
         this.sizeWide = sizeWide;
         this.sizeUnit = sizeUnit;   
     }*/
-    
+  
     public String getIdPlant(){
         return idPlant;
     }
@@ -60,7 +73,13 @@ public class Plant {
    public String getSizeUnit(){
        return sizeUnit;
    }
+   public String getPlantId(){
+       return idPlant;
+   }
    
+   public void setPlantId(String idPlant){
+       this.idPlant = idPlant;
+   }
    public void setPlantName(String PlantsName){
         this.plantsName = PlantsName;
     }
@@ -77,10 +96,13 @@ public class Plant {
         this.sizeUnit = unit;   
     }
      
-     
+            
+   
    public void addUserPlant(UserPlant us){
         this.up.add(us);
-   }    
+   }
+   
+         
            /**  public static Plant loadPlant(int ID){
         Connection con = null ;
         PreparedStatement stmt = null ;
@@ -154,13 +176,14 @@ public class Plant {
         }
         return exist ; 
 }
-   
+
+    
    public void deletePlant(String userName, String idPlant){
         Connection con = null;
         PreparedStatement stmt = null;
         try{
             con = DBManager.getConnection();
-            String delete = "DELETE FROM UserPlants WHERE UserName=? AND IdPlants=?";
+            String delete = "DELETE FROM UserPlants WHERE UserName=?,IdPlants=?";
             stmt = con.prepareStatement(delete);
             stmt.setString(1, userName);
             stmt.setString(2, idPlant);
@@ -193,7 +216,7 @@ public class Plant {
              String sizeTall =rs.getString("SizeTall");
              String sizeWide =rs.getString("SizeWide");
              String sizeUnit =rs.getString("SizeUnit");
-            info ="<html> It need "+light+" light <br/> Size: To "+sizeTall+" "+sizeUnit+" tall and "+sizeWide+" "+sizeUnit+"wide.";
+            info =" It need "+light+" light \n Size: To "+sizeTall+" "+sizeUnit+" tall and "+sizeWide+" "+sizeUnit+"wide.";
              }
         }
         catch( Exception ex ){
@@ -216,17 +239,26 @@ public class Plant {
         return info;
    }
    
-   public void save(String username,String idPlant, String water){
+   
+       
+   
+   public void save(String Date,String water){
        Connection con = null;
         PreparedStatement pstmt = null;
+        User u = new User();
+        fr= new Frames();
+        System.out.println(fr.user);
+        System.out.println(this.idPlant);
+        System.out.println(Date);
+        System.out.println(water);
         try{
             con = DBManager.getConnection();
-            pstmt=con.prepareStatement("INSERT INTO `group3`.`userplants` VALUES (?,?,?,?);");
-            pstmt.setString(1, username);// user name
-            pstmt.setString(2, idPlant);//id
-            //pstmt.setString(3, );// date
+            pstmt=con.prepareStatement("INSERT INTO `group3`.`userplants` VALUES (?,?,?,?)");
+            pstmt.setString(1, fr.user);
+            pstmt.setString(2, this.getIdPlant());//id
+            pstmt.setString(3, Date);// date
             pstmt.setString(4,water);
-            int result=pstmt.executeUpdate();
+            int result = pstmt.executeUpdate();
                 if (result==1)
                     System.out.println("Added ");
                 else 
@@ -243,7 +275,8 @@ public class Plant {
                 catch( Exception e ){ e.printStackTrace();}
             }
         }
-   } }
+   }
+    }
    
    
    

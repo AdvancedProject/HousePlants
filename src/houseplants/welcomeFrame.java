@@ -33,6 +33,7 @@ setVisible(true);
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         singIn.setText("sign in");
         singIn.addActionListener(new java.awt.event.ActionListener() {
@@ -40,6 +41,8 @@ setVisible(true);
                 singInActionPerformed(evt);
             }
         });
+        getContentPane().add(singIn);
+        singIn.setBounds(50, 390, 150, 70);
 
         jButton2.setText("sign up");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -47,43 +50,22 @@ setVisible(true);
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(295, 389, 150, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/houseplants/Screenshot (344).png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(singIn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(singIn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(389, 389, 389)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 530, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singInActionPerformed
         signInFrame sIN = new signInFrame ();
-        setVisible(false);
     }//GEN-LAST:event_singInActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         signUpFrame sIN = new signUpFrame ();
-        setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
    
