@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -14,12 +17,10 @@ public class User {
      String username;
     String email;
     String pass;
-    Vector<User> user;
-    Vector<UserPlant> userplant;
+
     
     public User(){
-        user = new Vector<User> ();
-        userplant= new Vector<UserPlant>();
+
     }
     public User(String username,String email,String pass){
         this.username = username;
@@ -45,44 +46,8 @@ public class User {
        return pass; 
     }
     
-    public void addUserPlant(UserPlant us){
-        this.userplant.add(us);
-    }
-   
-    
-    /** public void save(){
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        try{
-            String query ;
-            con = DBManager.getConnection();
-        query = "INSERT INTO User VALUES (?,?,?)";
-        pstmt = con.prepareStatement(query);
-        pstmt.setString(1,""+getUsername());
-        pstmt.setString(2,""+getEmail() );
-        pstmt.setString(3, ""+ getPass());
-        int result = pstmt.executeUpdate();
-         for(User u :this.user){
-                   u.save();}
-         
-        }
-        catch( Exception e ){
-              e.printStackTrace();
-        }
-        finally {
-            if(pstmt != null)
-        try{pstmt.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-            if(con != null) 
-        try{ con.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-        }
-    }*/
-    
+
+       
  public boolean isValidEmail(String email ){
     
 if(email.length() > 0){
@@ -131,7 +96,7 @@ for(int i=0;i< pass.length();i++){
 public boolean comparePassword(String pass, String con){
     
   if (pass.equals(con)) return true;
-      return false;
+     else return false;
 }
 
 /**
@@ -187,5 +152,93 @@ public boolean isUserNameAndpaswordExist(String username ,String password){
         }
         return exist ; 
 }
+public boolean ubdateUesr(String password,String username ){
+  boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "UPDATE  `group3`.`user` SET `Password`= ? WHERE `UserName` = ? ";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, password);
+        stmt.setString(2, username);
+         int result= stmt.executeUpdate();;
+            exist = true ;
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist ; 
+}
+public boolean addUser(JTextField userName , JTextField Email , JPasswordField password , JPasswordField passwordC){
+    String username=userName.getText();
+    String email = Email.getText();
+    String Password = password.getText();
+    String PasswordC = passwordC.getText();
 
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try{
+            String query ;
+            con = DBManager.getConnection();
+    if((!isUserNameExist(username))&&(comparePassword(Password,PasswordC))&&
+            (isPasswordValid(Password))&&(isValidEmail(email))){
+            
+        {query = "INSERT INTO User VALUES (?,?,?)";
+        pstmt = con.prepareStatement(query);
+        pstmt.setString(1, ""+username);
+        pstmt.setString(2, ""+email);
+        pstmt.setString(3, ""+Password);
+        System.out.println("added");
+        int result = pstmt.executeUpdate();
+       
+        
+        if(result == 1){ 
+          return true;} }}
+//        else 
+//            
+//            JOptionPane.showMessageDialog(null,"your information does not correct , Please try again");
+//            clear1(userName ,Email , password , passwordC);
+            
+         
+        }        
+        catch( Exception e ){
+              e.printStackTrace();
+        }
+        finally {
+            if(pstmt != null)
+        try{pstmt.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+            if(con != null) 
+        try{ con.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+        }
+        return false;
+        
+}
+ 
+public void clear(JPasswordField password){
+      
+        password.setText(""); }
+
+ 
+public void clear1(JTextField username , JTextField email , JPasswordField Password , JPasswordField PasswordC){
+           username.setText("");
+           email.setText("");
+            Password.setText("");
+           PasswordC.setText("");
+        }
+
+    
+
+    
 }

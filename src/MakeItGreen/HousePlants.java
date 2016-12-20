@@ -21,8 +21,11 @@ public class HousePlants {
                 new Frames().setVisible(true);
               
             }
+            
         });
-    }
-}
+  
+   
+    
+}}
 
 

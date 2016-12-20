@@ -1,7 +1,7 @@
 
 package MakeItGreen;
 
-import houseplants.plantInfoFrame;
+//import houseplants.plantInfoFrame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,37 +30,27 @@ public class Plant {
     String sizeTall;
     String sizeWide;
     String sizeUnit;
-    //Vector<Plant> plant;
-    //Vector<UserPlant> up;
-    
+
+   
     
     public Plant(String user){
         this.user=user;
         System.out.println(user);
     }
     public Plant(){
-       // plant = new Vector<Plant>();
-       // up = new Vector<UserPlant>();
-        user1= null ;
+      
     }
     
- 
-    
-    /**public Plant(String idPlant,String plantsName,String light,String sizeTall,String sizeWide,String sizeUnit){
-        this.idPlant = idPlant;
-        this.plantsName = plantsName;
-        this.light = light;
-        this.sizeTall = sizeTall;
-        this.sizeWide = sizeWide;
-        this.sizeUnit = sizeUnit;   
-    }*/
+
   
     public String getIdPlant(){
+        System.out.println(idPlant);
         return idPlant;
     }
     public String getPlantName(){
         return plantsName;
     }
+    
     public String getLight(){
         return light;
     }
@@ -98,59 +88,7 @@ public class Plant {
      
             
    
-   /*public void addUserPlant(UserPlant us){
-        this.up.add(us);
-   }*/
-   
-         
-           /**  public static Plant loadPlant(int ID){
-        Connection con = null ;
-        PreparedStatement stmt = null ;
-        ResultSet result = null ; 
-        Plant p = new Plant ();
-        try { 
-            con = DBManager.getConnection();
-           
-            String query = " SELECT * FROM plants WHERE IdPlants = ? ";
-            stmt = con.prepareStatement(query);
-            stmt.setInt(1, ID);
-            result = stmt.executeQuery();
-            if(result.first()){
-                p.setPlantName(result.getString("PlantsName"));
-                p.setPlantLight(result.getString("Light"));
-                p.setsizeTall(result.getString("SizaTall"));
-                if(sList != null){
-                    for(UserPlant up : sList){
-                        up.setPlantId(p);
-                        p.addUserPlant(up);
-                    }
-                        
-                } 
-                
-                System.out.println("plant record has been loaded successfully ");
-            }
-            else 
-                System.out.println("plant record NOT Found! ");
-
-        }catch (Exception e ){
-            
-            System.out.println("loading one plant record was NOT sucessful");
-            e.printStackTrace();
-        }
-        // closing all connection if they were opened 
-        finally {
-            
-            if( stmt != null )
-                try{ stmt.close();}
-                catch(Exception ex) {ex.printStackTrace();}
-            if( con != null)
-                try{con.close();}
-                catch(Exception ex ){ ex.printStackTrace();}
-        }
         
-        return p;
-
-    }*/
     
      public boolean isidPlantExist(String idPlant ){
   boolean exist = false ;
@@ -229,23 +167,25 @@ public class Plant {
             if (pstmt!=null) { try {
                 pstmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    ex.printStackTrace();
                 }
 }
             if (con!=null)   {try {
                 con.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    //Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    ex.printStackTrace();
                 }
 }
         }
         return info;
    }
    
-   public String loadPlantName(String idPlant){
+   
+ public String loadPlantName(String idPlant){
        String info="";
        Connection con = null;
-        PreparedStatement pstmt = null;
+       PreparedStatement pstmt = null;
         try{
              con = DBManager.getConnection();
              String SQL = "SELECT PlantsName FROM group3.plants where IdPlants = ?;";
@@ -264,19 +204,19 @@ public class Plant {
             if (pstmt!=null) { try {
                 pstmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    ex.printStackTrace();
                 }
 }
             if (con!=null)   {try {
                 con.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(plantInfoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    ex.printStackTrace();
                 }
 }
         }
         return info;
-   }
-   //String User,String ID ,String Date,String water
+   }       
+   
    public void save(String User,String ID ,String Date,String water){
        Connection con = null;
         PreparedStatement pstmt = null;
@@ -296,7 +236,7 @@ public class Plant {
             int result = pstmt.executeUpdate();
                 if (result==1){
                     System.out.println("Added ");
-                 JOptionPane.showMessageDialog(null,"insert succeed"); }
+                 JOptionPane.showMessageDialog(null,"insert succ"); }
                 else 
                     System.out.println("not deleted ");
            }catch( Exception e ){
@@ -312,7 +252,54 @@ public class Plant {
             }
         }
    }
-    }
+   
+   
+  /** public Vector<Plant> loadUserPlant (String User){
+       
+       Connection con = null ; 
+       PreparedStatement s = null ; 
+        Plant u  = new Plant ();
+       Vector<Plant> uP = new Vector<Plant>();
+       try {
+       con = DBManager.getConnection();
+       String query = "select userplants.IdPlants , plants.PlantsName from userplants inner join" +
+"user inner join  plants on userplants.IdPlants = plants.IdPlants where user.UserName = ? ";
+       s=con.prepareStatement(query);
+       s.setString(1,""+user);
+       ResultSet result = s.executeQuery();
+       while (result.next())
+       {
+       String idPlant = result.getString("IdPlants");
+       String PlantName = result.getString("PlantsName");
+       u.setPlantName(PlantName);
+       u.setPlantID(idPlant);
+       up.add(u);}}
+    
+   
+               catch( Exception e ){
+            e.printStackTrace();}
+        finally {
+            if (s!=null){
+                try { s.close();}
+                catch( Exception e ){ e.printStackTrace();}
+            }
+            if (con!=null){
+                try {con.close();}
+                catch( Exception e ){ e.printStackTrace();}
+            }
+        }
+   return up;}*/
+   
+  
+
+}
+   
+       
+       
+   
+   
+   
+    
    
    
    

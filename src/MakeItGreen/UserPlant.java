@@ -4,7 +4,10 @@ package MakeItGreen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Vector;
 
 /**
@@ -15,11 +18,17 @@ public class UserPlant {
     String Date;
     public Plant p ;
     public User u ;
-   // Vector<date> date;
+String plantId;
+String PlantName;
+   Vector<UserPlant> up = new Vector<UserPlant>();
+    private String c;
+    private String userName;
     
+
+
     public UserPlant(){
         
-       // date= new Vector<date>();
+       //date= new Vector<date>();
     }
     
       public String getDate(){
@@ -36,9 +45,51 @@ public class UserPlant {
         this.date.add(d);
     }*/
     
-    public void setPlantId (Plant ID){
-       p = ID;
-    }
+   public void setPlantName (String plantName){
+this.PlantName =plantName;
+
+}
+
+public void setPlantID (String plantID){
+this.plantId =plantID;
+
+}
+
+   public void setUsertName (String userName){
+this.userName =userName;}
+   public static Vector<GregorianCalendar>loadDate(String userName,String idPlant){
+            Vector<GregorianCalendar> list = new Vector<GregorianCalendar>();
+            Connection con = null;
+            PreparedStatement pstmt = null;
+            try{
+            con = DBManager.getConnection();
+            String SQL = "SELECT date FROM group3.UserPlants where IdPlants = ? and UserName= ? and watring = 'yes'";
+            pstmt =con.prepareStatement(SQL);
+            pstmt.setString(1, idPlant);
+            pstmt.setString(2, userName);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                GregorianCalendar cal = new GregorianCalendar();
+                String d = rs.getString("date");
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = formatter.parse(d);
+                cal.setTime(date);
+                list.add(cal);
+            }
+            }catch(Exception e){
+                e.printStackTrace();
+            }finally {
+            if( pstmt != null )
+                try{ pstmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+         System.out.println(list);
+         return list;   
+        }
+
     
     /**public void save(){
         Connection con = null;
@@ -95,4 +146,6 @@ public class UserPlant {
  /**  public static Vector<UserPlant> loadUser(int ID){
    
 }*/
+ 
+   
 }

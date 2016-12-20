@@ -1,8 +1,8 @@
 
 package MakeItGreen;
 
-import houseplants.plantInfoFrame;
-import houseplants.profileFrame;
+//import houseplants.plantInfoFrame;
+//import houseplants.profileFrame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
@@ -16,10 +16,13 @@ import javax.swing.JOptionPane;
  */
 public class Frames extends javax.swing.JFrame {
 validation v = new validation();
-User u = new User();
-Plant p = new Plant();
-String user;  
-String plantId;
+ User u = new User();
+ Plant p = new Plant();
+public String user;  
+public String plantId;
+public String PlantName;
+
+
     public Frames() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,42 +32,14 @@ String plantId;
         profilrFrame.setVisible(false);
         infoFrame.setVisible(false);
         addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);
         pack();
-        user="";
-        plantId="";
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
-        plant8 = new javax.swing.JButton();
-        plant7 = new javax.swing.JButton();
-        plant10 = new javax.swing.JButton();
-        plant2 = new javax.swing.JButton();
-        plant12 = new javax.swing.JButton();
-        plant3 = new javax.swing.JButton();
-        plant14 = new javax.swing.JButton();
-        plant5 = new javax.swing.JButton();
-        plant13 = new javax.swing.JButton();
-        plant1 = new javax.swing.JButton();
-        plant11 = new javax.swing.JButton();
-        plant4 = new javax.swing.JButton();
-        plant6 = new javax.swing.JButton();
-        plant9 = new javax.swing.JButton();
-        plant15 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        plant20 = new javax.swing.JButton();
-        plant23 = new javax.swing.JButton();
-        plant25 = new javax.swing.JButton();
-        plant27 = new javax.swing.JButton();
-        plant29 = new javax.swing.JButton();
-        plant31 = new javax.swing.JButton();
-        plant34 = new javax.swing.JButton();
-        plant35 = new javax.swing.JButton();
-        plant37 = new javax.swing.JButton();
-        plant39 = new javax.swing.JButton();
         infoFrame = new javax.swing.JPanel();
         PlantNameLabel = new javax.swing.JLabel();
         watringLabel = new javax.swing.JLabel();
@@ -117,222 +92,13 @@ String plantId;
         plant36 = new javax.swing.JButton();
         plant38 = new javax.swing.JButton();
         plant40 = new javax.swing.JButton();
-
-        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        jFrame1.getContentPane().setLayout(null);
-
-        plant8.setText("Ficus elastica");
-        plant8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant8ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant8);
-        plant8.setBounds(530, 350, 204, 64);
-
-        plant7.setText("Chlorophytum comosum ");
-        plant7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant7ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant7);
-        plant7.setBounds(320, 350, 204, 64);
-
-        plant10.setText("Nephrolepis exaltata");
-        plant10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant10ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant10);
-        plant10.setBounds(320, 420, 204, 64);
-
-        plant2.setText("Peperomia spp");
-        plant2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant2ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant2);
-        plant2.setBounds(530, 200, 204, 64);
-
-        plant12.setText("Codiaeum variegatum");
-        plant12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant12ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant12);
-        plant12.setBounds(740, 420, 204, 64);
-
-        plant3.setText("Aglaonema commutatum");
-        plant3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant3ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant3);
-        plant3.setBounds(740, 200, 204, 64);
-
-        plant14.setText("Beaucarnea recurvata");
-        plant14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant14ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant14);
-        plant14.setBounds(530, 490, 204, 64);
-
-        plant5.setText("Dieffenbachia spp");
-        plant5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant5ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant5);
-        plant5.setBounds(530, 280, 204, 64);
-
-        plant13.setText("Dracaena marginata");
-        plant13.setToolTipText("");
-        plant13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant13ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant13);
-        plant13.setBounds(320, 490, 204, 64);
-
-        plant1.setText("Araucaria heterophylla");
-        plant1.setToolTipText("");
-        plant1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant1ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant1);
-        plant1.setBounds(320, 200, 204, 64);
-
-        plant11.setText("Aspidistra elatior");
-        plant11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant11ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant11);
-        plant11.setBounds(530, 420, 204, 64);
-
-        plant4.setText("Ficus lyrata");
-        plant4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant4ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant4);
-        plant4.setBounds(320, 280, 204, 64);
-
-        plant6.setText("Zamioculcas zamiifolia");
-        plant6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant6ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant6);
-        plant6.setBounds(740, 280, 204, 64);
-
-        plant9.setText("Dracaena deremensis");
-        plant9.setToolTipText("");
-        plant9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant9ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant9);
-        plant9.setBounds(740, 350, 204, 64);
-
-        plant15.setText("Schefflera actinophylla");
-        plant15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant15ActionPerformed(evt);
-            }
-        });
-        jFrame1.getContentPane().add(plant15);
-        plant15.setBounds(740, 490, 204, 64);
-        jFrame1.getContentPane().add(jLabel2);
-        jLabel2.setBounds(300, 180, 660, 390);
-
-        plant20.setText("Dieffenbachia spp");
-        plant20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant20ActionPerformed(evt);
-            }
-        });
-
-        plant23.setText("Chlorophytum comosum ");
-        plant23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant23ActionPerformed(evt);
-            }
-        });
-
-        plant25.setText("Ficus elastica");
-        plant25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant25ActionPerformed(evt);
-            }
-        });
-
-        plant27.setText("Dracaena deremensis");
-        plant27.setToolTipText("");
-        plant27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant27ActionPerformed(evt);
-            }
-        });
-
-        plant29.setText("Nephrolepis exaltata");
-        plant29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant29ActionPerformed(evt);
-            }
-        });
-
-        plant31.setText("Aspidistra elatior");
-        plant31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant31ActionPerformed(evt);
-            }
-        });
-
-        plant34.setText("Dracaena marginata");
-        plant34.setToolTipText("");
-        plant34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant34ActionPerformed(evt);
-            }
-        });
-
-        plant35.setText("Dracaena marginata");
-        plant35.setToolTipText("");
-        plant35.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant35ActionPerformed(evt);
-            }
-        });
-
-        plant37.setText("Beaucarnea recurvata");
-        plant37.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant37ActionPerformed(evt);
-            }
-        });
-
-        plant39.setText("Schefflera actinophylla");
-        plant39.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant39ActionPerformed(evt);
-            }
-        });
+        forgotPassword = new javax.swing.JPanel();
+        userNameFPText = new javax.swing.JLabel();
+        userNameFP = new javax.swing.JTextField();
+        passwordFPText = new javax.swing.JLabel();
+        passwordFP = new javax.swing.JPasswordField();
+        backFP = new javax.swing.JButton();
+        updateFP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -376,6 +142,11 @@ String plantId;
         });
 
         calender.setText("Calender");
+        calender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calenderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout infoFrameLayout = new javax.swing.GroupLayout(infoFrame);
         infoFrame.setLayout(infoFrameLayout);
@@ -402,10 +173,10 @@ String plantId;
                             .addComponent(waterYes)
                             .addGap(72, 72, 72)
                             .addComponent(waterNo))))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoFrameLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
         infoFrameLayout.setVerticalGroup(
@@ -570,19 +341,18 @@ String plantId;
                     .addGroup(signUpFrameLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6)
-                        .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(signUpFrameLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(signUpButton))
-                            .addGroup(signUpFrameLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(passwordCon, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))))
+                        .addGap(16, 16, 16)
+                        .addComponent(passwordCon))
                     .addGroup(signUpFrameLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(PasswordLabel)
                         .addGap(18, 18, 18)
                         .addComponent(passwordF)))
                 .addContainerGap())
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(signUpButton)
+                .addGap(26, 241, Short.MAX_VALUE))
         );
         signUpFrameLayout.setVerticalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -848,60 +618,119 @@ String plantId;
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
+        userNameFPText.setText("username");
+
+        passwordFPText.setText("new password");
+
+        backFP.setText("back");
+        backFP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backFPActionPerformed(evt);
+            }
+        });
+
+        updateFP.setText("update");
+        updateFP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateFPActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout forgotPasswordLayout = new javax.swing.GroupLayout(forgotPassword);
+        forgotPassword.setLayout(forgotPasswordLayout);
+        forgotPasswordLayout.setHorizontalGroup(
+            forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(forgotPasswordLayout.createSequentialGroup()
+                        .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(userNameFPText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(passwordFPText)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userNameFP)
+                            .addComponent(passwordFP, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)))
+                    .addGroup(forgotPasswordLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(backFP, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(updateFP, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        forgotPasswordLayout.setVerticalGroup(
+            forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userNameFPText)
+                    .addComponent(userNameFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(passwordFPText)
+                    .addComponent(passwordFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126)
+                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backFP)
+                    .addComponent(updateFP))
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(733, 733, 733)
+                .addComponent(infoFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(infoFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(102, 102, 102))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(addPlantFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(300, 300, 300)
+                        .addComponent(addPlantFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(361, 361, 361)
+                                .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(344, 344, 344)
+                                .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(144, 144, 144)
+                        .addComponent(forgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(infoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(164, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(addPlantFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(16, 16, 16)
+                .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(infoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(420, 420, 420)
+                .addComponent(forgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(456, 456, 456)
+                .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(addPlantFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void clear(){
-        userNameS.setText("");
-        password.setText(""); 
-}
 
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
@@ -912,58 +741,11 @@ signInFrame.setVisible(true);
 profilrFrame.setVisible(false);
 infoFrame.setVisible(false);
 addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);
 pack();
-
-    
 
     }//GEN-LAST:event_signInActionPerformed
 
-   public boolean addUser(){
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        try{
-            String query ;
-            con = DBManager.getConnection();
-    if((!u.isUserNameExist(userNameS.getText()))&&(u.comparePassword(passwordF.getText(),passwordCon.getText()))&&
-            (u.isPasswordValid(passwordF.getText()))&&(u.isValidEmail(email.getText()))){
-            
-        query = "INSERT INTO User VALUES (?,?,?)";
-        pstmt = con.prepareStatement(query);
-        pstmt.setString(1, ""+userNameS.getText());
-        pstmt.setString(2, ""+email.getText());
-        pstmt.setString(3, ""+passwordF.getText());
-        System.out.println("added");
-        int result = pstmt.executeUpdate();
-        if(result == 1){ 
-          return true;
-         } 
-        
-        
-        }        
-        }catch( Exception e ){
-              e.printStackTrace();
-        }
-        finally {
-            if(pstmt != null)
-        try{pstmt.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-            if(con != null) 
-        try{ con.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-        }
-        return false;
-}
-   
-   public void clear1(){
-        userNameS.setText("");
-        email.setText("");
-        passwordF.setText("");
-        passwordCon.setText("");
-    }
     
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
 // sign up
@@ -973,6 +755,7 @@ signInFrame.setVisible(false);
 profilrFrame.setVisible(false);
 infoFrame.setVisible(false);
 addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);
 pack();
 
     }//GEN-LAST:event_signUpActionPerformed
@@ -988,9 +771,12 @@ if(v.isUserNameAndpaswordExist(user,password.getText())) {
     profilrFrame.setVisible(true);
     infoFrame.setVisible(false);
     addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);
     pack();
     User u = new User();
+    UserPlant us = new UserPlant();
     u.setUsername(user);
+    us.setUsertName(user);
 }
 else{
     JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);  
@@ -1000,22 +786,38 @@ else{
     profilrFrame.setVisible(false);
     infoFrame.setVisible(false);
     addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);
     pack();
    }
-    clear();
+    u.clear(password);
 
     }//GEN-LAST:event_signInButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
 // sign up - profile
-welcomeFrame.setVisible(false);
+
+pack();
+boolean check = u.addUser(userNameS, email,passwordF, passwordCon);
+if(check != true){
+JOptionPane.showMessageDialog(null,"your information does not correct , Please try again");
+           u.clear1(userNameS, email,passwordF, passwordCon);
+signUpFrame.setVisible(true);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(false);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);
+pack();}
+else{ 
+    JOptionPane.showMessageDialog(null,"your sign up done succ");
 signUpFrame.setVisible(false);
 signInFrame.setVisible(false);
 profilrFrame.setVisible(true);
 infoFrame.setVisible(false);
 addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);
 pack();
-addUser();
+}
     }//GEN-LAST:event_signUpButtonActionPerformed
 
     private void addPlantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlantButtonActionPerformed
@@ -1025,6 +827,7 @@ addUser();
         profilrFrame.setVisible(false);
         infoFrame.setVisible(false);
         addPlantFrame.setVisible(true);
+        forgotPassword.setVisible(false);
         pack();
     }//GEN-LAST:event_addPlantButtonActionPerformed
 
@@ -1036,7 +839,9 @@ addUser();
         Plant p = new Plant();
         User u = new User();
         user = userName.getText();
-        plantId = idPlantText.getText();
+        //System.out.println(plantId);
+        String plantId2 = idPlantText.getText();
+
         String water = "";
      
         if( waterYes.isSelected()){
@@ -1052,7 +857,11 @@ addUser();
         
         u.setUsername(user);
         p.setPlantId(plantId);
-        p.save(user,plantId,Date,water);
+        
+        if (plantId!=null)
+            p.save(user,plantId,Date,water);
+        else
+        p.save(user,plantId2,Date,water);
 
     }//GEN-LAST:event_doneButtonActionPerformed
 
@@ -1078,8 +887,10 @@ else {
     signInFrame.setVisible(false);
     profilrFrame.setVisible(false);
     infoFrame.setVisible(true);
-    pack();}
- 
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    pack();
+}
     }//GEN-LAST:event_okeyButtonActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -1090,6 +901,7 @@ else {
     profilrFrame.setVisible(true);
     infoFrame.setVisible(false);
     addPlantFrame.setVisible(false);
+     forgotPassword.setVisible(false);
     pack();
     }//GEN-LAST:event_backActionPerformed
 
@@ -1102,194 +914,20 @@ else {
     }//GEN-LAST:event_userNameActionPerformed
 
     private void forgetPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPasswordButtonActionPerformed
-	
+welcomeFrame.setVisible(false);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(false);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(true);	
+ pack();	
 
     }//GEN-LAST:event_forgetPasswordButtonActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
-
-    private void plant8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant8ActionPerformed
-        String plant8 = "An old-fashioned classic, rubber tree gets its name from the sticky, milky sap it exudes if injured. It eventually grows \n "
-        + "into a large tree, but you can easily keep it shorter by pruning back long stems, causing it to branch into a multi-stemmed shrub.\n "
-        + "\n \n Note: In frost-free areas, you may see rubber trees as a full-size shade trees outdoors."
-        + "\n\n Why We Love It:\n "
-        + " Its big, dark green shiny leaves definitely make a statement. The older plants get, the larger they become a good-sized rubber\n"
-        + " tree makes a big, dramatic accent in any room."
-        + "\n\n insert (08) if you have it ..";
-
-        String plant8ID= JOptionPane.showInputDialog(plant8);
-        
-    }//GEN-LAST:event_plant8ActionPerformed
-
-    private void plant7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant7ActionPerformed
-        String plant7 = "You may remember this from your grandmother's house; spider plants have been grown for years and are still popular today."
-        + "\n Look for a number of varieties -- from types with plain green leaves to others that offer foliage marked with cream or white "
-        + "\n stripes. All make handsome hanging plants that develop plantlets at the ends of arching stems. These babies readily root in "
-        + "\n water or potting soil to start new plants."
-        + "\n\n Why We Love It: \n It offers tons of old-fashioned appeal and an easy-care nature."
-        + "\n\n insert(07) if you have it ..";
-
-        String plant7ID= JOptionPane.showInputDialog(plant7);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant7ID);
-    }//GEN-LAST:event_plant7ActionPerformed
-
-    private void plant10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant10ActionPerformed
-        String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
-        + "\n delicate appearance mislead you, though: This tough plant that will live for decades if you keep it moist and give it "
-        + "\n moderate light and enough humidity. The variety 'Dallas' is more compact and more tolerant of dry air."
-        + "\n\n Why We Love It:\n"
-        + " Boston ferns create a classic feel in any room. Their beautiful, arching fronds work well with any decorating style but\n"
-        + " especially cottage and country."
-        + "\n\n insert (10) if you have it .. ";
-
-        String plant10ID= JOptionPane.showInputDialog(plant10);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant10ID);
-    }//GEN-LAST:event_plant10ActionPerformed
-
-    private void plant2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant2ActionPerformed
-        String plant2 = "Peperomias are a diverse group of small houseplants with waxy and often highly textured leaves. "
-        + "\n Red-edge peperomia (pictured) has a narrow band of red surrounding a wide creamy leaf margin."
-        + "\n Other peperomias we love include ripple peperomia, watermelon peperomia, baby rubber plant, and silverleaf "
-        + "\n peperomia."
-        + "\n \n Why We Love It: \n Its waxy, colorful foliage adds a splash of color in any room \n "
-        + "without taking up a lot of space."
-        + "\n\n insert (02) if you have it";
-
-        String plant2ID= JOptionPane.showInputDialog(plant2);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant2ID);
-    }//GEN-LAST:event_plant2ActionPerformed
-
-    private void plant12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant12ActionPerformed
-        String plant12 ="While this showy shrub survives in low light levels, its foliage shows the best color in bright spots. Its gold, pink,"
-        + "\n and orange tones glow when backlit from a sunny window. Wash the leaves occasionally to maintain their shine and keep it "
-        + "\n looking dramatic."
-        + "\n\n Why We Love It: \n It has beautiful, leathery leaves with exotic and colorful markings."
-        + "\n insert (12) if you have it ..";
-
-        String plant12ID= JOptionPane.showInputDialog(plant12);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant12ID);
-    }//GEN-LAST:event_plant12ActionPerformed
-
-    private void plant3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant3ActionPerformed
-        String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
-        + "\n making Chinese evergreen an attractive choice to brighten low-light areas of your home. Take a cue from shopping"
-        + "\n  mall plantings and use Chinese evergreen as a ground cover around an upright, treelike houseplant. Or showcase it "
-        + "\n alone as a specimen plant."
-        + "\n \n Why We Love It: \n It's extra tough and has attractive leaves that brighten low light spots"
-        + "\n\n insert (03) if you have it ";
-
-        String plant3ID= JOptionPane.showInputDialog(plant3);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant3ID);
-    }//GEN-LAST:event_plant3ActionPerformed
-
-    private void plant14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant14ActionPerformed
-        String plant14 ="Despite its common name, this plant is a succulent rather than a true palm. Its graceful arching leaves are always"
-        + "\n  attractive and its swollen trunk looks great, too. (The trunk holds moisture for the plant.) Keep your ponytail palm in "
-        + "\n a container only a couple of inches wider than its trunk base to control its size. It is sometimes sold as Nolina recurvata."
-        + "\n\n Why We Love It: \n  Because the trunk actually stores moisture, ponytail palm can survive for long periods without watering."
-        + "\n\n insert (14) if you have it ..";
-        String plant14ID= JOptionPane.showInputDialog(plant14);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant14ID);
-    }//GEN-LAST:event_plant14ActionPerformed
-
-    private void plant5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant5ActionPerformed
-        String plant5 = "Several closely related species share the common name of dieffenbachia. All produce canelike stems with lush foliage"
-        + "\n variegated in green and white. Grow one by itself to for a tree appearance or several together in a single container for"
-        + "\n a shrubby look. One of the plant's common names, dumb cane, comes from the effect of the toxic sap that if eaten causes "
-        + "\n swelling and numbness in the mouth and throat."
-        + " \n\n Why We Love It:\n  Its large, green-and-white leaves create a decidedly tropical look to any room of your home \n "
-        + "(and it's great for decorating decks and patios in the summer)."
-        + "\n\n insert(05) if you have it ..";
-
-        String plant5ID= JOptionPane.showInputDialog(plant5);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant5ID);
-    }//GEN-LAST:event_plant5ActionPerformed
-
-    private void plant13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant13ActionPerformed
-        String plant13 = "This plant is as impressive as its name. It bears tufts of long, narrow, deep green leaves edged in red at the tips of "
-        + "\n woody gray stems. Young plants are shrubbier, but soon grow more upright. The variety 'Tricolor' has pink-and-cream leaf "
-        + "\n margins, and is sometimes known as rainbow plant."
-        + "\n\n Why We Love It: \n Its grassy leaves on tall stems give it a festive appearance."
-        + "\n\n insert (13) if you have it ..";
-
-        String plant13ID= JOptionPane.showInputDialog(plant13);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant13ID);
-    }//GEN-LAST:event_plant13ActionPerformed
-
-    private void plant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant1ActionPerformed
-
-        String plant1="The secret to keeping Norfolk Island pine healthy is to give it ample light and humidity. "
-        + "\n In low light, the lower branches may turn brown and fall off. If the air is too dry, it becomes a"
-        + " \n prime target for spider mites, a common houseplant pest. In its native habitat, Norfolk Island"
-        + "\n  pine can reach 200 feet tall, but don't worry -- indoors, it seldom grows taller than 10 feet."
-        + "\n \n  Why We Love It: \n This tree is perfect for decorating for Christmas -- or giving as a holiday gift."
-        + " Outside the holidays, \n its soft texture adds a cozy feeling to any room."
-        + " \n \n insert (01) if you have it ..";
-
-        String plant1ID= JOptionPane.showInputDialog(plant1);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant1ID);
-    }//GEN-LAST:event_plant1ActionPerformed
-
-    private void plant11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant11ActionPerformed
-        String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
-        + "\n of temperatures. It grows slowly so purchase a plant that is large enough for the space in which you intend to use it."
-        + "\n Several varieties have white or yellow variegation on their leaves."
-        + "\n\n Why We Love It:"
-        + "\n This plant really lives up to its name: It's nearly indestructible."
-        + "\n insert (11) if you have it ..";
-        String plant11ID= JOptionPane.showInputDialog(plant11);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant11ID);
-    }//GEN-LAST:event_plant11ActionPerformed
-
-    private void plant4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant4ActionPerformed
-        String plant4 = "Fiddleleaf fig is a beautiful tree that gets its common name comes from the violin-shape outline of its leathery, "
-        + "\n deep green leaves. It tolerates low light well, though it may lose its lower leaves in dim spots. If your fiddleleaf"
-        + "\n fig grows too tall, prune stems back to the desired height, or start a new plant by air layering elongated shoots."
-        + "\n\n Why We Love It: This is one of the classiest-looking indoor trees thanks to its big leaves and the shape it forms"
-        + "\n as it grows."
-        + "\n\n insert (04) if you have it ..";
-
-        String plant4ID= JOptionPane.showInputDialog(plant4);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant4ID);
-    }//GEN-LAST:event_plant4ActionPerformed
-
-    private void plant6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant6ActionPerformed
-        String plant6 ="Sometimes called eternity plant because it lasts so long, succulent zeezee plant tolerates low light and neglect."
-        + "\n The thick, fleshy leafstalks are so durable that you might even think it's plastic. It is a slow grower, so purchase "
-        + "\n a large plant if you want a big specimen. Cut stems remain green and healthy in appearance for several weeks, even without"
-        + "\n  water."
-        + "\n\n Why We Love It: \n This plant is so easy it's almost a challenge to kill it."
-        + "\n\n insert(06) if you have it ..";
-        String plant6ID= JOptionPane.showInputDialog(plant6);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant6ID);
-    }//GEN-LAST:event_plant6ActionPerformed
-
-    private void plant9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant9ActionPerformed
-        String plant9 = "Some varieties of green dracaena, such as 'Janet Craig' have solid green leaves. Others such as 'Warneckii' "
-        + "\n (pictured), bear white, cream, gold or chartreuse stripes on their foliage. All form compact rosettes when young,"
-        + "\n  but eventually become striking upright foliage plants. They tolerate low light, but produce better color in medium \n"
-        + "to bright light."
-        + "\n\n Why We Love It:\n "
-        + " It's a durable, upright plant with good-looking leaves."
-        + "\n\n insert (09) if you have it ..";
-
-        String plant9ID= JOptionPane.showInputDialog(plant9);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant9ID);
-    }//GEN-LAST:event_plant9ActionPerformed
-
-    private void plant15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant15ActionPerformed
-        String plant15 = "Also commonly called umbrella tree, this plant offers glossy foliage with leaflets that radiate out from a central"
-        + "\n spoke, similar to the ribs of an umbrella. A close relative, dwarf schefflera (Schefflera arboricola) has smaller, "
-        + "\n thickerleaflets and shorter stems. Both are sometimes classified in the genus Brassaia."
-        + "\n\n Why We Love It:\n "
-        + " Its large glossy green leaves create instant tropical flair."
-        + "\n\n insert (15) if you have it ..";
-
-        String plant15ID= JOptionPane.showInputDialog(plant15);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant15ID);
-    }//GEN-LAST:event_plant15ActionPerformed
 
     private void plant16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant16ActionPerformed
 
@@ -1300,9 +938,32 @@ else {
         + "\n \n  Why We Love It: \n This tree is perfect for decorating for Christmas -- or giving as a holiday gift."
         + " Outside the holidays, \n its soft texture adds a cozy feeling to any room."
         + " \n \n insert (01) if you have it ..";
-
-        String plant1ID= JOptionPane.showInputDialog(plant1);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant1ID);
+       plantId = JOptionPane.showInputDialog(plant1);
+       System.out.println(plantId);
+        if(p.isidPlantExist(plantId)) {
+      
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+     
+     
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();}
+   
     }//GEN-LAST:event_plant16ActionPerformed
 
     private void plant17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant17ActionPerformed
@@ -1315,11 +976,30 @@ else {
         + "\n\n insert (02) if you have it";
 
         String plant2ID= JOptionPane.showInputDialog(plant2);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant2ID);
+             if(p.isidPlantExist(plant2ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant17ActionPerformed
 
     private void plant18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant18ActionPerformed
-        String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
+       String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
         + "\n making Chinese evergreen an attractive choice to brighten low-light areas of your home. Take a cue from shopping"
         + "\n  mall plantings and use Chinese evergreen as a ground cover around an upright, treelike houseplant. Or showcase it "
         + "\n alone as a specimen plant."
@@ -1327,7 +1007,26 @@ else {
         + "\n\n insert (03) if you have it ";
 
         String plant3ID= JOptionPane.showInputDialog(plant3);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant3ID);
+               if(p.isidPlantExist(plant3ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant18ActionPerformed
 
     private void plant19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant19ActionPerformed
@@ -1339,21 +1038,27 @@ else {
         + "\n\n insert (04) if you have it ..";
 
         String plant4ID= JOptionPane.showInputDialog(plant4);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant4ID);
+               if(p.isidPlantExist(plant4ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant19ActionPerformed
-
-    private void plant20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant20ActionPerformed
-        String plant5 = "Several closely related species share the common name of dieffenbachia. All produce canelike stems with lush foliage"
-        + "\n variegated in green and white. Grow one by itself to for a tree appearance or several together in a single container for"
-        + "\n a shrubby look. One of the plant's common names, dumb cane, comes from the effect of the toxic sap that if eaten causes "
-        + "\n swelling and numbness in the mouth and throat."
-        + " \n\n Why We Love It:\n  Its large, green-and-white leaves create a decidedly tropical look to any room of your home \n "
-        + "(and it's great for decorating decks and patios in the summer)."
-        + "\n\n insert(05) if you have it ..";
-
-        String plant5ID= JOptionPane.showInputDialog(plant5);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant5ID);
-    }//GEN-LAST:event_plant20ActionPerformed
 
     private void plant21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant21ActionPerformed
         String plant5 = "Several closely related species share the common name of dieffenbachia. All produce canelike stems with lush foliage"
@@ -1365,7 +1070,26 @@ else {
         + "\n\n insert(05) if you have it ..";
 
         String plant5ID= JOptionPane.showInputDialog(plant5);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant5ID);
+               if(p.isidPlantExist(plant5ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant21ActionPerformed
 
     private void plant22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant22ActionPerformed
@@ -1376,23 +1100,30 @@ else {
         + "\n\n Why We Love It: \n This plant is so easy it's almost a challenge to kill it."
         + "\n\n insert(06) if you have it ..";
         String plant6ID= JOptionPane.showInputDialog(plant6);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant6ID);
+               if(p.isidPlantExist(plant6ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant22ActionPerformed
 
-    private void plant23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant23ActionPerformed
-        String plant7 = "You may remember this from your grandmother's house; spider plants have been grown for years and are still popular today."
-        + "\n Look for a number of varieties -- from types with plain green leaves to others that offer foliage marked with cream or white "
-        + "\n stripes. All make handsome hanging plants that develop plantlets at the ends of arching stems. These babies readily root in "
-        + "\n water or potting soil to start new plants."
-        + "\n\n Why We Love It: \n It offers tons of old-fashioned appeal and an easy-care nature."
-        + "\n\n insert(07) if you have it ..";
-
-        String plant7ID= JOptionPane.showInputDialog(plant7);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant7ID);
-    }//GEN-LAST:event_plant23ActionPerformed
-
     private void plant24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant24ActionPerformed
-        String plant7 = "You may remember this from your grandmother's house; spider plants have been grown for years and are still popular today."
+       String plant7 = "You may remember this from your grandmother's house; spider plants have been grown for years and are still popular today."
         + "\n Look for a number of varieties -- from types with plain green leaves to others that offer foliage marked with cream or white "
         + "\n stripes. All make handsome hanging plants that develop plantlets at the ends of arching stems. These babies readily root in "
         + "\n water or potting soil to start new plants."
@@ -1400,24 +1131,30 @@ else {
         + "\n\n insert(07) if you have it ..";
 
         String plant7ID= JOptionPane.showInputDialog(plant7);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant7ID);
+               if(p.isidPlantExist(plant7ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant24ActionPerformed
 
-    private void plant25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant25ActionPerformed
-        String plant8 = "An old-fashioned classic, rubber tree gets its name from the sticky, milky sap it exudes if injured. It eventually grows \n "
-        + "into a large tree, but you can easily keep it shorter by pruning back long stems, causing it to branch into a multi-stemmed shrub.\n "
-        + "\n \n Note: In frost-free areas, you may see rubber trees as a full-size shade trees outdoors."
-        + "\n\n Why We Love It:\n "
-        + " Its big, dark green shiny leaves definitely make a statement. The older plants get, the larger they become a good-sized rubber\n"
-        + " tree makes a big, dramatic accent in any room."
-        + "\n\n insert (08) if you have it ..";
-
-        String plant8ID= JOptionPane.showInputDialog(plant8);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant8ID);
-    }//GEN-LAST:event_plant25ActionPerformed
-
     private void plant26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant26ActionPerformed
-        String plant8 = "An old-fashioned classic, rubber tree gets its name from the sticky, milky sap it exudes if injured. It eventually grows \n "
+       String plant8 = "An old-fashioned classic, rubber tree gets its name from the sticky, milky sap it exudes if injured. It eventually grows \n "
         + "into a large tree, but you can easily keep it shorter by pruning back long stems, causing it to branch into a multi-stemmed shrub.\n "
         + "\n \n Note: In frost-free areas, you may see rubber trees as a full-size shade trees outdoors."
         + "\n\n Why We Love It:\n "
@@ -1426,24 +1163,30 @@ else {
         + "\n\n insert (08) if you have it ..";
 
         String plant8ID= JOptionPane.showInputDialog(plant8);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant8ID);
+               if(p.isidPlantExist(plant8ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant26ActionPerformed
 
-    private void plant27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant27ActionPerformed
-        String plant9 = "Some varieties of green dracaena, such as 'Janet Craig' have solid green leaves. Others such as 'Warneckii' "
-        + "\n (pictured), bear white, cream, gold or chartreuse stripes on their foliage. All form compact rosettes when young,"
-        + "\n  but eventually become striking upright foliage plants. They tolerate low light, but produce better color in medium \n"
-        + "to bright light."
-        + "\n\n Why We Love It:\n "
-        + " It's a durable, upright plant with good-looking leaves."
-        + "\n\n insert (09) if you have it ..";
-
-        String plant9ID= JOptionPane.showInputDialog(plant9);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant9ID);
-    }//GEN-LAST:event_plant27ActionPerformed
-
     private void plant28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant28ActionPerformed
-        String plant9 = "Some varieties of green dracaena, such as 'Janet Craig' have solid green leaves. Others such as 'Warneckii' "
+       String plant9 = "Some varieties of green dracaena, such as 'Janet Craig' have solid green leaves. Others such as 'Warneckii' "
         + "\n (pictured), bear white, cream, gold or chartreuse stripes on their foliage. All form compact rosettes when young,"
         + "\n  but eventually become striking upright foliage plants. They tolerate low light, but produce better color in medium \n"
         + "to bright light."
@@ -1452,24 +1195,30 @@ else {
         + "\n\n insert (09) if you have it ..";
 
         String plant9ID= JOptionPane.showInputDialog(plant9);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant9ID);
+               if(p.isidPlantExist(plant9ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant28ActionPerformed
 
-    private void plant29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant29ActionPerformed
-        String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
-        + "\n delicate appearance mislead you, though: This tough plant that will live for decades if you keep it moist and give it "
-        + "\n moderate light and enough humidity. The variety 'Dallas' is more compact and more tolerant of dry air."
-        + "\n\n Why We Love It:\n"
-        + " Boston ferns create a classic feel in any room. Their beautiful, arching fronds work well with any decorating style but\n"
-        + " especially cottage and country."
-        + "\n\n insert (10) if you have it .. ";
-
-        String plant10ID= JOptionPane.showInputDialog(plant10);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant10ID);
-    }//GEN-LAST:event_plant29ActionPerformed
-
     private void plant30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant30ActionPerformed
-        String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
+         String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
         + "\n delicate appearance mislead you, though: This tough plant that will live for decades if you keep it moist and give it "
         + "\n moderate light and enough humidity. The variety 'Dallas' is more compact and more tolerant of dry air."
         + "\n\n Why We Love It:\n"
@@ -1478,29 +1227,56 @@ else {
         + "\n\n insert (10) if you have it .. ";
 
         String plant10ID= JOptionPane.showInputDialog(plant10);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant10ID);
+               if(p.isidPlantExist(plant10ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+               }
     }//GEN-LAST:event_plant30ActionPerformed
 
-    private void plant31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant31ActionPerformed
-        String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
-        + "\n of temperatures. It grows slowly so purchase a plant that is large enough for the space in which you intend to use it."
-        + "\n Several varieties have white or yellow variegation on their leaves."
-        + "\n\n Why We Love It:"
-        + "\n This plant really lives up to its name: It's nearly indestructible."
-        + "\n insert (11) if you have it ..";
-        String plant11ID= JOptionPane.showInputDialog(plant11);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant11ID);
-    }//GEN-LAST:event_plant31ActionPerformed
-
     private void plant32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant32ActionPerformed
-        String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
+      String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
         + "\n of temperatures. It grows slowly so purchase a plant that is large enough for the space in which you intend to use it."
         + "\n Several varieties have white or yellow variegation on their leaves."
         + "\n\n Why We Love It:"
         + "\n This plant really lives up to its name: It's nearly indestructible."
         + "\n insert (11) if you have it ..";
         String plant11ID= JOptionPane.showInputDialog(plant11);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant11ID);
+               if(p.isidPlantExist(plant11ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant32ActionPerformed
 
     private void plant33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant33ActionPerformed
@@ -1511,30 +1287,27 @@ else {
         + "\n insert (12) if you have it ..";
 
         String plant12ID= JOptionPane.showInputDialog(plant12);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant12ID);
+               if(p.isidPlantExist(plant12ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant33ActionPerformed
-
-    private void plant34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant34ActionPerformed
-        String plant13 = "This plant is as impressive as its name. It bears tufts of long, narrow, deep green leaves edged in red at the tips of "
-        + "\n woody gray stems. Young plants are shrubbier, but soon grow more upright. The variety 'Tricolor' has pink-and-cream leaf "
-        + "\n margins, and is sometimes known as rainbow plant."
-        + "\n\n Why We Love It: \n Its grassy leaves on tall stems give it a festive appearance."
-        + "\n\n insert (13) if you have it ..";
-
-        String plant13ID= JOptionPane.showInputDialog(plant13);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant13ID);
-    }//GEN-LAST:event_plant34ActionPerformed
-
-    private void plant35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant35ActionPerformed
-        String plant13 = "This plant is as impressive as its name. It bears tufts of long, narrow, deep green leaves edged in red at the tips of "
-        + "\n woody gray stems. Young plants are shrubbier, but soon grow more upright. The variety 'Tricolor' has pink-and-cream leaf "
-        + "\n margins, and is sometimes known as rainbow plant."
-        + "\n\n Why We Love It: \n Its grassy leaves on tall stems give it a festive appearance."
-        + "\n\n insert (13) if you have it ..";
-
-        String plant13ID= JOptionPane.showInputDialog(plant13);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant13ID);
-    }//GEN-LAST:event_plant35ActionPerformed
 
     private void plant36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant36ActionPerformed
         String plant13 = "This plant is as impressive as its name. It bears tufts of long, narrow, deep green leaves edged in red at the tips of "
@@ -1544,40 +1317,57 @@ else {
         + "\n\n insert (13) if you have it ..";
 
         String plant13ID= JOptionPane.showInputDialog(plant13);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant13ID);
+               if(p.isidPlantExist(plant13ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant36ActionPerformed
 
-    private void plant37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant37ActionPerformed
-        String plant14 ="Despite its common name, this plant is a succulent rather than a true palm. Its graceful arching leaves are always"
-        + "\n  attractive and its swollen trunk looks great, too. (The trunk holds moisture for the plant.) Keep your ponytail palm in "
-        + "\n a container only a couple of inches wider than its trunk base to control its size. It is sometimes sold as Nolina recurvata."
-        + "\n\n Why We Love It: \n  Because the trunk actually stores moisture, ponytail palm can survive for long periods without watering."
-        + "\n\n insert (14) if you have it ..";
-        String plant14ID= JOptionPane.showInputDialog(plant14);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant14ID);
-    }//GEN-LAST:event_plant37ActionPerformed
-
     private void plant38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant38ActionPerformed
-        String plant14 ="Despite its common name, this plant is a succulent rather than a true palm. Its graceful arching leaves are always"
+         String plant14 ="Despite its common name, this plant is a succulent rather than a true palm. Its graceful arching leaves are always"
         + "\n  attractive and its swollen trunk looks great, too. (The trunk holds moisture for the plant.) Keep your ponytail palm in "
         + "\n a container only a couple of inches wider than its trunk base to control its size. It is sometimes sold as Nolina recurvata."
         + "\n\n Why We Love It: \n  Because the trunk actually stores moisture, ponytail palm can survive for long periods without watering."
         + "\n\n insert (14) if you have it ..";
         String plant14ID= JOptionPane.showInputDialog(plant14);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant14ID);
+               if(p.isidPlantExist(plant14ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
+ 
     }//GEN-LAST:event_plant38ActionPerformed
-
-    private void plant39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant39ActionPerformed
-        String plant15 = "Also commonly called umbrella tree, this plant offers glossy foliage with leaflets that radiate out from a central"
-        + "\n spoke, similar to the ribs of an umbrella. A close relative, dwarf schefflera (Schefflera arboricola) has smaller, "
-        + "\n thickerleaflets and shorter stems. Both are sometimes classified in the genus Brassaia."
-        + "\n\n Why We Love It:\n "
-        + " Its large glossy green leaves create instant tropical flair."
-        + "\n\n insert (15) if you have it ..";
-
-        String plant15ID= JOptionPane.showInputDialog(plant15);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant15ID);
-    }//GEN-LAST:event_plant39ActionPerformed
 
     private void plant40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant40ActionPerformed
         String plant15 = "Also commonly called umbrella tree, this plant offers glossy foliage with leaflets that radiate out from a central"
@@ -1588,8 +1378,64 @@ else {
         + "\n\n insert (15) if you have it ..";
 
         String plant15ID= JOptionPane.showInputDialog(plant15);
-        plantInfoFrame plant1Info = new plantInfoFrame (plant15ID);
+               if(p.isidPlantExist(plant15ID)) {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(true);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(false);
+     pack();
+        }
+    else {
+     welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    addPlantFrame.setVisible(true);
+     pack();
+            }
     }//GEN-LAST:event_plant40ActionPerformed
+
+    private void backFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFPActionPerformed
+    welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(true);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);	
+    pack();
+    }//GEN-LAST:event_backFPActionPerformed
+
+    private void updateFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFPActionPerformed
+if(v.isPasswordValid(passwordFP.getText())){
+    u.ubdateUesr(passwordFP.getText(),userNameFP.getText());
+    welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(true);
+    infoFrame.setVisible(false);
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);	
+     pack(); 
+} else {
+        JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);   
+        }
+        u.clear(passwordFP);       
+    }//GEN-LAST:event_updateFPActionPerformed
+
+    private void calenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calenderActionPerformed
+        // TODO add your handling code here:
+       UserPlant p = new UserPlant();
+       user = userName.getText();
+       plantId = idPlantText.getText();
+       Calender cal = new Calender();
+       cal.setList(p.loadDate(user,plantId));
+    }//GEN-LAST:event_calenderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel PasswordLabel;
@@ -1597,64 +1443,41 @@ else {
     private javax.swing.JButton addPlantButton;
     public javax.swing.JPanel addPlantFrame;
     public javax.swing.JButton back;
+    private javax.swing.JButton backFP;
     private javax.swing.JButton calender;
     public javax.swing.JButton delete;
     private javax.swing.JButton doneButton;
     public javax.swing.JTextField email;
     public javax.swing.JLabel emailLabel;
     public javax.swing.JButton forgetPasswordButton;
+    private javax.swing.JPanel forgotPassword;
     private javax.swing.JTextField idPlantText;
     public javax.swing.JPanel infoFrame;
-    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton okeyButton;
     public javax.swing.JPasswordField password;
     public javax.swing.JPasswordField passwordCon;
     public javax.swing.JPasswordField passwordF;
+    private javax.swing.JPasswordField passwordFP;
+    private javax.swing.JLabel passwordFPText;
     public javax.swing.JLabel passwordLabel;
-    public javax.swing.JButton plant1;
-    public javax.swing.JButton plant10;
-    public javax.swing.JButton plant11;
-    public javax.swing.JButton plant12;
-    public javax.swing.JButton plant13;
-    public javax.swing.JButton plant14;
-    public javax.swing.JButton plant15;
     public javax.swing.JButton plant16;
     public javax.swing.JButton plant17;
     public javax.swing.JButton plant18;
     public javax.swing.JButton plant19;
-    public javax.swing.JButton plant2;
-    public javax.swing.JButton plant20;
     public javax.swing.JButton plant21;
     public javax.swing.JButton plant22;
-    public javax.swing.JButton plant23;
     public javax.swing.JButton plant24;
-    public javax.swing.JButton plant25;
     public javax.swing.JButton plant26;
-    public javax.swing.JButton plant27;
     public javax.swing.JButton plant28;
-    public javax.swing.JButton plant29;
-    public javax.swing.JButton plant3;
     public javax.swing.JButton plant30;
-    public javax.swing.JButton plant31;
     public javax.swing.JButton plant32;
     public javax.swing.JButton plant33;
-    public javax.swing.JButton plant34;
-    public javax.swing.JButton plant35;
     public javax.swing.JButton plant36;
-    public javax.swing.JButton plant37;
     public javax.swing.JButton plant38;
-    public javax.swing.JButton plant39;
-    public javax.swing.JButton plant4;
     public javax.swing.JButton plant40;
-    public javax.swing.JButton plant5;
-    public javax.swing.JButton plant6;
-    public javax.swing.JButton plant7;
-    public javax.swing.JButton plant8;
-    public javax.swing.JButton plant9;
     private javax.swing.JLabel plantInfo;
     public javax.swing.JPanel profilrFrame;
     public javax.swing.JButton signIn;
@@ -1663,7 +1486,10 @@ else {
     public javax.swing.JButton signUp;
     public javax.swing.JButton signUpButton;
     public javax.swing.JPanel signUpFrame;
+    private javax.swing.JButton updateFP;
     public javax.swing.JTextField userName;
+    private javax.swing.JTextField userNameFP;
+    private javax.swing.JLabel userNameFPText;
     public javax.swing.JLabel userNameLabel;
     public javax.swing.JTextField userNameS;
     public javax.swing.JCheckBox waterNo;
