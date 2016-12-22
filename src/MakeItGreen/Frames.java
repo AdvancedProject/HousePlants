@@ -1,12 +1,13 @@
 
 package MakeItGreen;
 
-//import houseplants.plantInfoFrame;
-//import houseplants.profileFrame;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -18,38 +19,44 @@ public class Frames extends javax.swing.JFrame {
 validation v = new validation();
  User u = new User();
  Plant p = new Plant();
-public String user;  
-public String plantId;
-public String PlantName;
+ UserPlant userPlants = new UserPlant();
+String user;  
+String plantId;
+String PlantName;  
+public String username2 ;
+
 
 
     public Frames() {
         initComponents();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        welcomeFrame.setVisible(true);
-        signUpFrame.setVisible(false);
-        signInFrame.setVisible(false);
-        profilrFrame.setVisible(false);
-        infoFrame.setVisible(false);
-        addPlantFrame.setVisible(false);
-        forgotPassword.setVisible(false);
-        pack();
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+welcomeFrame.setVisible(true);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(false);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);
+pack();
+
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         infoFrame = new javax.swing.JPanel();
-        PlantNameLabel = new javax.swing.JLabel();
-        watringLabel = new javax.swing.JLabel();
-        waterYes = new javax.swing.JCheckBox();
-        waterNo = new javax.swing.JCheckBox();
-        doneButton = new javax.swing.JButton();
-        delete = new javax.swing.JButton();
-        back = new javax.swing.JButton();
-        calender = new javax.swing.JButton();
+        PlantNameLabel1 = new javax.swing.JLabel();
+        watringLabel1 = new javax.swing.JLabel();
+        doneButton1 = new javax.swing.JButton();
+        delete1 = new javax.swing.JButton();
+        back1 = new javax.swing.JButton();
+        calender1 = new javax.swing.JButton();
         plantInfo = new javax.swing.JLabel();
+        waterNo = new javax.swing.JRadioButton();
+        waterYes = new javax.swing.JRadioButton();
+        imgLabel = new javax.swing.JLabel();
         signInFrame = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         userName = new javax.swing.JTextField();
@@ -57,9 +64,11 @@ public String PlantName;
         signInButton = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
         forgetPasswordButton = new javax.swing.JButton();
+        backIn = new javax.swing.JButton();
         welcomeFrame = new javax.swing.JPanel();
         signUp = new javax.swing.JButton();
         signIn = new javax.swing.JButton();
+        imgwelcome = new javax.swing.JLabel();
         signUpFrame = new javax.swing.JPanel();
         userNameLabel = new javax.swing.JLabel();
         userNameS = new javax.swing.JTextField();
@@ -70,20 +79,29 @@ public String PlantName;
         signUpButton = new javax.swing.JButton();
         passwordF = new javax.swing.JPasswordField();
         passwordCon = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
         profilrFrame = new javax.swing.JPanel();
-        yourPlant = new javax.swing.JLabel();
         addPlantButton = new javax.swing.JButton();
         okeyButton = new javax.swing.JButton();
         idPlantText = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        PlantList = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
+        forgotPassword = new javax.swing.JPanel();
+        userNameFPText = new javax.swing.JLabel();
+        userNameFP = new javax.swing.JTextField();
+        passwordFPText = new javax.swing.JLabel();
+        passwordFP = new javax.swing.JPasswordField();
+        backFP = new javax.swing.JButton();
+        updateFP = new javax.swing.JButton();
         addPlantFrame = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        plant16 = new javax.swing.JButton();
-        plant17 = new javax.swing.JButton();
-        plant18 = new javax.swing.JButton();
         plant19 = new javax.swing.JButton();
+        plant20 = new javax.swing.JButton();
         plant21 = new javax.swing.JButton();
         plant22 = new javax.swing.JButton();
+        plant23 = new javax.swing.JButton();
         plant24 = new javax.swing.JButton();
+        plant25 = new javax.swing.JButton();
         plant26 = new javax.swing.JButton();
         plant28 = new javax.swing.JButton();
         plant30 = new javax.swing.JButton();
@@ -92,112 +110,102 @@ public String PlantName;
         plant36 = new javax.swing.JButton();
         plant38 = new javax.swing.JButton();
         plant40 = new javax.swing.JButton();
-        forgotPassword = new javax.swing.JPanel();
-        userNameFPText = new javax.swing.JLabel();
-        userNameFP = new javax.swing.JTextField();
-        passwordFPText = new javax.swing.JLabel();
-        passwordFP = new javax.swing.JPasswordField();
-        backFP = new javax.swing.JButton();
-        updateFP = new javax.swing.JButton();
+        backAdd = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PlantNameLabel.setText("plant name");
+        PlantNameLabel1.setText("plant name");
 
-        watringLabel.setText("wataring");
+        watringLabel1.setText("wataring");
 
-        waterYes.setText("yes");
-        waterYes.addActionListener(new java.awt.event.ActionListener() {
+        doneButton1.setText("done");
+        doneButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterYesActionPerformed(evt);
+                doneButton1ActionPerformed(evt);
+            }
+        });
+
+        delete1.setText("delete");
+        delete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete1ActionPerformed(evt);
+            }
+        });
+
+        back1.setText("back");
+        back1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back1ActionPerformed(evt);
+            }
+        });
+
+        calender1.setText("Calender");
+        calender1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calender1ActionPerformed(evt);
             }
         });
 
         waterNo.setText("no");
-        waterNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterNoActionPerformed(evt);
-            }
-        });
 
-        doneButton.setText("done");
-        doneButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doneButtonActionPerformed(evt);
-            }
-        });
-
-        delete.setText("delete");
-        delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteActionPerformed(evt);
-            }
-        });
-
-        back.setText("back");
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-
-        calender.setText("Calender");
-        calender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calenderActionPerformed(evt);
-            }
-        });
+        waterYes.setText("yes");
 
         javax.swing.GroupLayout infoFrameLayout = new javax.swing.GroupLayout(infoFrame);
         infoFrame.setLayout(infoFrameLayout);
         infoFrameLayout.setHorizontalGroup(
             infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoFrameLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(PlantNameLabel)
+                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoFrameLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(PlantNameLabel1))
+                    .addGroup(infoFrameLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(watringLabel1)
+                            .addComponent(back1))
+                        .addGap(38, 38, 38)
+                        .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(calender1)
+                            .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(infoFrameLayout.createSequentialGroup()
+                                    .addComponent(delete1)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(doneButton1))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoFrameLayout.createSequentialGroup()
+                                    .addComponent(waterYes)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(waterNo))))))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(infoFrameLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(watringLabel)
-                    .addComponent(back))
-                .addGap(38, 38, 38)
-                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(calender)
-                    .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(infoFrameLayout.createSequentialGroup()
-                            .addComponent(delete)
-                            .addGap(36, 36, 36)
-                            .addComponent(doneButton))
-                        .addGroup(infoFrameLayout.createSequentialGroup()
-                            .addComponent(waterYes)
-                            .addGap(72, 72, 72)
-                            .addComponent(waterNo))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoFrameLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
         infoFrameLayout.setVerticalGroup(
             infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoFrameLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(PlantNameLabel)
+                .addComponent(PlantNameLabel1)
                 .addGap(38, 38, 38)
                 .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(watringLabel)
-                    .addComponent(waterYes)
-                    .addComponent(waterNo))
-                .addGap(49, 49, 49)
-                .addComponent(calender)
+                    .addComponent(watringLabel1)
+                    .addComponent(waterNo)
+                    .addComponent(waterYes))
+                .addGap(64, 64, 64)
+                .addComponent(calender1)
                 .addGap(18, 18, 18)
-                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(doneButton)
-                    .addComponent(delete)
-                    .addComponent(back))
+                    .addComponent(doneButton1)
+                    .addComponent(delete1)
+                    .addComponent(back1))
                 .addGap(58, 58, 58))
         );
 
@@ -225,29 +233,36 @@ public String PlantName;
             }
         });
 
+        backIn.setText("back");
+        backIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backInActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout signInFrameLayout = new javax.swing.GroupLayout(signInFrame);
         signInFrame.setLayout(signInFrameLayout);
         signInFrameLayout.setHorizontalGroup(
             signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signInFrameLayout.createSequentialGroup()
-                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(signInFrameLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addComponent(backIn)
+                        .addGap(23, 23, 23)
                         .addComponent(signInButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
                         .addComponent(forgetPasswordButton))
-                    .addGroup(signInFrameLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(signInFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(26, 26, 26)
-                                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(signInFrameLayout.createSequentialGroup()
-                                .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(password)))))
-                .addGap(61, 61, 61))
+                    .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(signInFrameLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(26, 26, 26)
+                            .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(signInFrameLayout.createSequentialGroup()
+                            .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(26, 26, 26)
+                            .addComponent(password))))
+                .addContainerGap())
         );
         signInFrameLayout.setVerticalGroup(
             signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,46 +275,65 @@ public String PlantName;
                 .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signInButton)
-                    .addComponent(forgetPasswordButton))
+                    .addComponent(forgetPasswordButton)
+                    .addComponent(backIn))
                 .addGap(42, 42, 42))
         );
 
+        signUp.setBackground(new java.awt.Color(204, 204, 204));
+        signUp.setFont(new java.awt.Font("David", 0, 36)); // NOI18N
+        signUp.setForeground(new java.awt.Color(255, 255, 255));
         signUp.setText("Sign up");
+        signUp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signUp.setContentAreaFilled(false);
+        signUp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        signUp.setDefaultCapable(false);
+        signUp.setHideActionText(true);
+        signUp.setInheritsPopupMenu(true);
+        signUp.setName(""); // NOI18N
         signUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpActionPerformed(evt);
             }
         });
 
+        signIn.setBackground(new java.awt.Color(204, 204, 204));
+        signIn.setFont(new java.awt.Font("David", 0, 36)); // NOI18N
+        signIn.setForeground(new java.awt.Color(255, 255, 255));
         signIn.setText("Sign in");
+        signIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signIn.setContentAreaFilled(false);
+        signIn.setDefaultCapable(false);
         signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInActionPerformed(evt);
             }
         });
 
+        imgwelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/Screenshot (344).png"))); // NOI18N
+
         javax.swing.GroupLayout welcomeFrameLayout = new javax.swing.GroupLayout(welcomeFrame);
         welcomeFrame.setLayout(welcomeFrameLayout);
         welcomeFrameLayout.setHorizontalGroup(
             welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomeFrameLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(signUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(signIn)
-                .addGap(45, 45, 45))
+                .addGap(40, 40, 40)
+                .addComponent(signUp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         welcomeFrameLayout.setVerticalGroup(
             welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imgwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(welcomeFrameLayout.createSequentialGroup()
-                .addContainerGap(291, Short.MAX_VALUE)
-                .addGroup(welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(signIn)
-                    .addComponent(signUp))
-                .addGap(25, 25, 25))
+                .addGap(330, 330, 330)
+                .addGroup(welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(signUp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         userNameLabel.setText("username");
@@ -320,6 +354,13 @@ public String PlantName;
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -347,12 +388,14 @@ public String PlantName;
                         .addGap(37, 37, 37)
                         .addComponent(PasswordLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(passwordF)))
+                        .addComponent(passwordF, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(signUpFrameLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpFrameLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(signUpButton)
-                .addGap(26, 241, Short.MAX_VALUE))
+                .addGap(71, 71, 71))
         );
         signUpFrameLayout.setVerticalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,249 +416,76 @@ public String PlantName;
                 .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(passwordCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addComponent(signUpButton)
-                .addGap(58, 58, 58))
+                .addGap(27, 27, 27)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(signUpButton)
+                    .addComponent(jButton1))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        yourPlant.setText("your plant are: ");
-
+        addPlantButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addPlantButton.setText("add plant");
+        addPlantButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addPlantButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPlantButtonActionPerformed(evt);
             }
         });
 
+        okeyButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         okeyButton.setText("ok");
+        okeyButton.setAutoscrolls(true);
+        okeyButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         okeyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okeyButtonActionPerformed(evt);
             }
         });
 
+        idPlantText.setBackground(new java.awt.Color(204, 255, 204));
+        idPlantText.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        idPlantText.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        idPlantText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        idPlantText.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        PlantList.setBackground(new java.awt.Color(229, 255, 229));
+        PlantList.setColumns(20);
+        PlantList.setRows(5);
+        PlantList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PlantList.setEnabled(false);
+        jScrollPane1.setViewportView(PlantList);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/صورة15.png"))); // NOI18N
+
         javax.swing.GroupLayout profilrFrameLayout = new javax.swing.GroupLayout(profilrFrame);
         profilrFrame.setLayout(profilrFrameLayout);
         profilrFrameLayout.setHorizontalGroup(
             profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilrFrameLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(yourPlant, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilrFrameLayout.createSequentialGroup()
-                        .addGroup(profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(okeyButton))
-                        .addGap(48, 48, 48)
-                        .addComponent(addPlantButton)))
-                .addGap(70, 70, 70))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(okeyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140)
+                .addComponent(addPlantButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         profilrFrameLayout.setVerticalGroup(
             profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilrFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(yourPlant, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addPlantButton)
-                    .addComponent(okeyButton))
-                .addContainerGap())
-        );
-
-        plant16.setText("Araucaria heterophylla");
-        plant16.setToolTipText("");
-        plant16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant16ActionPerformed(evt);
-            }
-        });
-
-        plant17.setText("Peperomia spp");
-        plant17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant17ActionPerformed(evt);
-            }
-        });
-
-        plant18.setText("Aglaonema commutatum");
-        plant18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant18ActionPerformed(evt);
-            }
-        });
-
-        plant19.setText("Ficus lyrata");
-        plant19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant19ActionPerformed(evt);
-            }
-        });
-
-        plant21.setText("Dieffenbachia spp");
-        plant21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant21ActionPerformed(evt);
-            }
-        });
-
-        plant22.setText("Zamioculcas zamiifolia");
-        plant22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant22ActionPerformed(evt);
-            }
-        });
-
-        plant24.setText("Chlorophytum comosum ");
-        plant24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant24ActionPerformed(evt);
-            }
-        });
-
-        plant26.setText("Ficus elastica");
-        plant26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant26ActionPerformed(evt);
-            }
-        });
-
-        plant28.setText("Dracaena deremensis");
-        plant28.setToolTipText("");
-        plant28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant28ActionPerformed(evt);
-            }
-        });
-
-        plant30.setText("Nephrolepis exaltata");
-        plant30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant30ActionPerformed(evt);
-            }
-        });
-
-        plant32.setText("Aspidistra elatior");
-        plant32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant32ActionPerformed(evt);
-            }
-        });
-
-        plant33.setText("Codiaeum variegatum");
-        plant33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant33ActionPerformed(evt);
-            }
-        });
-
-        plant36.setText("Dracaena marginata");
-        plant36.setToolTipText("");
-        plant36.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant36ActionPerformed(evt);
-            }
-        });
-
-        plant38.setText("Beaucarnea recurvata");
-        plant38.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant38ActionPerformed(evt);
-            }
-        });
-
-        plant40.setText("Schefflera actinophylla");
-        plant40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plant40ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout addPlantFrameLayout = new javax.swing.GroupLayout(addPlantFrame);
-        addPlantFrame.setLayout(addPlantFrameLayout);
-        addPlantFrameLayout.setHorizontalGroup(
-            addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addPlantFrameLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(plant16, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plant17, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plant18, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPlantFrameLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addPlantFrameLayout.createSequentialGroup()
-                        .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                                .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                                .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
-                                .addContainerGap())))
-                    .addGroup(addPlantFrameLayout.createSequentialGroup()
-                        .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        addPlantFrameLayout.setVerticalGroup(
-            addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(plant16, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant17, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant18, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addPlantFrameLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel3))
-                    .addGroup(addPlantFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(okeyButton)
+                    .addComponent(addPlantButton)))
+            .addComponent(jLabel7)
         );
 
         userNameFPText.setText("username");
@@ -676,7 +546,246 @@ public String PlantName;
                 .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backFP)
                     .addComponent(updateFP))
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        plant19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im3.png"))); // NOI18N
+        plant19.setToolTipText("");
+        plant19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant19.setContentAreaFilled(false);
+        plant19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant19ActionPerformed(evt);
+            }
+        });
+
+        plant20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im10.png"))); // NOI18N
+        plant20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant20.setContentAreaFilled(false);
+        plant20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant20ActionPerformed(evt);
+            }
+        });
+
+        plant21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im12.png"))); // NOI18N
+        plant21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant21.setContentAreaFilled(false);
+        plant21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant21ActionPerformed(evt);
+            }
+        });
+
+        plant22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im13.png"))); // NOI18N
+        plant22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant22.setContentAreaFilled(false);
+        plant22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant22ActionPerformed(evt);
+            }
+        });
+
+        plant23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im14.png"))); // NOI18N
+        plant23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant23.setContentAreaFilled(false);
+        plant23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant23ActionPerformed(evt);
+            }
+        });
+
+        plant24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im15.png"))); // NOI18N
+        plant24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant24.setContentAreaFilled(false);
+        plant24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant24ActionPerformed(evt);
+            }
+        });
+
+        plant25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im16.png"))); // NOI18N
+        plant25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant25.setContentAreaFilled(false);
+        plant25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant25ActionPerformed(evt);
+            }
+        });
+
+        plant26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im17.png"))); // NOI18N
+        plant26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant26.setContentAreaFilled(false);
+        plant26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant26ActionPerformed(evt);
+            }
+        });
+
+        plant28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im18.png"))); // NOI18N
+        plant28.setToolTipText("");
+        plant28.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant28.setContentAreaFilled(false);
+        plant28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant28ActionPerformed(evt);
+            }
+        });
+
+        plant30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im19.png"))); // NOI18N
+        plant30.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant30.setContentAreaFilled(false);
+        plant30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant30ActionPerformed(evt);
+            }
+        });
+
+        plant32.setText("Aspidistra elatior");
+        plant32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant32ActionPerformed(evt);
+            }
+        });
+
+        plant33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im21.png"))); // NOI18N
+        plant33.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant33.setContentAreaFilled(false);
+        plant33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant33ActionPerformed(evt);
+            }
+        });
+
+        plant36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im22.png"))); // NOI18N
+        plant36.setToolTipText("");
+        plant36.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant36.setContentAreaFilled(false);
+        plant36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant36ActionPerformed(evt);
+            }
+        });
+
+        plant38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im23.png"))); // NOI18N
+        plant38.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant38.setContentAreaFilled(false);
+        plant38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant38ActionPerformed(evt);
+            }
+        });
+
+        plant40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im24.png"))); // NOI18N
+        plant40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant40.setContentAreaFilled(false);
+        plant40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plant40ActionPerformed(evt);
+            }
+        });
+
+        backAdd.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        backAdd.setText("back");
+        backAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        backAdd.setContentAreaFilled(false);
+        backAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backAddActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/ion.png"))); // NOI18N
+
+        javax.swing.GroupLayout addPlantFrameLayout = new javax.swing.GroupLayout(addPlantFrame);
+        addPlantFrame.setLayout(addPlantFrameLayout);
+        addPlantFrameLayout.setHorizontalGroup(
+            addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(plant20, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(plant23, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant25, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(210, 210, 210)
+                .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(backAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        addPlantFrameLayout.setVerticalGroup(
+            addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plant20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plant23, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(plant25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(backAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -684,53 +793,44 @@ public String PlantName;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(733, 733, 733)
-                .addComponent(infoFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(forgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(300, 300, 300)
-                        .addComponent(addPlantFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(361, 361, 361)
-                                .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(344, 344, 344)
-                                .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(144, 144, 144)
-                        .addComponent(forgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(addPlantFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(39, 39, 39)
+                    .addComponent(infoFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(39, 39, 39)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(infoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(forgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(456, 456, 456)
-                .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(profilrFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(signInFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(forgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(welcomeFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(signUpFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(addPlantFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(addPlantFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(infoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(18, Short.MAX_VALUE)))
         );
+
+        welcomeFrame.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void clear(){
+      
+        password.setText(""); }
 
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
@@ -744,8 +844,58 @@ addPlantFrame.setVisible(false);
 forgotPassword.setVisible(false);
 pack();
 
+    
+
     }//GEN-LAST:event_signInActionPerformed
 
+  /* public boolean addUser(){
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try{
+            String query ;
+            con = DBManager.getConnection();
+    if((!u.isUserNameExist(userNameS.getText()))&&(u.comparePassword(passwordF.getText(),passwordCon.getText()))&&
+            (u.isPasswordValid(passwordF.getText()))&&(u.isValidEmail(email.getText()))){
+            
+        query = "INSERT INTO User VALUES (?,?,?)";
+        pstmt = con.prepareStatement(query);
+        pstmt.setString(1, ""+userNameS.getText());
+        pstmt.setString(2, ""+email.getText());
+        pstmt.setString(3, ""+passwordF.getText());
+        System.out.println("added");
+        int result = pstmt.executeUpdate();
+        if(result == 1){ 
+          return true;
+         } 
+        
+        
+        }        
+        }catch( Exception e ){
+              e.printStackTrace();
+        }
+        finally {
+            if(pstmt != null)
+        try{pstmt.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+            if(con != null) 
+        try{ con.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+        }
+        return false;
+}
+   
+   public void clear1(){
+        userNameS.setText("");
+        email.setText("");
+        passwordF.setText("");
+        passwordCon.setText("");
+    }
+   public void clear2(){
+        passwordFP.setText(""); }*/
     
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
 // sign up
@@ -762,9 +912,9 @@ pack();
 
     private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
       // profile 
-    user = userName.getText();
-if(v.isUserNameAndpaswordExist(user,password.getText())) {
-    JOptionPane.showMessageDialog(this,"Welcome "+user, "",JOptionPane.INFORMATION_MESSAGE);  
+        String user1 = userName.getText();
+if(v.isUserNameAndpaswordExist(user1,password.getText())) {
+    JOptionPane.showMessageDialog(this,"Welcome "+user1, "",JOptionPane.INFORMATION_MESSAGE);  
     welcomeFrame.setVisible(false);
     signUpFrame.setVisible(false);
     signInFrame.setVisible(false);
@@ -773,11 +923,14 @@ if(v.isUserNameAndpaswordExist(user,password.getText())) {
     addPlantFrame.setVisible(false);
     forgotPassword.setVisible(false);
     pack();
-    User u = new User();
-    UserPlant us = new UserPlant();
-    u.setUsername(user);
-    us.setUsertName(user);
-}
+    
+    
+    u.setUsername(user1);
+    username2 = u.getUsername();
+    u.userPlantsFile(user1);
+    PlantList.setText(userPlants.loadUserPlants(username2));
+      
+}   
 else{
     JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);  
     welcomeFrame.setVisible(false);
@@ -786,17 +939,15 @@ else{
     profilrFrame.setVisible(false);
     infoFrame.setVisible(false);
     addPlantFrame.setVisible(false);
-    forgotPassword.setVisible(false);
     pack();
-   }
-    u.clear(password);
+     }
+    clear();
 
     }//GEN-LAST:event_signInButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
-// sign up - profile
 
-pack();
+user = userNameS.getText();
 boolean check = u.addUser(userNameS, email,passwordF, passwordCon);
 if(check != true){
 JOptionPane.showMessageDialog(null,"your information does not correct , Please try again");
@@ -809,7 +960,8 @@ addPlantFrame.setVisible(false);
 forgotPassword.setVisible(false);
 pack();}
 else{ 
-    JOptionPane.showMessageDialog(null,"your sign up done succ");
+    JOptionPane.showMessageDialog(null,"your sign up done ");
+    u.setUsername(user);
 signUpFrame.setVisible(false);
 signInFrame.setVisible(false);
 profilrFrame.setVisible(true);
@@ -831,83 +983,34 @@ pack();
         pack();
     }//GEN-LAST:event_addPlantButtonActionPerformed
 
-    private void waterNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterNoActionPerformed
-        // no
-    }//GEN-LAST:event_waterNoActionPerformed
-
-    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
-        Plant p = new Plant();
-        User u = new User();
-        user = userName.getText();
-        //System.out.println(plantId);
-        String plantId2 = idPlantText.getText();
-
-        String water = "";
-     
-        if( waterYes.isSelected()){
-         water = "yes";
-        }else{
-            water = "no";
-        }
-        UserPlant up = new UserPlant();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate localDate = LocalDate.now();
-        up.setDate(dtf.format(localDate));
-        String Date = up.getDate();
-        
-        u.setUsername(user);
-        p.setPlantId(plantId);
-        
-        if (plantId!=null)
-            p.save(user,plantId,Date,water);
-        else
-        p.save(user,plantId2,Date,water);
-
-    }//GEN-LAST:event_doneButtonActionPerformed
-
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-      Plant p = new Plant();
-        user = userName.getText();
-        plantId = idPlantText.getText();
-        p.deletePlant(user, plantId);
-    }//GEN-LAST:event_deleteActionPerformed
-
     private void okeyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okeyButtonActionPerformed
-    plantId = idPlantText.getText();
-    boolean ex = p.isidPlantExist(plantId);
-    System.out.println(ex);
-if (ex!=true){
-    JOptionPane.showMessageDialog(null,"this ID does not exit");
-   }
-else {
-    PlantNameLabel.setText(p.loadPlantName(plantId));
-    plantInfo.setText(p.loadPlantInfo(plantId));
+       plantId = idPlantText.getText();
+       username2 = u.getUsername();
+        boolean exist = userPlants.isIDPExist(plantId,username2) ;
+        buttonGroup1 = new ButtonGroup();
+        buttonGroup1.add(waterYes);
+        buttonGroup1.add(waterNo);
+        if(exist){
+            infoFrame.setVisible(true);
+            profilrFrame.setVisible(false);
+        } else{
+            infoFrame.setVisible(false);
+            JOptionPane.showMessageDialog(this,"please check the ID ", "Error",JOptionPane.ERROR_MESSAGE);
+            profilrFrame.setVisible(true);
+        }
+       PlantNameLabel1.setText(p.loadPlantName(plantId));
+       plantInfo.setText(p.loadPlantInfo(plantId));
+       p.loadImg(imgLabel, plantId);
     welcomeFrame.setVisible(false);
     signUpFrame.setVisible(false);
     signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
     addPlantFrame.setVisible(false);
     forgotPassword.setVisible(false);
-    pack();
-}
+    pack();  
+
+                            
+ 
     }//GEN-LAST:event_okeyButtonActionPerformed
-
-    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
- // back profile 
-    welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(true);
-    infoFrame.setVisible(false);
-    addPlantFrame.setVisible(false);
-     forgotPassword.setVisible(false);
-    pack();
-    }//GEN-LAST:event_backActionPerformed
-
-    private void waterYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterYesActionPerformed
-        //yes
-    }//GEN-LAST:event_waterYesActionPerformed
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
         // TODO add your handling code here:
@@ -929,7 +1032,38 @@ forgotPassword.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void plant16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant16ActionPerformed
+    private void backFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFPActionPerformed
+welcomeFrame.setVisible(false);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(true);
+profilrFrame.setVisible(false);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);	
+ pack();
+    }//GEN-LAST:event_backFPActionPerformed
+
+    private void updateFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFPActionPerformed
+if(v.isPasswordValid(passwordFP.getText())){
+        u.ubdateUesr(passwordFP.getText(),userNameFP.getText());
+ welcomeFrame.setVisible(false);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(true);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);	
+ pack(); }
+      
+        else {
+                 JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);   
+                }
+       
+       u.clear(passwordFP); 
+                 
+    }//GEN-LAST:event_updateFPActionPerformed
+
+    private void plant19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant19ActionPerformed
 
         String plant1="The secret to keeping Norfolk Island pine healthy is to give it ample light and humidity. "
         + "\n In low light, the lower branches may turn brown and fall off. If the air is too dry, it becomes a"
@@ -938,35 +1072,37 @@ forgotPassword.setVisible(true);
         + "\n \n  Why We Love It: \n This tree is perfect for decorating for Christmas -- or giving as a holiday gift."
         + " Outside the holidays, \n its soft texture adds a cozy feeling to any room."
         + " \n \n insert (01) if you have it ..";
-       plantId = JOptionPane.showInputDialog(plant1);
-       System.out.println(plantId);
+        plantId = JOptionPane.showInputDialog(plant1);
+        System.out.println(plantId);
         if(p.isidPlantExist(plantId)) {
-      
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
-     
-     
-        }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();}
-   
-    }//GEN-LAST:event_plant16ActionPerformed
 
-    private void plant17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant17ActionPerformed
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            //pack();
+
+        }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+           // pack();
+        }
+
+    }//GEN-LAST:event_plant19ActionPerformed
+
+    private void plant20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant20ActionPerformed
         String plant2 = "Peperomias are a diverse group of small houseplants with waxy and often highly textured leaves. "
         + "\n Red-edge peperomia (pictured) has a narrow band of red surrounding a wide creamy leaf margin."
         + "\n Other peperomias we love include ripple peperomia, watermelon peperomia, baby rubber plant, and silverleaf "
@@ -974,62 +1110,69 @@ forgotPassword.setVisible(true);
         + "\n \n Why We Love It: \n Its waxy, colorful foliage adds a splash of color in any room \n "
         + "without taking up a lot of space."
         + "\n\n insert (02) if you have it";
-
-        String plant2ID= JOptionPane.showInputDialog(plant2);
-             if(p.isidPlantExist(plant2ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+         plantId = JOptionPane.showInputDialog(plant2);
+        if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            pack();
+           PlantNameLabel1.setText(p.loadPlantName(plantId));
+           plantInfo.setText(p.loadPlantInfo(plantId));
+           p.loadImg(imgLabel, plantId);
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
-    }//GEN-LAST:event_plant17ActionPerformed
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+    }//GEN-LAST:event_plant20ActionPerformed
 
-    private void plant18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant18ActionPerformed
-       String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
+    private void plant21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant21ActionPerformed
+        String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
         + "\n making Chinese evergreen an attractive choice to brighten low-light areas of your home. Take a cue from shopping"
         + "\n  mall plantings and use Chinese evergreen as a ground cover around an upright, treelike houseplant. Or showcase it "
         + "\n alone as a specimen plant."
         + "\n \n Why We Love It: \n It's extra tough and has attractive leaves that brighten low light spots"
         + "\n\n insert (03) if you have it ";
 
-        String plant3ID= JOptionPane.showInputDialog(plant3);
-               if(p.isidPlantExist(plant3ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+      plantId = JOptionPane.showInputDialog(plant3);
+               if(p.isidPlantExist(plantId))  {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            pack();
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
-    }//GEN-LAST:event_plant18ActionPerformed
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+            
+        }
+               
+    }//GEN-LAST:event_plant21ActionPerformed
 
-    private void plant19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant19ActionPerformed
+    private void plant22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant22ActionPerformed
         String plant4 = "Fiddleleaf fig is a beautiful tree that gets its common name comes from the violin-shape outline of its leathery, "
         + "\n deep green leaves. It tolerates low light well, though it may lose its lower leaves in dim spots. If your fiddleleaf"
         + "\n fig grows too tall, prune stems back to the desired height, or start a new plant by air layering elongated shoots."
@@ -1037,30 +1180,34 @@ forgotPassword.setVisible(true);
         + "\n as it grows."
         + "\n\n insert (04) if you have it ..";
 
-        String plant4ID= JOptionPane.showInputDialog(plant4);
-               if(p.isidPlantExist(plant4ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+         plantId = JOptionPane.showInputDialog(plant4);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
-    }//GEN-LAST:event_plant19ActionPerformed
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
+    }//GEN-LAST:event_plant22ActionPerformed
 
-    private void plant21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant21ActionPerformed
+    private void plant23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant23ActionPerformed
         String plant5 = "Several closely related species share the common name of dieffenbachia. All produce canelike stems with lush foliage"
         + "\n variegated in green and white. Grow one by itself to for a tree appearance or several together in a single container for"
         + "\n a shrubby look. One of the plant's common names, dumb cane, comes from the effect of the toxic sap that if eaten causes "
@@ -1069,92 +1216,104 @@ forgotPassword.setVisible(true);
         + "(and it's great for decorating decks and patios in the summer)."
         + "\n\n insert(05) if you have it ..";
 
-        String plant5ID= JOptionPane.showInputDialog(plant5);
-               if(p.isidPlantExist(plant5ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+       plantId = JOptionPane.showInputDialog(plant5);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
-    }//GEN-LAST:event_plant21ActionPerformed
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
+    }//GEN-LAST:event_plant23ActionPerformed
 
-    private void plant22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant22ActionPerformed
+    private void plant24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant24ActionPerformed
         String plant6 ="Sometimes called eternity plant because it lasts so long, succulent zeezee plant tolerates low light and neglect."
         + "\n The thick, fleshy leafstalks are so durable that you might even think it's plastic. It is a slow grower, so purchase "
         + "\n a large plant if you want a big specimen. Cut stems remain green and healthy in appearance for several weeks, even without"
         + "\n  water."
         + "\n\n Why We Love It: \n This plant is so easy it's almost a challenge to kill it."
         + "\n\n insert(06) if you have it ..";
-        String plant6ID= JOptionPane.showInputDialog(plant6);
-               if(p.isidPlantExist(plant6ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant6);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
-    }//GEN-LAST:event_plant22ActionPerformed
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
+    }//GEN-LAST:event_plant24ActionPerformed
 
-    private void plant24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant24ActionPerformed
-       String plant7 = "You may remember this from your grandmother's house; spider plants have been grown for years and are still popular today."
+    private void plant25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant25ActionPerformed
+        String plant7 = "You may remember this from your grandmother's house; spider plants have been grown for years and are still popular today."
         + "\n Look for a number of varieties -- from types with plain green leaves to others that offer foliage marked with cream or white "
         + "\n stripes. All make handsome hanging plants that develop plantlets at the ends of arching stems. These babies readily root in "
         + "\n water or potting soil to start new plants."
         + "\n\n Why We Love It: \n It offers tons of old-fashioned appeal and an easy-care nature."
         + "\n\n insert(07) if you have it ..";
 
-        String plant7ID= JOptionPane.showInputDialog(plant7);
-               if(p.isidPlantExist(plant7ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant7);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
-    }//GEN-LAST:event_plant24ActionPerformed
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
+    }//GEN-LAST:event_plant25ActionPerformed
 
     private void plant26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant26ActionPerformed
-       String plant8 = "An old-fashioned classic, rubber tree gets its name from the sticky, milky sap it exudes if injured. It eventually grows \n "
+        String plant8 = "An old-fashioned classic, rubber tree gets its name from the sticky, milky sap it exudes if injured. It eventually grows \n "
         + "into a large tree, but you can easily keep it shorter by pruning back long stems, causing it to branch into a multi-stemmed shrub.\n "
         + "\n \n Note: In frost-free areas, you may see rubber trees as a full-size shade trees outdoors."
         + "\n\n Why We Love It:\n "
@@ -1162,31 +1321,35 @@ forgotPassword.setVisible(true);
         + " tree makes a big, dramatic accent in any room."
         + "\n\n insert (08) if you have it ..";
 
-        String plant8ID= JOptionPane.showInputDialog(plant8);
-               if(p.isidPlantExist(plant8ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant8);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant26ActionPerformed
 
     private void plant28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant28ActionPerformed
-       String plant9 = "Some varieties of green dracaena, such as 'Janet Craig' have solid green leaves. Others such as 'Warneckii' "
+        String plant9 = "Some varieties of green dracaena, such as 'Janet Craig' have solid green leaves. Others such as 'Warneckii' "
         + "\n (pictured), bear white, cream, gold or chartreuse stripes on their foliage. All form compact rosettes when young,"
         + "\n  but eventually become striking upright foliage plants. They tolerate low light, but produce better color in medium \n"
         + "to bright light."
@@ -1194,31 +1357,35 @@ forgotPassword.setVisible(true);
         + " It's a durable, upright plant with good-looking leaves."
         + "\n\n insert (09) if you have it ..";
 
-        String plant9ID= JOptionPane.showInputDialog(plant9);
-               if(p.isidPlantExist(plant9ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+       plantId = JOptionPane.showInputDialog(plant9);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant28ActionPerformed
 
     private void plant30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant30ActionPerformed
-         String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
+        String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
         + "\n delicate appearance mislead you, though: This tough plant that will live for decades if you keep it moist and give it "
         + "\n moderate light and enough humidity. The variety 'Dallas' is more compact and more tolerant of dry air."
         + "\n\n Why We Love It:\n"
@@ -1226,57 +1393,65 @@ forgotPassword.setVisible(true);
         + " especially cottage and country."
         + "\n\n insert (10) if you have it .. ";
 
-        String plant10ID= JOptionPane.showInputDialog(plant10);
-               if(p.isidPlantExist(plant10ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant10);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-               }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant30ActionPerformed
 
     private void plant32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant32ActionPerformed
-      String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
+        String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
         + "\n of temperatures. It grows slowly so purchase a plant that is large enough for the space in which you intend to use it."
         + "\n Several varieties have white or yellow variegation on their leaves."
         + "\n\n Why We Love It:"
         + "\n This plant really lives up to its name: It's nearly indestructible."
         + "\n insert (11) if you have it ..";
-        String plant11ID= JOptionPane.showInputDialog(plant11);
-               if(p.isidPlantExist(plant11ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+       plantId = JOptionPane.showInputDialog(plant11);
+               if(p.isidPlantExist(plantId)){
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant32ActionPerformed
 
     private void plant33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant33ActionPerformed
@@ -1286,27 +1461,31 @@ forgotPassword.setVisible(true);
         + "\n\n Why We Love It: \n It has beautiful, leathery leaves with exotic and colorful markings."
         + "\n insert (12) if you have it ..";
 
-        String plant12ID= JOptionPane.showInputDialog(plant12);
-               if(p.isidPlantExist(plant12ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant12);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant33ActionPerformed
 
     private void plant36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant36ActionPerformed
@@ -1316,57 +1495,64 @@ forgotPassword.setVisible(true);
         + "\n\n Why We Love It: \n Its grassy leaves on tall stems give it a festive appearance."
         + "\n\n insert (13) if you have it ..";
 
-        String plant13ID= JOptionPane.showInputDialog(plant13);
-               if(p.isidPlantExist(plant13ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant13);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant36ActionPerformed
 
     private void plant38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant38ActionPerformed
-         String plant14 ="Despite its common name, this plant is a succulent rather than a true palm. Its graceful arching leaves are always"
+        String plant14 ="Despite its common name, this plant is a succulent rather than a true palm. Its graceful arching leaves are always"
         + "\n  attractive and its swollen trunk looks great, too. (The trunk holds moisture for the plant.) Keep your ponytail palm in "
         + "\n a container only a couple of inches wider than its trunk base to control its size. It is sometimes sold as Nolina recurvata."
         + "\n\n Why We Love It: \n  Because the trunk actually stores moisture, ponytail palm can survive for long periods without watering."
         + "\n\n insert (14) if you have it ..";
-        String plant14ID= JOptionPane.showInputDialog(plant14);
-               if(p.isidPlantExist(plant14ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+        plantId = JOptionPane.showInputDialog(plant14);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
- 
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant38ActionPerformed
 
     private void plant40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant40ActionPerformed
@@ -1376,86 +1562,153 @@ forgotPassword.setVisible(true);
         + "\n\n Why We Love It:\n "
         + " Its large glossy green leaves create instant tropical flair."
         + "\n\n insert (15) if you have it ..";
-
-        String plant15ID= JOptionPane.showInputDialog(plant15);
-               if(p.isidPlantExist(plant15ID)) {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(true);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(false);
-     pack();
+plantId = JOptionPane.showInputDialog(plant15);
+               if(p.isidPlantExist(plantId)) {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(true);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
+            pack();
         }
-    else {
-     welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    addPlantFrame.setVisible(true);
-     pack();
-            }
+        else {
+            welcomeFrame.setVisible(false);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(false);
+            infoFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            addPlantFrame.setVisible(true);
+            pack();
+        }
+//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant40ActionPerformed
 
-    private void backFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFPActionPerformed
-    welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(true);
-    profilrFrame.setVisible(false);
-    infoFrame.setVisible(false);
-    addPlantFrame.setVisible(false);
-    forgotPassword.setVisible(false);	
-    pack();
-    }//GEN-LAST:event_backFPActionPerformed
+    private void doneButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButton1ActionPerformed
 
-    private void updateFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFPActionPerformed
-if(v.isPasswordValid(passwordFP.getText())){
-    u.ubdateUesr(passwordFP.getText(),userNameFP.getText());
-    welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    profilrFrame.setVisible(true);
-    infoFrame.setVisible(false);
-    addPlantFrame.setVisible(false);
-    forgotPassword.setVisible(false);	
-     pack(); 
-} else {
-        JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);   
+        username2 = u.getUsername();
+        String plantId2 = idPlantText.getText();
+
+        String water = "";
+        
+        if( waterYes.isSelected()){
+            water = "yes";
+        }else if( waterNo.isSelected()){
+            water = "no";
         }
-        u.clear(passwordFP);       
-    }//GEN-LAST:event_updateFPActionPerformed
+        else {
+            water = "no";
+        }
+        UserPlant up = new UserPlant();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        up.setDate(dtf.format(localDate));
+        String Date = up.getDate();
 
-    private void calenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calenderActionPerformed
+        p.setPlantId(plantId);
+
+        if (plantId!=null)
+        p.save(username2,plantId,Date,water);
+        else
+        p.save(username2,plantId2,Date,water);
+    }//GEN-LAST:event_doneButton1ActionPerformed
+
+    private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
+        Plant p = new Plant();
+        user = u.getUsername();
+        plantId = idPlantText.getText();
+        p.deletePlant(user, plantId);
+    }//GEN-LAST:event_delete1ActionPerformed
+
+    private void back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back1ActionPerformed
+        // back profile
+        username2 = u.getUsername();
+        PlantList.setText(userPlants.loadUserPlants(username2)); 
+        
+        welcomeFrame.setVisible(false);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+        profilrFrame.setVisible(true);
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);
+        pack();
+    }//GEN-LAST:event_back1ActionPerformed
+
+    private void calender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calender1ActionPerformed
         // TODO add your handling code here:
-       UserPlant p = new UserPlant();
-       user = userName.getText();
-       plantId = idPlantText.getText();
-       Calender cal = new Calender();
-       cal.setList(p.loadDate(user,plantId));
-    }//GEN-LAST:event_calenderActionPerformed
+        username2 = u.getUsername();
+        plantId = idPlantText.getText();
+        Calender cal = new Calender();
+        cal.setList(userPlants.loadDate(username2,plantId));
+    }//GEN-LAST:event_calender1ActionPerformed
+
+    private void backInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backInActionPerformed
+welcomeFrame.setVisible(true);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(false);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);	
+ pack();
+    }//GEN-LAST:event_backInActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     welcomeFrame.setVisible(true);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(false);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);	
+ pack();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void backAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backAddActionPerformed
+ welcomeFrame.setVisible(false);
+signUpFrame.setVisible(false);
+signInFrame.setVisible(false);
+profilrFrame.setVisible(true);
+infoFrame.setVisible(false);
+addPlantFrame.setVisible(false);
+forgotPassword.setVisible(false);	
+ pack();
+    }//GEN-LAST:event_backAddActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel PasswordLabel;
-    public javax.swing.JLabel PlantNameLabel;
+    private javax.swing.JTextArea PlantList;
+    public javax.swing.JLabel PlantNameLabel1;
     private javax.swing.JButton addPlantButton;
     public javax.swing.JPanel addPlantFrame;
-    public javax.swing.JButton back;
+    public javax.swing.JButton back1;
+    private javax.swing.JButton backAdd;
     private javax.swing.JButton backFP;
-    private javax.swing.JButton calender;
-    public javax.swing.JButton delete;
-    private javax.swing.JButton doneButton;
+    private javax.swing.JButton backIn;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton calender1;
+    public javax.swing.JButton delete1;
+    private javax.swing.JButton doneButton1;
     public javax.swing.JTextField email;
     public javax.swing.JLabel emailLabel;
     public javax.swing.JButton forgetPasswordButton;
     private javax.swing.JPanel forgotPassword;
     private javax.swing.JTextField idPlantText;
+    private javax.swing.JLabel imgLabel;
+    private javax.swing.JLabel imgwelcome;
     public javax.swing.JPanel infoFrame;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton okeyButton;
     public javax.swing.JPasswordField password;
     public javax.swing.JPasswordField passwordCon;
@@ -1463,13 +1716,13 @@ if(v.isPasswordValid(passwordFP.getText())){
     private javax.swing.JPasswordField passwordFP;
     private javax.swing.JLabel passwordFPText;
     public javax.swing.JLabel passwordLabel;
-    public javax.swing.JButton plant16;
-    public javax.swing.JButton plant17;
-    public javax.swing.JButton plant18;
     public javax.swing.JButton plant19;
+    public javax.swing.JButton plant20;
     public javax.swing.JButton plant21;
     public javax.swing.JButton plant22;
+    public javax.swing.JButton plant23;
     public javax.swing.JButton plant24;
+    public javax.swing.JButton plant25;
     public javax.swing.JButton plant26;
     public javax.swing.JButton plant28;
     public javax.swing.JButton plant30;
@@ -1478,12 +1731,12 @@ if(v.isPasswordValid(passwordFP.getText())){
     public javax.swing.JButton plant36;
     public javax.swing.JButton plant38;
     public javax.swing.JButton plant40;
-    private javax.swing.JLabel plantInfo;
+    public javax.swing.JLabel plantInfo;
     public javax.swing.JPanel profilrFrame;
     public javax.swing.JButton signIn;
     public javax.swing.JButton signInButton;
     public javax.swing.JPanel signInFrame;
-    public javax.swing.JButton signUp;
+    private javax.swing.JButton signUp;
     public javax.swing.JButton signUpButton;
     public javax.swing.JPanel signUpFrame;
     private javax.swing.JButton updateFP;
@@ -1492,10 +1745,9 @@ if(v.isPasswordValid(passwordFP.getText())){
     private javax.swing.JLabel userNameFPText;
     public javax.swing.JLabel userNameLabel;
     public javax.swing.JTextField userNameS;
-    public javax.swing.JCheckBox waterNo;
-    public javax.swing.JCheckBox waterYes;
-    public javax.swing.JLabel watringLabel;
+    public javax.swing.JRadioButton waterNo;
+    public javax.swing.JRadioButton waterYes;
+    public javax.swing.JLabel watringLabel1;
     public javax.swing.JPanel welcomeFrame;
-    public javax.swing.JLabel yourPlant;
     // End of variables declaration//GEN-END:variables
 }

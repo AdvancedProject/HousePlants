@@ -1,7 +1,8 @@
 
 package MakeItGreen;
 
-//import houseplants.plantInfoFrame;
+
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +11,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,23 +33,36 @@ public class Plant {
     String sizeTall;
     String sizeWide;
     String sizeUnit;
-
+    Vector<Plant> plant;
+    Vector<UserPlant> up;
    
     
     public Plant(String user){
         this.user=user;
-        System.out.println(user);
+  //      System.out.println(user);
     }
     public Plant(){
-      
+        plant = new Vector<Plant>();
+        up = new Vector<UserPlant>();
+        user1= null ;
     }
     
-
   
-    public String getIdPlant(){
-        System.out.println(idPlant);
+    
+ 
+    
+    /**public Plant(String idPlant,String plantsName,String light,String sizeTall,String sizeWide,String sizeUnit){
+        this.idPlant = idPlant;
+        this.plantsName = plantsName;
+        this.light = light;
+        this.sizeTall = sizeTall;
+        this.sizeWide = sizeWide;
+        this.sizeUnit = sizeUnit;   
+    }*/
+  
+   /* public String getIdPlant(){
         return idPlant;
-    }
+    }*/
     public String getPlantName(){
         return plantsName;
     }
@@ -88,7 +104,59 @@ public class Plant {
      
             
    
+   public void addUserPlant(UserPlant us){
+        this.up.add(us);
+   }
+   
+         
+           /**  public static Plant loadPlant(int ID){
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        ResultSet result = null ; 
+        Plant p = new Plant ();
+        try { 
+            con = DBManager.getConnection();
+           
+            String query = " SELECT * FROM plants WHERE IdPlants = ? ";
+            stmt = con.prepareStatement(query);
+            stmt.setInt(1, ID);
+            result = stmt.executeQuery();
+            if(result.first()){
+                p.setPlantName(result.getString("PlantsName"));
+                p.setPlantLight(result.getString("Light"));
+                p.setsizeTall(result.getString("SizaTall"));
+                if(sList != null){
+                    for(UserPlant up : sList){
+                        up.setPlantId(p);
+                        p.addUserPlant(up);
+                    }
+                        
+                } 
+                
+                System.out.println("plant record has been loaded successfully ");
+            }
+            else 
+                System.out.println("plant record NOT Found! ");
+
+        }catch (Exception e ){
+            
+            System.out.println("loading one plant record was NOT sucessful");
+            e.printStackTrace();
+        }
+        // closing all connection if they were opened 
+        finally {
+            
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
         
+        return p;
+
+    }*/
     
      public boolean isidPlantExist(String idPlant ){
   boolean exist = false ;
@@ -142,7 +210,7 @@ public class Plant {
         }
        }
    
-   public String loadPlantInfo(String idPlant){
+  public String loadPlantInfo(String idPlant){
        String info="";
        Connection con = null;
         PreparedStatement pstmt = null;
@@ -182,7 +250,7 @@ public class Plant {
    }
    
    
- public String loadPlantName(String idPlant){
+       public String loadPlantName(String idPlant){
        String info="";
        Connection con = null;
        PreparedStatement pstmt = null;
@@ -289,10 +357,73 @@ public class Plant {
             }
         }
    return up;}*/
-   
   
 
+   
+public boolean ubdateUesr(String password,String username ){
+  boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "UPDATE  `group3`.`user` SET `Password`= ? WHERE `UserName` = ? ";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, password);
+        stmt.setString(2, username);
+         int result= stmt.executeUpdate();;
+            exist = true ;
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist ; 
 }
+   public void loadImg(JLabel label,String idPlants){
+       Connection con = null;
+       PreparedStatement st = null;
+       try{
+       con = DBManager.getConnection();    
+       String query = "select img from Plants where IdPlants = ?";
+       st = con.prepareStatement(query);
+       st.setString(1, idPlants);
+       ResultSet rs = st.executeQuery();
+            
+       if(rs.next()){
+                    byte[] img = rs.getBytes("img");
+                    //Resize The ImageIcon
+                    ImageIcon image = new ImageIcon(img);
+                    Image im = image.getImage();
+                    Image myImg = im.getScaledInstance(label.getWidth(), label.getHeight(),Image.SCALE_SMOOTH);
+                    ImageIcon newImage = new ImageIcon(myImg);
+                    label.setIcon(newImage);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "No Data");
+                }
+       
+   }catch( Exception e ){
+            e.printStackTrace();}
+        finally {
+            if (st!=null){
+                try { st.close();}
+                catch( Exception e ){ e.printStackTrace();}
+            }
+            if (con!=null){
+                try {con.close();}
+                catch( Exception e ){ e.printStackTrace();}
+            }
+        }
+}
+
+   }
+  
+
+
    
        
        

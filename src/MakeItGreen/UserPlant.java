@@ -23,12 +23,13 @@ String PlantName;
    Vector<UserPlant> up = new Vector<UserPlant>();
     private String c;
     private String userName;
+
+    
     
 
 
-    public UserPlant(){
-        
-       //date= new Vector<date>();
+  public UserPlant(){
+      
     }
     
       public String getDate(){
@@ -57,7 +58,8 @@ this.plantId =plantID;
 
    public void setUsertName (String userName){
 this.userName =userName;}
-   public static Vector<GregorianCalendar>loadDate(String userName,String idPlant){
+   
+public static Vector<GregorianCalendar>loadDate(String userName,String idPlant){
             Vector<GregorianCalendar> list = new Vector<GregorianCalendar>();
             Connection con = null;
             PreparedStatement pstmt = null;
@@ -146,6 +148,75 @@ this.userName =userName;}
  /**  public static Vector<UserPlant> loadUser(int ID){
    
 }*/
- 
+  public boolean isIDPExist(String plantID,String name){
+       
+        boolean exist = false ;
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        ResultSet result = null ;
+        try{
+        con = DBManager.getConnection();
+        String query = "select IdPlants from userplants " +
+                       "where UserName = ? and IdPlants = ?";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, name);
+        stmt.setString(2, plantID);
+        result = stmt.executeQuery();
+       
+        if(result.first()){
+            exist = true ;
+           } 
+       
+        }catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        return exist;
+   }
+   
+   public String loadUserPlants(String user){
+        
+        Connection con = null ;
+        PreparedStatement stmt = null ;
+        ResultSet result = null ; 
+         String print = "";
+        try{
+            con = DBManager.getConnection();
+            String select = "select distinct userplants.IdPlants, plants.PlantsName from userplants " +
+                            "inner join user " +
+                            "inner join plants " +
+                            "on userplants.IdPlants = plants.IdPlants "+
+                            "and userplants.UserName = user.UserName "+
+                            "where user.UserName = ?";
+            stmt = con.prepareStatement(select);
+            stmt.setString(1,user);
+            result = stmt.executeQuery();
+            
+             while(result.next()){
+                 String iDplants = result.getString(1);
+                 String plantName = result.getString(2);
+                 print += iDplants +" - "+plantName+"\n" ;
+                 
+             }
+             
+             
+         } catch(Exception e ){ e.printStackTrace();}
+          finally {
+            if( stmt != null )
+                try{ stmt.close();}
+                catch(Exception ex) {ex.printStackTrace();}
+            if( con != null)
+                try{con.close();}
+                catch(Exception ex ){ ex.printStackTrace();}
+        }
+        
+       return print;
+   }
+   
    
 }

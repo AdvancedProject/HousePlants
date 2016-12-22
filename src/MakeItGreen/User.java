@@ -1,11 +1,13 @@
 
 package MakeItGreen;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -17,10 +19,12 @@ public class User {
      String username;
     String email;
     String pass;
-
+    Vector<User> user;
+    Vector<UserPlant> userplant;
     
     public User(){
-
+        user = new Vector<User> ();
+        userplant= new Vector<UserPlant>();
     }
     public User(String username,String email,String pass){
         this.username = username;
@@ -46,8 +50,44 @@ public class User {
        return pass; 
     }
     
-
-       
+    public void addUserPlant(UserPlant us){
+        this.userplant.add(us);
+    }
+   
+    
+    /** public void save(){
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try{
+            String query ;
+            con = DBManager.getConnection();
+        query = "INSERT INTO User VALUES (?,?,?)";
+        pstmt = con.prepareStatement(query);
+        pstmt.setString(1,""+getUsername());
+        pstmt.setString(2,""+getEmail() );
+        pstmt.setString(3, ""+ getPass());
+        int result = pstmt.executeUpdate();
+         for(User u :this.user){
+                   u.save();}
+         
+        }
+        catch( Exception e ){
+              e.printStackTrace();
+        }
+        finally {
+            if(pstmt != null)
+        try{pstmt.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+            if(con != null) 
+        try{ con.close();
+            }catch( Exception e ){
+              e.printStackTrace();
+        }
+        }
+    }*/
+    
  public boolean isValidEmail(String email ){
     
 if(email.length() > 0){
@@ -96,7 +136,7 @@ for(int i=0;i< pass.length();i++){
 public boolean comparePassword(String pass, String con){
     
   if (pass.equals(con)) return true;
-     else return false;
+      return false;
 }
 
 /**
@@ -237,8 +277,16 @@ public void clear1(JTextField username , JTextField email , JPasswordField Passw
             Password.setText("");
            PasswordC.setText("");
         }
-
-    
-
-    
-}
+public void userPlantsFile(String user){
+    try{
+        BufferedWriter file = new BufferedWriter( new FileWriter(("UserPlants.text")));
+        UserPlant userplant = new UserPlant();   
+////            String[] info = {this.name , this.stuID , this.gpa};
+            file.write(userplant.loadUserPlants(user));
+              file.close();
+              System.out.println("File edited ..");
+        }
+    catch(IOException e){
+        e.printStackTrace();
+    }
+}}
