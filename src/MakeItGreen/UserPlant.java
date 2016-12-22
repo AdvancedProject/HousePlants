@@ -1,4 +1,3 @@
-
 package MakeItGreen;
 
 import java.sql.Connection;

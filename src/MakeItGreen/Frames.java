@@ -1,10 +1,6 @@
 
 package MakeItGreen;
 
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ButtonGroup;
@@ -16,29 +12,29 @@ import javax.swing.JOptionPane;
  * @author LENOVO
  */
 public class Frames extends javax.swing.JFrame {
-validation v = new validation();
+ validation v = new validation();
  User u = new User();
  Plant p = new Plant();
  UserPlant userPlants = new UserPlant();
-String user;  
-String plantId;
-String PlantName;  
-public String username2 ;
+ String user;  
+ String plantId;
+ String PlantName;  
+ public String username2 ;
 
 
 
     public Frames() {
-        initComponents();
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-welcomeFrame.setVisible(true);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);
-pack();
-
+    initComponents();
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    welcomeFrame.setVisible(true);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);
+    this.setResizable(false);
+    pack();
     }
 
     @SuppressWarnings("unchecked")
@@ -53,10 +49,11 @@ pack();
         delete1 = new javax.swing.JButton();
         back1 = new javax.swing.JButton();
         calender1 = new javax.swing.JButton();
-        plantInfo = new javax.swing.JLabel();
         waterNo = new javax.swing.JRadioButton();
         waterYes = new javax.swing.JRadioButton();
         imgLabel = new javax.swing.JLabel();
+        plantInfo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         signInFrame = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         userName = new javax.swing.JTextField();
@@ -65,6 +62,7 @@ pack();
         password = new javax.swing.JPasswordField();
         forgetPasswordButton = new javax.swing.JButton();
         backIn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         welcomeFrame = new javax.swing.JPanel();
         signUp = new javax.swing.JButton();
         signIn = new javax.swing.JButton();
@@ -80,12 +78,14 @@ pack();
         passwordF = new javax.swing.JPasswordField();
         passwordCon = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         profilrFrame = new javax.swing.JPanel();
         addPlantButton = new javax.swing.JButton();
         okeyButton = new javax.swing.JButton();
         idPlantText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         PlantList = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         forgotPassword = new javax.swing.JPanel();
         userNameFPText = new javax.swing.JLabel();
@@ -94,6 +94,7 @@ pack();
         passwordFP = new javax.swing.JPasswordField();
         backFP = new javax.swing.JButton();
         updateFP = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         addPlantFrame = new javax.swing.JPanel();
         plant19 = new javax.swing.JButton();
         plant20 = new javax.swing.JButton();
@@ -114,173 +115,233 @@ pack();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        PlantNameLabel1.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
         PlantNameLabel1.setText("plant name");
 
+        watringLabel1.setFont(new java.awt.Font("SimSun-ExtB", 2, 18)); // NOI18N
         watringLabel1.setText("wataring");
 
+        doneButton1.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
         doneButton1.setText("done");
+        doneButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        doneButton1.setContentAreaFilled(false);
         doneButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doneButton1ActionPerformed(evt);
             }
         });
 
+        delete1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         delete1.setText("delete");
+        delete1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        delete1.setContentAreaFilled(false);
         delete1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete1ActionPerformed(evt);
             }
         });
 
+        back1.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         back1.setText("back");
+        back1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        back1.setContentAreaFilled(false);
         back1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back1ActionPerformed(evt);
             }
         });
 
+        calender1.setFont(new java.awt.Font("Shonar Bangla", 0, 18)); // NOI18N
         calender1.setText("Calender");
+        calender1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        calender1.setContentAreaFilled(false);
         calender1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calender1ActionPerformed(evt);
             }
         });
 
+        waterNo.setFont(new java.awt.Font("Sylfaen", 2, 14)); // NOI18N
         waterNo.setText("no");
+        waterNo.setContentAreaFilled(false);
 
+        waterYes.setBackground(new java.awt.Color(255, 255, 255));
+        waterYes.setFont(new java.awt.Font("Sylfaen", 2, 14)); // NOI18N
         waterYes.setText("yes");
+        waterYes.setContentAreaFilled(false);
+        waterYes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        imgLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        plantInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/1.jpg"))); // NOI18N
 
         javax.swing.GroupLayout infoFrameLayout = new javax.swing.GroupLayout(infoFrame);
         infoFrame.setLayout(infoFrameLayout);
         infoFrameLayout.setHorizontalGroup(
             infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoFrameLayout.createSequentialGroup()
-                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(infoFrameLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(PlantNameLabel1))
-                    .addGroup(infoFrameLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(watringLabel1)
-                            .addComponent(back1))
-                        .addGap(38, 38, 38)
-                        .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(calender1)
-                            .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(infoFrameLayout.createSequentialGroup()
-                                    .addComponent(delete1)
-                                    .addGap(36, 36, 36)
-                                    .addComponent(doneButton1))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoFrameLayout.createSequentialGroup()
-                                    .addComponent(waterYes)
-                                    .addGap(33, 33, 33)
-                                    .addComponent(waterNo))))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoFrameLayout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
+                .addGap(40, 40, 40)
+                .addComponent(PlantNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(watringLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(calender1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(doneButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(waterYes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(waterNo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(back1))
+            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         infoFrameLayout.setVerticalGroup(
             infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoFrameLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(20, 20, 20)
                 .addComponent(PlantNameLabel1)
-                .addGap(38, 38, 38)
-                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(watringLabel1)
-                    .addComponent(waterNo)
-                    .addComponent(waterYes))
-                .addGap(64, 64, 64)
+                .addGap(49, 49, 49)
+                .addComponent(watringLabel1)
+                .addGap(71, 71, 71)
                 .addComponent(calender1)
-                .addGap(18, 18, 18)
-                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(doneButton1)
-                    .addComponent(delete1)
-                    .addComponent(back1))
-                .addGap(58, 58, 58))
+                .addGap(17, 17, 17)
+                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plantInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(infoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(doneButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(waterYes))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(waterNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(infoFrameLayout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(back1))
+            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jLabel1.setText("user name");
+        jLabel1.setFont(new java.awt.Font("Vrinda", 0, 18)); // NOI18N
+        jLabel1.setText("username");
+        jLabel1.setEnabled(false);
 
+        userName.setBackground(new java.awt.Color(232, 232, 242));
+        userName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         userName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userNameActionPerformed(evt);
             }
         });
 
+        passwordLabel.setFont(new java.awt.Font("Vrinda", 0, 18)); // NOI18N
         passwordLabel.setText("password");
+        passwordLabel.setEnabled(false);
 
+        signInButton.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
         signInButton.setText("sign in");
+        signInButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         signInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInButtonActionPerformed(evt);
             }
         });
 
+        password.setBackground(new java.awt.Color(232, 232, 242));
+        password.setAutoscrolls(false);
+        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        forgetPasswordButton.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
         forgetPasswordButton.setText("forget Password");
+        forgetPasswordButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         forgetPasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forgetPasswordButtonActionPerformed(evt);
             }
         });
 
+        backIn.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
         backIn.setText("back");
+        backIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backInActionPerformed(evt);
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/SingINNN.jpg"))); // NOI18N
+
         javax.swing.GroupLayout signInFrameLayout = new javax.swing.GroupLayout(signInFrame);
         signInFrame.setLayout(signInFrameLayout);
         signInFrameLayout.setHorizontalGroup(
             signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signInFrameLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(signInFrameLayout.createSequentialGroup()
-                        .addComponent(backIn)
-                        .addGap(23, 23, 23)
-                        .addComponent(signInButton)
-                        .addGap(31, 31, 31)
-                        .addComponent(forgetPasswordButton))
-                    .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(signInFrameLayout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(26, 26, 26)
-                            .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(signInFrameLayout.createSequentialGroup()
-                            .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(password))))
-                .addContainerGap())
+            .addGroup(signInFrameLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(backIn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(forgetPasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInFrameLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInFrameLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInFrameLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInFrameLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(signInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel2)
         );
         signInFrameLayout.setVerticalGroup(
             signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signInFrameLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordLabel)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(signInButton)
-                    .addComponent(forgetPasswordButton)
-                    .addComponent(backIn))
-                .addGap(42, 42, 42))
+                .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(signInFrameLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162)
+                        .addGroup(signInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(forgetPasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(signInFrameLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(signInFrameLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(signInFrameLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(signInFrameLayout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(signInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
         );
 
         signUp.setBackground(new java.awt.Color(204, 204, 204));
@@ -324,20 +385,22 @@ pack();
                 .addComponent(signUp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(imgwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         welcomeFrameLayout.setVerticalGroup(
             welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(welcomeFrameLayout.createSequentialGroup()
                 .addGap(330, 330, 330)
                 .addGroup(welcomeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(signUp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(imgwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        userNameLabel.setFont(new java.awt.Font("Vrinda", 2, 18)); // NOI18N
         userNameLabel.setText("username");
 
+        emailLabel.setFont(new java.awt.Font("Vrinda", 2, 18)); // NOI18N
         emailLabel.setText("email");
 
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -346,11 +409,15 @@ pack();
             }
         });
 
+        PasswordLabel.setFont(new java.awt.Font("Vrinda", 2, 18)); // NOI18N
         PasswordLabel.setText("password");
 
+        jLabel6.setFont(new java.awt.Font("Vrinda", 2, 18)); // NOI18N
         jLabel6.setText("pasword-con");
 
         signUpButton.setText("sign up");
+        signUpButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signUpButton.setContentAreaFilled(false);
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpButtonActionPerformed(evt);
@@ -358,69 +425,78 @@ pack();
         });
 
         jButton1.setText("back");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/img10.jpg"))); // NOI18N
+
         javax.swing.GroupLayout signUpFrameLayout = new javax.swing.GroupLayout(signUpFrame);
         signUpFrame.setLayout(signUpFrameLayout);
         signUpFrameLayout.setHorizontalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signUpFrameLayout.createSequentialGroup()
-                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(signUpFrameLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userNameLabel)
-                            .addComponent(emailLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userNameS)
-                            .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)))
-                    .addGroup(signUpFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addGap(16, 16, 16)
-                        .addComponent(passwordCon))
-                    .addGroup(signUpFrameLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(PasswordLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(passwordF, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpFrameLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(signUpButton)
-                .addGap(71, 71, 71))
+                .addGap(118, 118, 118)
+                .addComponent(userNameS, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(passwordF, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(passwordCon, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140)
+                .addComponent(signUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         signUpFrameLayout.setVerticalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signUpFrameLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameLabel)
-                    .addComponent(userNameS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(40, 40, 40)
+                .addComponent(userNameS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(passwordF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailLabel)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasswordLabel)
-                    .addComponent(passwordF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(passwordCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(signUpButton)
-                    .addComponent(jButton1))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(83, 83, 83)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(signUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(userNameLabel))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(emailLabel))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         addPlantButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -450,10 +526,21 @@ pack();
 
         PlantList.setBackground(new java.awt.Color(229, 255, 229));
         PlantList.setColumns(20);
-        PlantList.setRows(5);
+        PlantList.setRows(15);
+        PlantList.setToolTipText("");
         PlantList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PlantList.setEnabled(false);
         jScrollPane1.setViewportView(PlantList);
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jButton2.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        jButton2.setText("sign out");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/صورة15.png"))); // NOI18N
 
@@ -462,91 +549,115 @@ pack();
         profilrFrameLayout.setHorizontalGroup(
             profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilrFrameLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(130, 130, 130)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(380, 380, 380)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(okeyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(addPlantButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(profilrFrameLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(profilrFrameLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(okeyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
-                .addComponent(addPlantButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         profilrFrameLayout.setVerticalGroup(
             profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilrFrameLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(profilrFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(okeyButton)
-                    .addComponent(addPlantButton)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(okeyButton))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(addPlantButton))
+            .addGroup(profilrFrameLayout.createSequentialGroup()
+                .addGap(340, 340, 340)
+                .addComponent(idPlantText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel7)
         );
 
+        userNameFPText.setFont(new java.awt.Font("Sylfaen", 2, 14)); // NOI18N
         userNameFPText.setText("username");
 
+        userNameFP.setBackground(new java.awt.Color(224, 224, 242));
+        userNameFP.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        passwordFPText.setFont(new java.awt.Font("Sylfaen", 2, 14)); // NOI18N
         passwordFPText.setText("new password");
 
+        passwordFP.setBackground(new java.awt.Color(224, 224, 242));
+        passwordFP.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        backFP.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         backFP.setText("back");
+        backFP.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        backFP.setContentAreaFilled(false);
         backFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backFPActionPerformed(evt);
             }
         });
 
+        updateFP.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        updateFP.setForeground(new java.awt.Color(255, 255, 255));
         updateFP.setText("update");
+        updateFP.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        updateFP.setContentAreaFilled(false);
         updateFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateFPActionPerformed(evt);
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/singInN.jpg"))); // NOI18N
+
         javax.swing.GroupLayout forgotPasswordLayout = new javax.swing.GroupLayout(forgotPassword);
         forgotPassword.setLayout(forgotPasswordLayout);
         forgotPasswordLayout.setHorizontalGroup(
             forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(forgotPasswordLayout.createSequentialGroup()
-                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(forgotPasswordLayout.createSequentialGroup()
-                        .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(forgotPasswordLayout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(userNameFPText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(forgotPasswordLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(passwordFPText)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userNameFP)
-                            .addComponent(passwordFP, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)))
-                    .addGroup(forgotPasswordLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(backFP, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(updateFP, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(110, 110, 110)
+                .addComponent(userNameFP, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(passwordFPText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(passwordFP, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(backFP, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97)
+                .addComponent(updateFP, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(forgotPasswordLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(userNameFPText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         forgotPasswordLayout.setVerticalGroup(
             forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(forgotPasswordLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameFPText)
-                    .addComponent(userNameFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(passwordFPText)
-                    .addComponent(passwordFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126)
-                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backFP)
-                    .addComponent(updateFP))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(forgotPasswordLayout.createSequentialGroup()
+                        .addComponent(userNameFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordFPText)
+                            .addComponent(passwordFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(130, 130, 130)
+                        .addGroup(forgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backFP)
+                            .addComponent(updateFP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(userNameFPText)))
         );
 
         plant19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im3.png"))); // NOI18N
@@ -641,7 +752,9 @@ pack();
             }
         });
 
-        plant32.setText("Aspidistra elatior");
+        plant32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MakeItGreen/im26.png"))); // NOI18N
+        plant32.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        plant32.setContentAreaFilled(false);
         plant32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 plant32ActionPerformed(evt);
@@ -705,87 +818,95 @@ pack();
                 .addGap(20, 20, 20)
                 .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(plant20, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(plant20, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(plant23, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(plant23, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(plant25, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(210, 210, 210)
-                .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(210, 210, 210)
                 .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
                 .addGap(210, 210, 210)
                 .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant25, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
                 .addGap(240, 240, 240)
                 .addComponent(backAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(addPlantFrameLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
                 .addGap(400, 400, 400)
                 .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(addPlantFrameLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         addPlantFrameLayout.setVerticalGroup(
             addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant23, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plant25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(backAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(addPlantFrameLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(plant19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plant20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plant21, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(addPlantFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(plant22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plant23, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(plant26, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(plant32, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(plant38, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(plant40, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(plant25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(plant36, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(370, 370, 370)
+                        .addComponent(backAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(plant24, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(plant28, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(plant33, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPlantFrameLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(plant30, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -804,9 +925,9 @@ pack();
                 .addComponent(addPlantFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(39, 39, 39)
-                    .addComponent(infoFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(39, 39, 39)))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(infoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -819,16 +940,17 @@ pack();
                 .addComponent(addPlantFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(18, 18, 18)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(infoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(18, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         welcomeFrame.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void clear(){
+
+    public void clear(){
       
         password.setText(""); }
 
@@ -843,59 +965,7 @@ infoFrame.setVisible(false);
 addPlantFrame.setVisible(false);
 forgotPassword.setVisible(false);
 pack();
-
-    
-
     }//GEN-LAST:event_signInActionPerformed
-
-  /* public boolean addUser(){
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        try{
-            String query ;
-            con = DBManager.getConnection();
-    if((!u.isUserNameExist(userNameS.getText()))&&(u.comparePassword(passwordF.getText(),passwordCon.getText()))&&
-            (u.isPasswordValid(passwordF.getText()))&&(u.isValidEmail(email.getText()))){
-            
-        query = "INSERT INTO User VALUES (?,?,?)";
-        pstmt = con.prepareStatement(query);
-        pstmt.setString(1, ""+userNameS.getText());
-        pstmt.setString(2, ""+email.getText());
-        pstmt.setString(3, ""+passwordF.getText());
-        System.out.println("added");
-        int result = pstmt.executeUpdate();
-        if(result == 1){ 
-          return true;
-         } 
-        
-        
-        }        
-        }catch( Exception e ){
-              e.printStackTrace();
-        }
-        finally {
-            if(pstmt != null)
-        try{pstmt.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-            if(con != null) 
-        try{ con.close();
-            }catch( Exception e ){
-              e.printStackTrace();
-        }
-        }
-        return false;
-}
-   
-   public void clear1(){
-        userNameS.setText("");
-        email.setText("");
-        passwordF.setText("");
-        passwordCon.setText("");
-    }
-   public void clear2(){
-        passwordFP.setText(""); }*/
     
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
 // sign up
@@ -907,7 +977,6 @@ infoFrame.setVisible(false);
 addPlantFrame.setVisible(false);
 forgotPassword.setVisible(false);
 pack();
-
     }//GEN-LAST:event_signUpActionPerformed
 
     private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
@@ -946,29 +1015,28 @@ else{
     }//GEN-LAST:event_signInButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
-
-user = userNameS.getText();
-boolean check = u.addUser(userNameS, email,passwordF, passwordCon);
-if(check != true){
-JOptionPane.showMessageDialog(null,"your information does not correct , Please try again");
-           u.clear1(userNameS, email,passwordF, passwordCon);
-signUpFrame.setVisible(true);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);
-pack();}
-else{ 
-    JOptionPane.showMessageDialog(null,"your sign up done ");
-    u.setUsername(user);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(true);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);
-pack();
+        user = userNameS.getText();
+        boolean check = u.addUser(userNameS, email,passwordF, passwordCon);
+        if(check != true){
+        JOptionPane.showMessageDialog(null,"your information does not correct , Please try again");
+                   u.clear1(userNameS, email,passwordF, passwordCon);
+        signUpFrame.setVisible(true);
+        signInFrame.setVisible(false);
+        profilrFrame.setVisible(false);
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);
+        pack();
+        }else{ 
+            JOptionPane.showMessageDialog(null,"your sign up done ");
+            u.setUsername(user);
+            signUpFrame.setVisible(false);
+            signInFrame.setVisible(false);
+            profilrFrame.setVisible(true);
+            infoFrame.setVisible(false);
+            addPlantFrame.setVisible(false);
+            forgotPassword.setVisible(false);
+            pack();
 }
     }//GEN-LAST:event_signUpButtonActionPerformed
 
@@ -984,8 +1052,8 @@ pack();
     }//GEN-LAST:event_addPlantButtonActionPerformed
 
     private void okeyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okeyButtonActionPerformed
-       plantId = idPlantText.getText();
-       username2 = u.getUsername();
+        plantId = idPlantText.getText();
+        username2 = u.getUsername();
         boolean exist = userPlants.isIDPExist(plantId,username2) ;
         buttonGroup1 = new ButtonGroup();
         buttonGroup1.add(waterYes);
@@ -998,18 +1066,15 @@ pack();
             JOptionPane.showMessageDialog(this,"please check the ID ", "Error",JOptionPane.ERROR_MESSAGE);
             profilrFrame.setVisible(true);
         }
-       PlantNameLabel1.setText(p.loadPlantName(plantId));
-       plantInfo.setText(p.loadPlantInfo(plantId));
-       p.loadImg(imgLabel, plantId);
-    welcomeFrame.setVisible(false);
-    signUpFrame.setVisible(false);
-    signInFrame.setVisible(false);
-    addPlantFrame.setVisible(false);
-    forgotPassword.setVisible(false);
-    pack();  
-
-                            
- 
+        PlantNameLabel1.setText(p.loadPlantName(plantId));
+        plantInfo.setText(p.loadPlantInfo(plantId));
+        p.loadImg(imgLabel, plantId);
+        welcomeFrame.setVisible(false);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);
+        pack();  
     }//GEN-LAST:event_okeyButtonActionPerformed
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
@@ -1017,14 +1082,14 @@ pack();
     }//GEN-LAST:event_userNameActionPerformed
 
     private void forgetPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPasswordButtonActionPerformed
-welcomeFrame.setVisible(false);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(true);	
- pack();	
+    welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(true);	
+    pack();	
 
     }//GEN-LAST:event_forgetPasswordButtonActionPerformed
 
@@ -1033,39 +1098,36 @@ forgotPassword.setVisible(true);
     }//GEN-LAST:event_emailActionPerformed
 
     private void backFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFPActionPerformed
-welcomeFrame.setVisible(false);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(true);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);	
- pack();
+    welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(true);
+    profilrFrame.setVisible(false);
+    infoFrame.setVisible(false);
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);	
+    pack();
     }//GEN-LAST:event_backFPActionPerformed
 
     private void updateFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFPActionPerformed
 if(v.isPasswordValid(passwordFP.getText())){
-        u.ubdateUesr(passwordFP.getText(),userNameFP.getText());
- welcomeFrame.setVisible(false);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(true);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);	
- pack(); }
-      
-        else {
-                 JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);   
-                }
-       
-       u.clear(passwordFP); 
-                 
+    u.ubdateUesr(passwordFP.getText(),userNameFP.getText());
+    welcomeFrame.setVisible(false);
+    signUpFrame.setVisible(false);
+    signInFrame.setVisible(false);
+    profilrFrame.setVisible(true);
+    infoFrame.setVisible(false);
+    addPlantFrame.setVisible(false);
+    forgotPassword.setVisible(false);	
+ pack(); 
+}else{
+    JOptionPane.showMessageDialog(this,"please check your info", "Error",JOptionPane.ERROR_MESSAGE);   
+    }
+    u.clear(passwordFP);           
     }//GEN-LAST:event_updateFPActionPerformed
 
     private void plant19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant19ActionPerformed
 
-        String plant1="The secret to keeping Norfolk Island pine healthy is to give it ample light and humidity. "
+      String plant1="The secret to keeping Norfolk Island pine healthy is to give it ample light and humidity. "
         + "\n In low light, the lower branches may turn brown and fall off. If the air is too dry, it becomes a"
         + " \n prime target for spider mites, a common houseplant pest. In its native habitat, Norfolk Island"
         + "\n  pine can reach 200 feet tall, but don't worry -- indoors, it seldom grows taller than 10 feet."
@@ -1073,9 +1135,8 @@ forgotPassword.setVisible(false);
         + " Outside the holidays, \n its soft texture adds a cozy feeling to any room."
         + " \n \n insert (01) if you have it ..";
         plantId = JOptionPane.showInputDialog(plant1);
-        System.out.println(plantId);
+//        System.out.println(plantId);
         if(p.isidPlantExist(plantId)) {
-
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1087,7 +1148,6 @@ forgotPassword.setVisible(false);
             plantInfo.setText(p.loadPlantInfo(plantId));
             p.loadImg(imgLabel, plantId);
             //pack();
-
         }
         else {
             welcomeFrame.setVisible(false);
@@ -1103,14 +1163,15 @@ forgotPassword.setVisible(false);
     }//GEN-LAST:event_plant19ActionPerformed
 
     private void plant20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant20ActionPerformed
-        String plant2 = "Peperomias are a diverse group of small houseplants with waxy and often highly textured leaves. "
+      String plant2 = "Peperomias are a diverse group of small houseplants with waxy and often highly textured leaves. "
         + "\n Red-edge peperomia (pictured) has a narrow band of red surrounding a wide creamy leaf margin."
         + "\n Other peperomias we love include ripple peperomia, watermelon peperomia, baby rubber plant, and silverleaf "
         + "\n peperomia."
         + "\n \n Why We Love It: \n Its waxy, colorful foliage adds a splash of color in any room \n "
         + "without taking up a lot of space."
         + "\n\n insert (02) if you have it";
-         plantId = JOptionPane.showInputDialog(plant2);
+         
+      plantId = JOptionPane.showInputDialog(plant2);
         if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
@@ -1119,10 +1180,10 @@ forgotPassword.setVisible(false);
             infoFrame.setVisible(true);
             forgotPassword.setVisible(false);
             addPlantFrame.setVisible(false);
+            PlantNameLabel1.setText(p.loadPlantName(plantId));
+            plantInfo.setText(p.loadPlantInfo(plantId));
+            p.loadImg(imgLabel, plantId);
             pack();
-           PlantNameLabel1.setText(p.loadPlantName(plantId));
-           plantInfo.setText(p.loadPlantInfo(plantId));
-           p.loadImg(imgLabel, plantId);
         }
         else {
             welcomeFrame.setVisible(false);
@@ -1137,7 +1198,7 @@ forgotPassword.setVisible(false);
     }//GEN-LAST:event_plant20ActionPerformed
 
     private void plant21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant21ActionPerformed
-        String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
+    String plant3 = "This plant has great foliage; the leaves are punctuated with shades of silver, gray, or shades of green "
         + "\n making Chinese evergreen an attractive choice to brighten low-light areas of your home. Take a cue from shopping"
         + "\n  mall plantings and use Chinese evergreen as a ground cover around an upright, treelike houseplant. Or showcase it "
         + "\n alone as a specimen plant."
@@ -1145,7 +1206,7 @@ forgotPassword.setVisible(false);
         + "\n\n insert (03) if you have it ";
 
       plantId = JOptionPane.showInputDialog(plant3);
-               if(p.isidPlantExist(plantId))  {
+        if(p.isidPlantExist(plantId))  {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1153,10 +1214,10 @@ forgotPassword.setVisible(false);
             infoFrame.setVisible(true);
             forgotPassword.setVisible(false);
             addPlantFrame.setVisible(false);
-            pack();
             PlantNameLabel1.setText(p.loadPlantName(plantId));
             plantInfo.setText(p.loadPlantInfo(plantId));
             p.loadImg(imgLabel, plantId);
+            pack();
         }
         else {
             welcomeFrame.setVisible(false);
@@ -1169,7 +1230,6 @@ forgotPassword.setVisible(false);
             pack();
             
         }
-               
     }//GEN-LAST:event_plant21ActionPerformed
 
     private void plant22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant22ActionPerformed
@@ -1180,8 +1240,8 @@ forgotPassword.setVisible(false);
         + "\n as it grows."
         + "\n\n insert (04) if you have it ..";
 
-         plantId = JOptionPane.showInputDialog(plant4);
-               if(p.isidPlantExist(plantId)) {
+     plantId = JOptionPane.showInputDialog(plant4);
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1204,7 +1264,6 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant22ActionPerformed
 
     private void plant23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant23ActionPerformed
@@ -1217,7 +1276,7 @@ forgotPassword.setVisible(false);
         + "\n\n insert(05) if you have it ..";
 
        plantId = JOptionPane.showInputDialog(plant5);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1240,7 +1299,6 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant23ActionPerformed
 
     private void plant24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant24ActionPerformed
@@ -1251,7 +1309,7 @@ forgotPassword.setVisible(false);
         + "\n\n Why We Love It: \n This plant is so easy it's almost a challenge to kill it."
         + "\n\n insert(06) if you have it ..";
         plantId = JOptionPane.showInputDialog(plant6);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1273,8 +1331,7 @@ forgotPassword.setVisible(false);
             forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
-        }
-//               p.loadImg(imgLabel, plantId);
+       }
     }//GEN-LAST:event_plant24ActionPerformed
 
     private void plant25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant25ActionPerformed
@@ -1286,7 +1343,7 @@ forgotPassword.setVisible(false);
         + "\n\n insert(07) if you have it ..";
 
         plantId = JOptionPane.showInputDialog(plant7);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1309,7 +1366,6 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant25ActionPerformed
 
     private void plant26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant26ActionPerformed
@@ -1322,7 +1378,7 @@ forgotPassword.setVisible(false);
         + "\n\n insert (08) if you have it ..";
 
         plantId = JOptionPane.showInputDialog(plant8);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1345,7 +1401,6 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant26ActionPerformed
 
     private void plant28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant28ActionPerformed
@@ -1381,11 +1436,10 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant28ActionPerformed
 
     private void plant30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant30ActionPerformed
-        String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
+       String plant10 ="Boston fern's arching, lacy fronds make it well suited to hanging baskets or for display on a pedestal. Don't let its "
         + "\n delicate appearance mislead you, though: This tough plant that will live for decades if you keep it moist and give it "
         + "\n moderate light and enough humidity. The variety 'Dallas' is more compact and more tolerant of dry air."
         + "\n\n Why We Love It:\n"
@@ -1394,7 +1448,7 @@ forgotPassword.setVisible(false);
         + "\n\n insert (10) if you have it .. ";
 
         plantId = JOptionPane.showInputDialog(plant10);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1417,18 +1471,17 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant30ActionPerformed
 
     private void plant32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant32ActionPerformed
-        String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
+         String plant11 ="One of the toughest you can grow, cast-iron plant withstands neglect, low light, low humidity, and a wide range "
         + "\n of temperatures. It grows slowly so purchase a plant that is large enough for the space in which you intend to use it."
         + "\n Several varieties have white or yellow variegation on their leaves."
         + "\n\n Why We Love It:"
         + "\n This plant really lives up to its name: It's nearly indestructible."
         + "\n insert (11) if you have it ..";
        plantId = JOptionPane.showInputDialog(plant11);
-               if(p.isidPlantExist(plantId)){
+       if(p.isidPlantExist(plantId)){
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1451,18 +1504,17 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant32ActionPerformed
 
     private void plant33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant33ActionPerformed
-        String plant12 ="While this showy shrub survives in low light levels, its foliage shows the best color in bright spots. Its gold, pink,"
+      String plant12 ="While this showy shrub survives in low light levels, its foliage shows the best color in bright spots. Its gold, pink,"
         + "\n and orange tones glow when backlit from a sunny window. Wash the leaves occasionally to maintain their shine and keep it "
         + "\n looking dramatic."
         + "\n\n Why We Love It: \n It has beautiful, leathery leaves with exotic and colorful markings."
         + "\n insert (12) if you have it ..";
 
         plantId = JOptionPane.showInputDialog(plant12);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1485,18 +1537,17 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant33ActionPerformed
 
     private void plant36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant36ActionPerformed
-        String plant13 = "This plant is as impressive as its name. It bears tufts of long, narrow, deep green leaves edged in red at the tips of "
+       String plant13 = "This plant is as impressive as its name. It bears tufts of long, narrow, deep green leaves edged in red at the tips of "
         + "\n woody gray stems. Young plants are shrubbier, but soon grow more upright. The variety 'Tricolor' has pink-and-cream leaf "
         + "\n margins, and is sometimes known as rainbow plant."
         + "\n\n Why We Love It: \n Its grassy leaves on tall stems give it a festive appearance."
         + "\n\n insert (13) if you have it ..";
 
         plantId = JOptionPane.showInputDialog(plant13);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1519,7 +1570,6 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant36ActionPerformed
 
     private void plant38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant38ActionPerformed
@@ -1528,8 +1578,9 @@ forgotPassword.setVisible(false);
         + "\n a container only a couple of inches wider than its trunk base to control its size. It is sometimes sold as Nolina recurvata."
         + "\n\n Why We Love It: \n  Because the trunk actually stores moisture, ponytail palm can survive for long periods without watering."
         + "\n\n insert (14) if you have it ..";
+        
         plantId = JOptionPane.showInputDialog(plant14);
-               if(p.isidPlantExist(plantId)) {
+       if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1552,18 +1603,18 @@ forgotPassword.setVisible(false);
             addPlantFrame.setVisible(true);
             pack();
         }
-//p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant38ActionPerformed
 
     private void plant40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plant40ActionPerformed
-        String plant15 = "Also commonly called umbrella tree, this plant offers glossy foliage with leaflets that radiate out from a central"
+         String plant15 = "Also commonly called umbrella tree, this plant offers glossy foliage with leaflets that radiate out from a central"
         + "\n spoke, similar to the ribs of an umbrella. A close relative, dwarf schefflera (Schefflera arboricola) has smaller, "
         + "\n thickerleaflets and shorter stems. Both are sometimes classified in the genus Brassaia."
         + "\n\n Why We Love It:\n "
         + " Its large glossy green leaves create instant tropical flair."
         + "\n\n insert (15) if you have it ..";
-plantId = JOptionPane.showInputDialog(plant15);
-               if(p.isidPlantExist(plantId)) {
+         
+            plantId = JOptionPane.showInputDialog(plant15);
+           if(p.isidPlantExist(plantId)) {
             welcomeFrame.setVisible(false);
             signUpFrame.setVisible(false);
             signInFrame.setVisible(false);
@@ -1586,14 +1637,11 @@ plantId = JOptionPane.showInputDialog(plant15);
             addPlantFrame.setVisible(true);
             pack();
         }
-//               p.loadImg(imgLabel, plantId);
     }//GEN-LAST:event_plant40ActionPerformed
 
     private void doneButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButton1ActionPerformed
-
         username2 = u.getUsername();
         String plantId2 = idPlantText.getText();
-
         String water = "";
         
         if( waterYes.isSelected()){
@@ -1609,13 +1657,15 @@ plantId = JOptionPane.showInputDialog(plant15);
         LocalDate localDate = LocalDate.now();
         up.setDate(dtf.format(localDate));
         String Date = up.getDate();
-
+        calender1.setVisible(true);
         p.setPlantId(plantId);
-
         if (plantId!=null)
         p.save(username2,plantId,Date,water);
         else
         p.save(username2,plantId2,Date,water);
+        
+        Calender cal = new Calender();
+        cal.setList(userPlants.loadDate(username2,plantId));     
     }//GEN-LAST:event_doneButton1ActionPerformed
 
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
@@ -1637,7 +1687,7 @@ plantId = JOptionPane.showInputDialog(plant15);
         infoFrame.setVisible(false);
         addPlantFrame.setVisible(false);
         forgotPassword.setVisible(false);
-        pack();
+        pack(); 
     }//GEN-LAST:event_back1ActionPerformed
 
     private void calender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calender1ActionPerformed
@@ -1649,37 +1699,51 @@ plantId = JOptionPane.showInputDialog(plant15);
     }//GEN-LAST:event_calender1ActionPerformed
 
     private void backInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backInActionPerformed
-welcomeFrame.setVisible(true);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);	
- pack();
+        welcomeFrame.setVisible(true);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+        profilrFrame.setVisible(false);
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);	
+        pack();
     }//GEN-LAST:event_backInActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     welcomeFrame.setVisible(true);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(false);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);	
- pack();
+        welcomeFrame.setVisible(true);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+        profilrFrame.setVisible(false);
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);	
+        pack();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void backAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backAddActionPerformed
- welcomeFrame.setVisible(false);
-signUpFrame.setVisible(false);
-signInFrame.setVisible(false);
-profilrFrame.setVisible(true);
-infoFrame.setVisible(false);
-addPlantFrame.setVisible(false);
-forgotPassword.setVisible(false);	
- pack();
+        welcomeFrame.setVisible(false);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+        profilrFrame.setVisible(true);
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false);	
+        pack();
     }//GEN-LAST:event_backAddActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(this, "Sign out succsess");
+        u.clear(password);
+        profilrFrame.setVisible(false);
+        welcomeFrame.setVisible(true);
+        signUpFrame.setVisible(false);
+        signInFrame.setVisible(false);
+
+        infoFrame.setVisible(false);
+        addPlantFrame.setVisible(false);
+        forgotPassword.setVisible(false); 
+        pack();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel PasswordLabel;
@@ -1704,8 +1768,13 @@ forgotPassword.setVisible(false);
     private javax.swing.JLabel imgwelcome;
     public javax.swing.JPanel infoFrame;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1731,7 +1800,7 @@ forgotPassword.setVisible(false);
     public javax.swing.JButton plant36;
     public javax.swing.JButton plant38;
     public javax.swing.JButton plant40;
-    public javax.swing.JLabel plantInfo;
+    private javax.swing.JLabel plantInfo;
     public javax.swing.JPanel profilrFrame;
     public javax.swing.JButton signIn;
     public javax.swing.JButton signInButton;
